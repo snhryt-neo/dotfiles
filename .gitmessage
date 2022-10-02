@@ -1,0 +1,21 @@
+# ==================== Emojis ====================
+# 🎉  :tada:              Initial commit
+# 🐛  :bug:               バグ修正 (Invalid)
+# 🩹  :adhesive_bandage:  クリティカルでないHotfix
+# 🚑️  :ambulance:         クリティカルなHotfix
+# ✨  :sparkles:          新機能
+# ⚡️  :zap:               パフォーマンス向上
+# ♻️  :recycle:           リファクタリング
+# 🚀  :rocket:            デプロイ
+# 📝  :memo:              ドキュメンテーションの追加/更新
+# 💚  :green_heart:       CI Build
+# 🗑️  :wastebasket:       ファイル・ディレクトリの削除
+# 🔖  :bookmark:          バージョンタグ
+# 🚧  :construction:      WIP (Work In Progress)
+
+
+# ==================== Format ====================
+# :emoji: Subject
+#
+# Commit body...
+
