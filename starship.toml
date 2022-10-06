@@ -17,7 +17,7 @@ style = "bold #FF9900"
 format = '[$symbol($profile) (\($region\) )]($style) '
 
 [gcloud]
-# disabled = true
+disabled = true
 symbol = "️ "
 style = "bold #1B73E7"
 format = '[$symbol($project) (\($region\) )]($style) '
