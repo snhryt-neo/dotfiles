@@ -33,7 +33,8 @@ alias ps='procs'
 alias top='bottom'
 alias cd='z'
 alias grep='rg'
-alias curl='https'
+# さすがに curl とは違いすぎた: https://httpie.io/docs/cli/
+# alias curl='https'
 
 ## General
 alias vi='vim'
