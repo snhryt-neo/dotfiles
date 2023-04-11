@@ -1,4 +1,5 @@
 source ~/.zplug/init.zsh
+autoload -Uz compinit && compinit
 
 export CLICOLOR=1
 
@@ -11,7 +12,8 @@ export PATH="/usr/local/bin/git:$PATH"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -69,12 +71,13 @@ function switch_gcloud_configuration() {
   gcloud config configurations activate $(gcloud config configurations list | awk '{print $1}' | grep -v NAME | peco)
 }
 
-# Color theme
+# Zplug plugins
 zplug "yous/lime"
 zplug "zsh-users/zsh-completions"
 # zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "greymd/docker-zsh-completion"
 
 # 'cd' なしで移動する
 setopt auto_cd
