@@ -4,12 +4,12 @@ cask_args appdir: "/Applications"
 tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "homebrew/core"
+brew "mas"
 
 # Basic commands
 brew "docker"
 brew "git"
 brew "gh"
-brew "gitmoji"
 brew "pre-commit"
 brew "vim"
 brew "zsh"
@@ -41,9 +41,9 @@ brew "httpie"
 brew "anyenv"
 
 # Python
-brew "pipx"
 brew "poetry"
 brew "venv"
+# brew "pipx"
 # brew "pyenv"
 
 # Public cloud CLI commands
@@ -61,27 +61,27 @@ brew "azure-cli"
 
 # Basic apps
 ## Browser
-cask "brave-browser"
-cask "sidekick"
+# cask "brave-browser"
 
 ## Editor
 cask "visual-studio-code"
 
 ## Business
-cask "google-drive"
-cask "zoom"
+# cask "google-drive"
+# cask "zoom"
 
 ## Usefuls
 cask "alfred"
 cask "authy"
 cask "google-japanese-ime"
-cask "karabiner-elements"
+# cask "karabiner-elements"
 cask "cold-turkey-blocker"
 cask "hyperswitch"
 cask "copyclip"
 cask "funter"
 cask "keyboardcleantool"
-# cask "bettertouchtool"
+cask "obsidian"
+mas "LINE", id: 539883307
 
 ## Hobbies
 cask "spotify"
