@@ -9,6 +9,20 @@ cd .. && rm -rf nerd-fonts
 # .Brewfile の内容をインストール
 brew bundle
 
+# GitHubまわりの設定
+# https://docs.github.com/ja/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+SSH_CFGDIR="$HOME/.ssh"
+if [ ! -d $SSH_CFGDIR ]; then
+  mkdir -p $SSH_CFGDIR
+fi
+EMAIL="snhryt@gmail.com"
+KEY="id_ed25519"
+ssh-keygen -t ed25519 -C $EMAIL
+eval "$(ssh-agent -s)"
+# ssh-add --apple-use-keychain "$SSH_CFGDIR/$KEY"
+gh auth login
+gh ssh-key add "$SSH_CFGDIR/$KEY.pub" --title "my local"
+
 # Python実行環境の構築
 DEFAULT_PYTHON="3.11.3"
 anyenv update
@@ -41,9 +55,9 @@ for dotfile in "${FILES[@]}"; do
 done
 
 # Starship に関する設定はおそらく存在しないはずので、上記のように丁寧にはやらない
-DST_DIR="$HOME/.config"
-if [ ! -d "$DST_DIR" ]; then
-  mkdir -p "$DST_DIR"
+CFGDIR="$HOME/.config"
+if [ ! -d $CFGDIR ]; then
+  mkdir -p $CFGDIR
 fi
 STARSHIP_CFG="starship.toml"
-ln -s $STARSHIP_CFG "$DST_DIR/$STARSHIP_CFG"
+ln -s $STARSHIP_CFG "$CFGDIR/$STARSHIP_CFG"
