@@ -10,10 +10,13 @@ export PATH="/usr/local/sbin:$PATH"
 # Git (installed by Homebrew)
 export PATH="/usr/local/bin/git:$PATH"
 
+# anyenv
+eval "$(anyenv init -)"
+
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # Poetry
 export PATH="$HOME/.poetry/bin:$PATH"

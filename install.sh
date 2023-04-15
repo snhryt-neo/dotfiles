@@ -9,6 +9,15 @@ cd .. && rm -rf nerd-fonts
 # .Brewfile の内容をインストール
 brew bundle
 
+# Python実行環境の構築
+DEFAULT_PYTHON="3.11.3"
+anyenv update
+anyenv install pyenv
+pyenv install $DEFAULT_PYTHON
+pyenv global $DEFAULT_PYTHON
+pip install -U pip
+pipx install poetry
+
 # シンボリックリンク作成（すでにファイルが存在する場合はバックアップを一応取る）
 FILES=(.zshrc .gitmessage .gitconfig)
 for dotfile in "${FILES[@]}"; do
@@ -32,5 +41,9 @@ for dotfile in "${FILES[@]}"; do
 done
 
 # Starship に関する設定はおそらく存在しないはずので、上記のように丁寧にはやらない
+DST_DIR="$HOME/.config"
+if [ ! -d "$DST_DIR" ]; then
+  mkdir -p "$DST_DIR"
+fi
 STARSHIP_CFG="starship.toml"
-ln -s $STARSHIP_CFG "$HOME/.config/$STARSHIP_CFG"
+ln -s $STARSHIP_CFG "$DST_DIR/$STARSHIP_CFG"
