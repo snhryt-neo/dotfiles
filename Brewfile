@@ -19,6 +19,8 @@ brew "gnu-sed"
 brew "tree"
 brew "wget"
 brew "openssh"
+brew "gitmoji" # git commitするときの絵文字一覧
+brew "git-secrets" # credentialファイルをgit commitしないようにする
 brew "peco" # 高度な検索
 brew "xz" # ファイル圧縮
 brew "glow" # ターミナルでMarkdownをプレビュー
@@ -80,10 +82,10 @@ cask "google-japanese-ime"
 cask "cold-turkey-blocker"
 # cask "hyperswitch" 2023-04-15時点で消滅している？
 cask "alt-tab"
-cask "copyclip"
 cask "funter"
 cask "keyboardcleantool"
 cask "obsidian"
+mas "CopyClip - Clipboard History", id: 595191960
 mas "LINE", id: 539883307
 
 ## Hobbies
