@@ -1,13 +1,13 @@
 # 参考: https://qiita.com/vochicong/items/f20afc89a6847cd58f0f
 
 cask_args appdir: "/Applications"
-tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "homebrew/core"
 brew "mas"
 
+# CLI commands
+# ==================================================================
 # Basic commands
-brew "docker"
 brew "git"
 brew "gh"
 brew "pre-commit"
@@ -18,35 +18,35 @@ brew "gawk"
 brew "gnu-sed"
 brew "tree"
 brew "wget"
-brew "xz"
-brew "peco"
 brew "openssh"
-brew "starship"
+brew "peco" # 高度な検索
+brew "xz" # ファイル圧縮
+brew "glow" # ターミナルでMarkdownをプレビュー
+brew "tig" # Gitリポジトリの履歴確認
+brew "shellcheck" # Shell Scirptの静的解析
+brew "starship" # zshのプロンプトのカスタマイズ
 
 # Substitution of basic commands
 # https://zenn.dev/the_exile/articles/5176b7a5c29bce
-brew "dust"
-brew "bat"
-brew "exa"
-brew "fd"
-brew "duf"
-brew "procs"
-brew "bottom"
-brew "zoxide"
-brew "ripgrep"
-brew "httpie"
+brew "zoxide" # `cd`
+brew "exa" # `ls`
+brew "fd" # `find`
+brew "bat" # `cat`
+brew "ripgrep" # `grep`
+brew "httpie" # `curl``
+brew "procs" # `ps`
+brew "bottom" # `top`
+brew "duf" # `df`
+brew "dust" # `du`
 
 # Programming environment
 # https://zenn.dev/ryuu/articles/use-anyversions
 brew "anyenv"
 
 # Python
-brew "poetry"
-brew "venv"
-# brew "pipx"
-# brew "pyenv"
+brew "pipx"
 
-# Public cloud CLI commands
+# Public clouds' CLI command
 ## GCP
 ## https://zenn.dev/phi/articles/gcloud-setup-with-homebrew-on-mac
 cask "google-cloud-sdk"
@@ -58,25 +58,28 @@ brew "awscli"
 ## Azure
 ## https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli-macos
 brew "azure-cli"
+# ==================================================================
 
 # Basic apps
+# ==================================================================
 ## Browser
-# cask "brave-browser"
+cask "brave-browser"
 
 ## Editor
 cask "visual-studio-code"
 
 ## Business
-# cask "google-drive"
-# cask "zoom"
+cask "google-drive"
+cask "zoom"
 
 ## Usefuls
+cask "karabiner-elements"
 cask "alfred"
 cask "authy"
 cask "google-japanese-ime"
-# cask "karabiner-elements"
 cask "cold-turkey-blocker"
-cask "hyperswitch"
+# cask "hyperswitch" 2023-04-15時点で消滅している？
+cask "alt-tab"
 cask "copyclip"
 cask "funter"
 cask "keyboardcleantool"
@@ -91,4 +94,5 @@ cask "android-file-transfer"
 ## Programming
 cask "iterm2"
 cask "docker"
-# cask "arctype"
+# cask "tableplus"
+# ==================================================================
