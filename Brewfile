@@ -66,6 +66,7 @@ brew "azure-cli"
 # ==================================================================
 ## Browser
 cask "brave-browser"
+cask "microsoft-edge"
 
 ## Editor
 cask "visual-studio-code"
@@ -73,6 +74,7 @@ cask "visual-studio-code"
 ## Business
 cask "google-drive"
 cask "zoom"
+cask "microsoft-remote-desktop"
 
 ## Usefuls
 cask "karabiner-elements"
@@ -94,7 +96,8 @@ cask "mp3gain-express"
 cask "android-file-transfer"
 
 ## Programming
-cask "iterm2"
+cask "warp"
+# cask "iterm2"
 cask "docker"
 # cask "tableplus"
 # ==================================================================
