@@ -78,7 +78,7 @@ cask "microsoft-remote-desktop"
 
 ## Usefuls
 cask "karabiner-elements"
-cask "alfred"
+cask "raycast"
 cask "authy"
 cask "google-japanese-ime"
 cask "cold-turkey-blocker"
