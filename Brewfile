@@ -40,6 +40,7 @@ brew "procs" # `ps`
 brew "bottom" # `top`
 brew "duf" # `df`
 brew "dust" # `du`
+brew "trash-cli" # `rm`
 
 # Programming environment
 # https://zenn.dev/ryuu/articles/use-anyversions

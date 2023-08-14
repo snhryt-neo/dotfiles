@@ -5,6 +5,7 @@ autoload -Uz compinit && compinit
 export PATH="/usr/local/sbin:$PATH" # Homebrew
 export PATH="/usr/local/bin/git:$PATH" # Git (installed by Homebrew)
 export PATH="$HOME/.local/bin:$PATH" # pipx
+export PATH="$HOME/.local/bin/poetry:$PATH" # Poetry
 
 # Initialization
 # ============================================================
@@ -49,6 +50,7 @@ alias la='ls -alG'
 alias sz='source ~/.zshrc'
 alias cz='cat ~/.zshrc'
 alias vz='vi ~/.zshrc'
+alias rm='trash-put' # https://github.com/andreafrancia/trash-cli
 
 ## Git
 alias g='git'
