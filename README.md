@@ -2,7 +2,7 @@
 
 ## Situation
 - Macbookを買ったばかりで、アプリやツールもほとんど入ってない状態
-- macOS x ARMシリコン
+- macOS
 
 ## Requirements
 - ターミナルのアプリ
@@ -17,7 +17,6 @@
 $ git clone https://github.com/snhryt-neo/dotfiles.git
 $ cd dotfiles
 $ export GIT_USER_EMAIL="xxxxx@xxxxx"   # GitHubに登録しているメールアドレス
-$ export GLOBAL_PYTHON_VERSION="3.11.3" # pyenvでインストールするPythonのバージョン
 $ ./install.sh
 $ # 以降、大体20分ぐらいかかる＆ちょこちょこインタラクティブにターミナル操作する必要あり
 ```

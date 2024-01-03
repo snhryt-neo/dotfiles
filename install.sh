@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/local/bin/zsh
 set -e
 
 # Homebrewのインストール＆Brewfileから諸々インストール
 # =============================================================================
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew tap --force homebrew/core
 brew bundle
 # =============================================================================
 
@@ -24,33 +25,10 @@ gh auth login
 git secrets --install
 # =============================================================================
 
-# anyenv + pyenv でPython実行環境の構築
+# zplugのインストール（Homebrew経由だと変になるため）
 # =============================================================================
-# anyenvのインストール
-if [ ! -d "$HOME/.anyenv" ]; then
-  anyenv install --init
-  anyenv install --update
-  eval "$(anyenv init -)"
-  # exec $SHELL -l
-fi
-
-# pyenvのインストール
-if ! anyenv versions | grep -q pyenv; then
-  anyenv install pyenv
-  # exec $SHELL -l
-fi
-
-# pyenv経由でPythonのインストール＆グローバルのバージョンとして指定
-if ! pyenv versions | grep -q $GLOBAL_PYTHON_VERSION; then
-  pyenv install $GLOBAL_PYTHON_VERSION
-fi
-pyenv global $GLOBAL_PYTHON_VERSION
-
-# pipのバージョンアップ
-pip install -U pip
-
-# pipx経由でPoetryのインストール
-pipx install poetry
+# Official: https://github.com/zplug/zplug
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 # =============================================================================
 
 # シンボリックリンク作成（すでにファイルが存在する場合はバックアップを一応取る）
@@ -85,6 +63,19 @@ ln -s "$HERE/$STARSHIP_CFG" "$CFGDIR/$STARSHIP_CFG"
 # =============================================================================
 
 # フォントのインストール
+# =============================================================================
 git clone --branch=master --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts && ./install.sh FiraMono
 cd .. && rm -rf nerd-fonts
+# =============================================================================
+
+# Python実行環境の構築
+# =============================================================================
+# asdfで最新のPythonをインストール＆グローバルなバージョンに設定
+asdf plugin-add python
+asdf install python latest
+asdf global python "$(asdf list python | sed 's/ \*//')"
+
+# pipx経由でPoetryのインストール
+pipx install poetry
+#=============================================================================

@@ -13,7 +13,6 @@ brew "gh"
 brew "pre-commit"
 brew "vim"
 brew "zsh"
-brew "zplug"
 brew "gawk"
 brew "gnu-sed"
 brew "tree"
@@ -43,7 +42,7 @@ brew "dust" # `du`
 brew "trash-cli" # `rm`
 
 # Programming environment
-# https://zenn.dev/ryuu/articles/use-anyversions
+brew "asdf"
 brew "anyenv"
 
 # Python
@@ -68,6 +67,7 @@ brew "azure-cli"
 ## Browser
 cask "brave-browser"
 cask "microsoft-edge"
+# cask "arc"
 
 ## Editor
 cask "visual-studio-code"

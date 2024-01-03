@@ -10,17 +10,13 @@ export PATH="$HOME/.local/bin/poetry:$PATH" # Poetry
 # Initialization
 # ============================================================
 # zplug
-ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
-INIT_FILE="init.zsh"
-if [ -f "$ZPLUG_HOME/$INIT_FILE" ]; then
-  # Homebrewでインストールしている場合は少し違う場所にファイルが存在する
-  source "$ZPLUG_HOME/$INIT_FILE"
-else
-  source "$HOME/.zplug/$INIT_FILE"
-fi
+source /usr/local/Cellar/zplug/init.zsh
 
 # anyenv
 eval "$(anyenv init -)"
+
+# asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
 
 # Zoxide
 eval "$(zoxide init zsh)"
