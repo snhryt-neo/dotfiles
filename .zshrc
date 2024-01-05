@@ -9,27 +9,18 @@ export PATH="$HOME/.local/bin/poetry:$PATH" # Poetry
 
 # Initialization
 # ============================================================
-# IntelチップとM1チップで brew install したコマンドのインストール先が異なる
-INTEL_BREW_DIRPATH=/usr/local
-ARM_BREW_DIRPATH=/opt/homebrew
-
 # zplug
-INTEL_ZPLUG_INIT_FILEPATH="$INTEL_BREW_DIRPATH/Cellar/zplug/init.zsh"
-ARM_ZPLUG_INIT_FILEPATH="$ARM_BREW_DIRPATH/Cellar/zplug/$(zplug --version)/init.zsh"
-if [ -f $INTEL_ZPLUG_INIT_FILEPATH ]; then
-  source $INTEL_ZPLUG_INIT_FILEPATH
-else
-  source $ARM_ZPLUG_INIT_FILEPATH
-fi
+source ~/.zplug/init.zsh
 
 # asdf
+# IntelチップとM1チップで brew install したコマンドのインストール先が異なる
 ASDF_COMMON_PATH="opt/asdf/libexec/asdf.sh"
-INTEL_ASDF_INIT_FILEPATH="$INTEL_BREW_DIRPATH/$ASDF_COMMON_PATH"
-ARM_ASDF_INIT_FILEPATH="$ARM_BREW_DIRPATH/$ASDF_COMMON_PATH"
+INTEL_ASDF_INIT_FILEPATH="/usr/local/$ASDF_COMMON_PATH"
+ARM_ASDF_INIT_FILEPATH="/opt/homebrew/$ASDF_COMMON_PATH"
 if [ -f $INTEL_ASDF_INIT_FILEPATH ]; then
-  source $INTEL_ASDF_INIT_FILEPATH
+  . $INTEL_ASDF_INIT_FILEPATH
 else
-  source $ARM_ASDF_INIT_FILEPATH
+  . $ARM_ASDF_INIT_FILEPATH
 fi
 
 # anyenv
