@@ -74,7 +74,7 @@ cd .. && rm -rf nerd-fonts
 # asdfで最新のPythonをインストール＆グローバルなバージョンに設定
 asdf plugin-add python
 asdf install python latest
-asdf global python "$(asdf list python | sed 's/ \*//')"
+asdf global python "$(asdf list python | sed 's/  //')"
 
 # pipx経由でPoetryのインストール
 pipx install poetry
