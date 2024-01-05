@@ -90,6 +90,7 @@ cask "keyboardcleantool"
 cask "obsidian"
 mas "CopyClip - Clipboard History", id: 595191960
 mas "LINE", id: 539883307
+mas "Focus To-Do", id: 1258530160
 
 ## Hobbies
 cask "spotify"
