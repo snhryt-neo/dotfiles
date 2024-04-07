@@ -2,18 +2,21 @@ export CLICOLOR=1
 autoload -Uz compinit && compinit
 
 # PATHを通す
-export PATH="/usr/local/sbin:$PATH" # Homebrew
-export PATH="/usr/local/bin/git:$PATH" # Git (installed by Homebrew)
-export PATH="$HOME/.local/bin:$PATH" # pipx
-export PATH="$HOME/.local/bin/poetry:$PATH" # Poetry
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/opt/homebrew/bin" # Homebrew (ARM)
+export PATH="$PATH:$HOME/.local/bin"  # pipx
 
 # Initialization
 # ============================================================
 # zplug
-source ~/.zplug/init.zsh
+source "$HOME/.zplug/init.zsh"
+
+# Rye
+source "$HOME/.rye/env"
 
 # asdf
-# IntelチップとM1チップで brew install したコマンドのインストール先が異なる
+# IntelチップとARMチップで brew install したコマンドのインストール先が異なる
 ASDF_COMMON_PATH="opt/asdf/libexec/asdf.sh"
 INTEL_ASDF_INIT_FILEPATH="/usr/local/$ASDF_COMMON_PATH"
 ARM_ASDF_INIT_FILEPATH="/opt/homebrew/$ASDF_COMMON_PATH"
@@ -23,14 +26,15 @@ else
   . $ARM_ASDF_INIT_FILEPATH
 fi
 
-# anyenv
-eval "$(anyenv init -)"
-
 # Zoxide
 eval "$(zoxide init zsh)"
 
 # Starship
 eval "$(starship init zsh)"
+
+# google-cloud-sdk
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 # ============================================================
 
 # Alias
@@ -104,5 +108,5 @@ function chpwd() { ls -F }
 
 if ! zplug check --verbose; then
   zplug install
-  fi
+fi
 zplug load #--verbose

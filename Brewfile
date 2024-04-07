@@ -18,35 +18,36 @@ brew "gnu-sed"
 brew "tree"
 brew "wget"
 brew "openssh"
-brew "gitmoji" # git commitするときの絵文字一覧
+brew "gitmoji"     # git commitするときの絵文字一覧
 brew "git-secrets" # credentialファイルをgit commitしないようにする
-brew "peco" # 高度な検索
-brew "xz" # ファイル圧縮
-brew "glow" # ターミナルでMarkdownをプレビュー
-brew "tig" # Gitリポジトリの履歴確認
-brew "shellcheck" # Shell Scirptの静的解析
-brew "starship" # zshのプロンプトのカスタマイズ
+brew "peco"        # 高度な検索
+brew "xz"          # ファイル圧縮
+brew "glow"        # ターミナルでMarkdownをプレビュー
+brew "tig"         # Gitリポジトリの履歴確認
+brew "shellcheck"  # Shell Scirptの静的解析
+brew "starship"    # zshのプロンプトのカスタマイズ
 
 # Substitution of basic commands
 # https://zenn.dev/the_exile/articles/5176b7a5c29bce
-brew "zoxide" # `cd`
-brew "exa" # `ls`
-brew "fd" # `find`
-brew "bat" # `cat`
-brew "ripgrep" # `grep`
-brew "httpie" # `curl``
-brew "procs" # `ps`
-brew "bottom" # `top`
-brew "duf" # `df`
-brew "dust" # `du`
+brew "zoxide"    # `cd`
+brew "exa"       # `ls`
+brew "fd"        # `find`
+brew "bat"       # `cat`
+brew "ripgrep"   # `grep`
+brew "httpie"    # `curl``
+brew "procs"     # `ps`
+brew "bottom"    # `top`
+brew "duf"       # `df`
+brew "dust"      # `du`
 brew "trash-cli" # `rm`
 
-# Programming environment
+# Virtual environment
 brew "asdf"
 brew "anyenv"
 
 # Python
 brew "pipx"
+# brew "rye" # 公式ページ<https://rye-up.com/guide/installation/>にHomebrewのインストールオプションがないのでやめておく
 
 # Public clouds' CLI command
 ## GCP
@@ -62,44 +63,39 @@ brew "awscli"
 brew "azure-cli"
 # ==================================================================
 
-# Basic apps
+# Desktop applications
 # ==================================================================
 ## Browser
 cask "brave-browser"
-cask "microsoft-edge"
-# cask "arc"
+cask "arc"
 
-## Editor
+## Text editor
 cask "visual-studio-code"
 
-## Business
+## Infrastructure
+cask "docker"
 cask "google-drive"
-cask "zoom"
-cask "microsoft-remote-desktop"
-
-## Usefuls
+cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "raycast"
-cask "authy"
-cask "google-japanese-ime"
-cask "cold-turkey-blocker"
-# cask "hyperswitch" 2023-04-15時点で消滅している？
+cask "warp"
+cask "zoom"
+
+## Usefulls
+cask "android-file-transfer"
 cask "alt-tab"
+cask "cold-turkey-blocker"
 cask "funter"
 cask "keyboardcleantool"
-cask "obsidian"
-mas "CopyClip - Clipboard History", id: 595191960
-mas "LINE", id: 539883307
-mas "Focus To-Do", id: 1258530160
-
-## Hobbies
-cask "spotify"
 cask "mp3gain-express"
-cask "android-file-transfer"
-
-## Programming
-cask "warp"
-# cask "iterm2"
-cask "docker"
+cask "obsidian"
+cask "spotify"
+# cask "hyperswitch" # 2023-04-15時点で消滅している？
+# cask "lm-studio"
+# cask "microsoft-remote-desktop"
 # cask "tableplus"
+
+mas "CopyClip - Clipboard History", id: 595191960
+mas "Focus To-Do", id: 1258530160
+mas "LINE", id: 539883307
 # ==================================================================

@@ -78,4 +78,7 @@ asdf global python "$(asdf list python | sed 's/  //')"
 
 # pipx経由でPoetryのインストール
 pipx install poetry
+
+# Ryeのインストール
+curl -sSf https://rye-up.com/get | bash
 #=============================================================================
