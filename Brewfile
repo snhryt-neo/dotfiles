@@ -94,6 +94,7 @@ cask "spotify"
 # cask "lm-studio"
 # cask "microsoft-remote-desktop"
 # cask "tableplus"
+# cask "microsoft-azure-storage-explorer"
 
 mas "CopyClip - Clipboard History", id: 595191960
 mas "Focus To-Do", id: 1258530160
