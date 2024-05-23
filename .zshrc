@@ -6,6 +6,7 @@ export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/opt/homebrew/bin" # Homebrew (ARM)
 export PATH="$PATH:$HOME/.local/bin"  # pipx
+export PATH="$PATH:$HOME/.rd/bin"     # Rancher Desktop
 
 # Initialization
 # ============================================================

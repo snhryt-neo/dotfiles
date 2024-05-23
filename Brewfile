@@ -73,7 +73,8 @@ cask "arc"
 cask "visual-studio-code"
 
 ## Infrastructure
-cask "docker"
+# cask "docker"
+cask "rancher"
 cask "google-drive"
 cask "google-japanese-ime"
 cask "karabiner-elements"
