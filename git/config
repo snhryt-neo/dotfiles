@@ -1,0 +1,46 @@
+# This is Git's per-user configuration file.
+[user]
+    name = snhryt-neo
+    email = 68265677+snhryt-neo@users.noreply.github.com
+[init]
+    defaultBranch = main
+    # 参考: https://github.com/teitei-tk/dotfiles
+    templatedir = ~/.config/git/templates/secrets
+[commit]
+    template = ~/.config/git/templates/commit-message
+[push]
+    autoSetupRemote = true
+[pull]
+    rebase = false
+[color]
+    ui = auto
+[grep]
+    lineNumber = true
+[diff]
+    wsErrorHighlight = all
+[alias]
+    s = status
+    b = branch
+    l = log
+    cm = commit
+    ss = status -s
+    co = checkout
+    rb = rebase
+    st = stash
+    sh = show
+    pr = pull -r
+    ps = push
+
+[secrets]
+    # ファイルの作成・削除時に [ERROR] Matched one or more prohibited patterns エラーが発生するためコメントアウト
+    # # Google Cloud用
+	# patterns = private_key
+	# patterns = private_key_id
+
+    # AWS用
+    providers = git secrets --aws-provider
+    patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+    patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+    patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+    allowed = AKIAIOSFODNN7EXAMPLE
+    allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY

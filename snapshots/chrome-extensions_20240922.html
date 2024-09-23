@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This file was created by Extension Exporter v3.0.0 -->
+<!-- Chrome Web Store: https://chromewebstore.google.com/detail/extension-exporter/doikmfpjbcjjimnbablebijofdbgfepb -->
+<!-- GitHub repo: https://github.com/asheroto/Extension-Exporter -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Extension Export 2024/9/22 14:16:43</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="https://chrome.google.com/webstore/detail/doikmfpjbcjjimnbablebijofdbgfepb">
+    <meta name="exporter-version" content="3.0.0">
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAC4jAAAuIwF4pT92AAAKaWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgMTE2LmRlZTNhNzcsIDIwMjIvMDkvMDEtMTM6NTc6MDggICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy41IChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjMtMDEtMDNUMDI6NTk6NDEtMDY6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIzLTEwLTI0VDA0OjU0OjU4LTA1OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTEwLTI0VDA0OjU0OjU4LTA1OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpiY2NjMTFmYS1jZTE3LTJjNDUtOTZhMi0yMTg4ZWI1OGYxOTEiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDpkODFmMDEwZS1mZjg3LTM3NDgtOTM2ZC03MDM3OTkzYzY0YTQiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowOTU0OTc1Yi03YmJhLTZjNGItYmZjNy1jYTVlZDFmY2FmNmMiIHRpZmY6T3JpZW50YXRpb249IjEiIHRpZmY6WFJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6WVJlc29sdXRpb249IjMwMDAwMDAvMTAwMDAiIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiIGV4aWY6Q29sb3JTcGFjZT0iNjU1MzUiIGV4aWY6UGl4ZWxYRGltZW5zaW9uPSI1NDkiIGV4aWY6UGl4ZWxZRGltZW5zaW9uPSI1NDkiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjA5NTQ5NzViLTdiYmEtNmM0Yi1iZmM3LWNhNWVkMWZjYWY2YyIgc3RFdnQ6d2hlbj0iMjAyMy0wMS0wM1QwMjo1OTo0MS0wNjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjUgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDozMjgxOTFiNy03ZmEwLWEyNGItYTM5NC01ZDBhZTIyOTU0NzkiIHN0RXZ0OndoZW49IjIwMjMtMTAtMjRUMDI6Mzg6MjEtMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMy41IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZjY0NjkzNjgtNTA1MS0yYTQ3LWFhYzUtNDA4MWI4MGEzOWM4IiBzdEV2dDp3aGVuPSIyMDIzLTEwLTI0VDA0OjU0OjU4LTA1OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjMuNSAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNvbnZlcnRlZCIgc3RFdnQ6cGFyYW1ldGVycz0iZnJvbSBhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9zaG9wIHRvIGltYWdlL3BuZyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iZGVyaXZlZCIgc3RFdnQ6cGFyYW1ldGVycz0iY29udmVydGVkIGZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmJjY2MxMWZhLWNlMTctMmM0NS05NmEyLTIxODhlYjU4ZjE5MSIgc3RFdnQ6d2hlbj0iMjAyMy0xMC0yNFQwNDo1NDo1OC0wNTowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjUgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpmNjQ2OTM2OC01MDUxLTJhNDctYWFjNS00MDgxYjgwYTM5YzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDk1NDk3NWItN2JiYS02YzRiLWJmYzctY2E1ZWQxZmNhZjZjIiBzdFJlZjpvcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6MDk1NDk3NWItN2JiYS02YzRiLWJmYzctY2E1ZWQxZmNhZjZjIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SpmIiAAAAt9JREFUaIHtmL9PE2Ech587ioEqFCwQZTOGINHogBMKSFQmiSTGRFwcmIxx8F8wcXJxMBqNiZODCSriYOLEoIkOKkQSTIiDqIC0JdJSkHK9c6i1hRzX9733xZakz3R9vz8/13t/3BnOKD+AGrYniQDQXOwuFKgxgUSxu1AgYRa7A1XKAopNWUCx0S+g5S50rkC3A12r0PoAMLSXyRLQmu3wK6g/nftt7IA9g1C1H8Z7tJbKou8fqO9d33w+dScg3KetVD4aBZz0toe6tJXKR+MccBTt/tAnwPqlZveJ+CQO90HjeahsJHM3N9zR6lbv+L2DEDq2YdAATLCiEBmC6LBwO/8yOKPEKXScbr4MLXekk0vz5Rp8vyUTkRAT0L01z68rb8JgLYh6l+BpdGeblHvpCXDk/u3SE4At5V2CAuQoC9DOWkzKXWwjm70Pjg1mJQTboLbDT2tiBFshvZS5thbAXvV0F9sHNlLXAwefQqDOX5Oe2LmVyIpB9BlMXQEn7eYsuJG5sesItI8pNCrB4msY63SzKGxkS+Mw/8h3uBSh49B00dWkNoljL5XCpdjd6zqsJsD4j4uY477BqXXQcE4pXIrYc9dh/wLqT0HDWd/hUkSeQNRdgL+vEk0D0LZFEzgdB8fKXKfmYP4xfL2+qbuYgEMvABuMSggegKp9GjrdhIl+iL8Dw4B0sqC7mIDwGcWuJEj9BHtZ2H1rlpG1KCQnYC0iHxuolXOXr+CBk4Kpq5kNLp0EsxqaLkDLbTCDWktl0SfAScH7o5D8lBuzV2DuIcTfQvsHMKu0lcui7xH6dnN98/ksT8L0DbE8RoVUWX0CoiMF7MNiedxPnZsiJiC7Lnth/1bPgZ2Z/BKICZgcKOwTCHnbKwRO7J8v5V5mBBGbxJEh+NgBDf1/X2JcPn2sTnvnSM3A7D0XgwHWIsRGMud+Sfy/0JQGJfhlTpKygGJjsn2ff4CaADDD9hWR+AOgZrz2m9pNhwAAAABJRU5ErkJggg=="
+        type="image/svg+xml">
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1.title {
+            font-size: 40px;
+            margin: 0px;
+            font-weight: 600;
+        }
+
+        h3.subtitle {
+            font-size: 18px;
+            color: gray;
+            margin: 0 0 20px 0;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin: 0 0 5px 0;
+            font-weight: 400;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .extensions .enabled h2,
+        .extensions .enabled a {
+            color: #388E3C;
+        }
+
+        .extensions .disabled h2,
+        .extensions .disabled a {
+            color: #D32F2F;
+        }
+
+        .extensions ol {
+            margin: 0;
+            padding: 0;
+        }
+
+        .extensions li {
+            margin: 0 0 2px 30px;
+            font-size: 16px;
+            list-style-type: square;
+        }
+
+        a {
+            text-decoration: none;
+            color: #424242;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #212121;
+        }
+
+        .extensions .enabled {
+            margin-top: 15px;
+        }
+
+        .extensions .disabled {
+            margin-top: 15px;
+        }
+
+        .crxdownload-icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDIwIDIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMyA4VjJIN3Y2SDJsOCA4IDgtOGgtNXpNMCAxOGgyMHYySDB2LTJ6Ii8+PC9zdmc+");
+            background-size: contain;
+            display: none;
+        }
+
+        .stats-icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO3N0cm9rZTojMDAwO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6MnB4O308L3N0eWxlPjwvZGVmcz48dGl0bGUvPjxnIGlkPSJkYXNoYm9hcmQiPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjMiIHgyPSIyOSIgeTE9IjI5IiB5Mj0iMjkiLz48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIzIiB4Mj0iMyIgeTE9IjMiIHkyPSIyOSIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjE2IiB4Mj0iMTYiIHkxPSI3IiB5Mj0iMjUiLz48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIyMiIgeDI9IjIyIiB5MT0iMTEiIHkyPSIyNSIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjEwIiB4Mj0iMTAiIHkxPSIxNiIgeTI9IjI1Ii8+PC9nPjwvc3ZnPg==");
+            background-size: contain;
+            display: none;
+        }
+
+        .crxcavator-icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDY0IDY0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGlkPSJFZmZpY2FjeV9yZXNlYXJjaGluZyI+PHBhdGggZD0iTTQwLjYzNDUsMjQuNTUyNmwuMjU1Ni0uMDQ4YTEuMzM0OSwxLjMzNDksMCwwLDAsMS4wODg5LTEuMzEyVjE5LjkzNkExLjMzNDgsMS4zMzQ4LDAsMCwwLDQwLjg5LDE4LjYyNGwtMy43NzM3LS43MDhhMi4wNTE3LDIuMDUxNywwLDAsMS0xLjU2NDktMS4zMTksMTQuNzk1MiwxNC43OTUyLDAsMCwwLS41OTIzLTEuNDM0NywyLjA1MTQsMi4wNTE0LDAsMCwxLC4xNzQ4LTIuMDM2NmwyLjE2NjgtMy4xNjc1YTEuMzM1MSwxLjMzNTEsMCwwLDAtLjE1OC0xLjY5NzVMMzQuODQsNS45NThBMS4zMzQ4LDEuMzM0OCwwLDAsMCwzMy4xNDI2LDUuOEwyOS45NzQ4LDcuOTY3YTIuMDUxOCwyLjA1MTgsMCwwLDEtMi4wMzY2LjE3NDgsMTQuNzAzNCwxNC43MDM0LDAsMCwwLTEuNDM0Ni0uNTkyNSwyLjA1MTYsMi4wNTE2LDAsMCwxLTEuMzE4OC0xLjU2NWwtLjcwOC0zLjc3MzhhMS4zMzQ5LDEuMzM0OSwwLDAsMC0xLjMxMi0xLjA4ODdIMTkuOTA4MmExLjMzNDYsMS4zMzQ2LDAsMCwwLTEuMzExOCwxLjA4ODdsLS43MDgsMy43NzM3QTIuMDUyOCwyLjA1MjgsMCwwLDEsMTYuNTcsNy41NDkzYTE0LjcwNywxNC43MDcsMCwwLDAtMS40MzQ4LjU5MjUsMi4wNTE0LDIuMDUxNCwwLDAsMS0yLjAzNjctLjE3NDhMOS45Myw1LjhhMS4zMzQ5LDEuMzM0OSwwLDAsMC0xLjY5NzUuMTU4TDUuOTMsOC4yNjA3YTEuMzM1MSwxLjMzNTEsMCwwLDAtLjE1OCwxLjY5NzVsMi4xNjcsMy4xNjc1YTIuMDUxNiwyLjA1MTYsMCwwLDEsLjE3NDgsMi4wMzY3LDE0Ljc0NjQsMTQuNzQ2NCwwLDAsMC0uNTkyNSwxLjQzNDcsMi4wNTIxLDIuMDUyMSwwLDAsMS0xLjU2NSwxLjMxODlsLTMuNzczNy43MDhhMS4zMzQ3LDEuMzM0NywwLDAsMC0xLjA4ODYsMS4zMTJ2My4yNTY2YTEuMzM0NywxLjMzNDcsMCwwLDAsMS4wODg2LDEuMzEybDMuNzczNy43MDc5YTIuMDUxNywyLjA1MTcsMCwwLDEsMS41NjUsMS4zMTg5QTE0LjczNDMsMTQuNzM0MywwLDAsMCw4LjExNCwyNy45NjZhMi4wNTE0LDIuMDUxNCwwLDAsMS0uMTc0OCwyLjAzNjZMNS43NzIyLDMzLjE3YTEuMzM1NSwxLjMzNTUsMCwwLDAsLjE1OCwxLjY5NzhsMi4zMDI3LDIuMzAyN2ExLjMzNDcsMS4zMzQ3LDAsMCwwLDEuNjk3NS4xNTc3bDMuMTY3Ny0yLjE2NjdhMi4wNTEzLDIuMDUxMywwLDAsMSwyLjAzNjctLjE3NDgsMTQuNzc3NSwxNC43Nzc1LDAsMCwwLDEuNDM0OC41OTI1LDIuMDUyMiwyLjA1MjIsMCwwLDEsMS4zMTg4LDEuNTY0OWwuNzA3OCwzLjc3MzdhMS4zMzQ4LDEuMzM0OCwwLDAsMCwxLjMxMiwxLjA4ODhoMy4yNTY2YTEuMzM0OCwxLjMzNDgsMCwwLDAsMS4zMTItMS4wODg4bC4wOTExLS40ODQ5YTE2Ljk5MTMsMTYuOTkxMywwLDAsMSwxNi4wNjY2LTE1Ljg4Wk0yMS41MzY2LDI5LjE0MDhhNy41NzY3LDcuNTc2NywwLDEsMSw3LjU3NjctNy41NzY2QTcuNTc2NSw3LjU3NjUsMCwwLDEsMjEuNTM2NiwyOS4xNDA4WiIvPjxwYXRoIGQ9Ik02MC40Njc1LDU2LjY2ODksNTMuNTE3Niw0OS42YTE0LjQwMzgsMTQuNDAzOCwwLDEsMC00LjQ5NDQsNC4yNzM3TDU2LjA4NjksNjEuMDVhMy4wOTc2LDMuMDk3NiwwLDAsMCw0LjM4MDYtNC4zODA2Wk00MS41ODM3LDQ5LjAwMzZhNy40MTg2LDcuNDE4NiwwLDEsMSw3LjQxODUtNy40MTg3QTcuNDE4Nyw3LjQxODcsMCwwLDEsNDEuNTgzNyw0OS4wMDM2WiIvPjwvZz48L3N2Zz4=");
+            background-size: contain;
+            display: none;
+        }
+
+        .show-crxcavator-icons .crxcavator-icon {
+            display: inline-block;
+        }
+
+        .show-crxdownload-icons .crxdownload-icon {
+            display: inline-block;
+        }
+
+        .show-stats-icons .stats-icon {
+            display: inline-block;
+        }
+
+        .button-group {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .button-group-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 0;
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+
+        button:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            background-color: #003d80;
+        }
+
+        .button-icon {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        button.rounded-left {
+            border-radius: 5px 0 0 5px;
+        }
+
+        button.rounded-right {
+            border-radius: 0 5px 5px 0;
+        }
+
+        #copyToClipboard {
+            border-radius: 5px;
+            /* Explicitly round the corners */
+        }
+
+        textarea {
+            width: 100%;
+            height: 600px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            white-space: pre;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .toggle-title {
+            margin-left: 10px;
+        }
+
+        @media print {
+            .button-group {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="show-crxdownload-icons show-stats-icons show-crxcavator-icons">
+    <h1 class="title">Extension Export</h1>
+    <h3 class="subtitle">2024/9/22 14:16:43</h3>
+
+    <div class="button-group">
+        <div class="button-group-title">Options</div>
+        <button id="showTextOnly" class="rounded-left">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMnB4IiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48Zz48cGF0aCBkPSJNMzk4LjYsMTY5LjJjLTAuOS0yLjItMi00LjMtMy41LTYuMWwtODMuOC05MS43Yy0xLjktMi4xLTQuMi0zLjYtNi43LTQuOWMtMi45LTEuNS02LjEtMi4xLTkuNS0yLjFIMTM1LjIgICBjLTEyLjQsMC0yMi43LDEwLjYtMjIuNywyMy45djMzNS4yYzAsMTMuNCwxMC4zLDI0LjksMjIuNywyNC45aDI0My4xYzEyLjQsMCwyMi4yLTExLjUsMjIuMi0yNC45VjE3OS40ICAgQzQwMC41LDE3NS44LDQwMCwxNzIuMywzOTguNiwxNjkuMnogTTE2MC41LDE3OC42YzAtMS41LDEuOC0yLjEsMy40LTIuMWg3MC44YzEuNiwwLDIuOCwwLjYsMi44LDIuMXYxMC44YzAsMS40LTEuMSwzLjEtMi44LDMuMSAgIGgtNzAuOGMtMS42LDAtMy40LTEuNy0zLjQtMy4xVjE3OC42eiBNMTYwLjUsMzA2LjZjMC0xLjUsMS44LTIuMSwzLjQtMi4xaDEyMi4yYzEuNiwwLDIuNCwwLjYsMi40LDIuMXYxMC44YzAsMS40LTAuNywzLjEtMi40LDMuMSAgIEgxNjMuOWMtMS42LDAtMy40LTEuNy0zLjQtMy4xVjMwNi42eiBNMzIwLjUsMzgxLjRjMCwxLjQtMC43LDMuMS0yLjQsMy4xSDE2My45Yy0xLjYsMC0zLjQtMS43LTMuNC0zLjF2LTEwLjggICBjMC0xLjUsMS44LTIuMSwzLjQtMi4xaDE1NC4yYzEuNiwwLDIuNCwwLjYsMi40LDIuMVYzODEuNHogTTM1Mi41LDI1My40YzAsMS40LTAuNywzLjEtMi40LDMuMUgxNjMuOWMtMS42LDAtMy40LTEuNy0zLjQtMy4xICAgdi0xMC44YzAtMS41LDEuOC0yLjEsMy40LTIuMWgxODYuMmMxLjYsMCwyLjQsMC42LDIuNCwyLjFWMjUzLjR6IE0zMDUuNiwxNzcuNWMtNS42LDAtMTEuMS01LjItMTEuMS0xMS4zdi02Nmw3MS4yLDc3LjNIMzA1LjZ6Ii8+PC9nPjwvc3ZnPg==" class="button-icon"> Text-Only Listing
+        </button>
+        <button id="showHelp" class="rounded-right">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0OHY0OEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0yNCA0QzEyLjk1IDQgNCAxMi45NSA0IDI0czguOTUgMjAgMjAgMjAgMjAtOC45NSAyMC0yMFMzNS4wNSA0IDI0IDR6bTIgMzRoLTR2LTRoNHY0em00LjEzLTE1LjQ5bC0xLjc5IDEuODRDMjYuOSAyNS43OSAyNiAyNyAyNiAzMGgtNHYtMWMwLTIuMjEuOS00LjIxIDIuMzQtNS42NmwyLjQ5LTIuNTJDMjcuNTUgMjAuMSAyOCAxOS4xIDI4IDE4YzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0aC00YzAtNC40MiAzLjU4LTggOC04czggMy41OCA4IDhjMCAxLjc2LS43MSAzLjM1LTEuODcgNC41MXoiLz48L3N2Zz4=" class="button-icon"> Help
+        </button>
+        <div class="button-group-title toggle-title">Toggle</div>
+        <button id="toggleCrxIcons" class="rounded-left">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDIwIDIwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMyA4VjJIN3Y2SDJsOCA4IDgtOGgtNXpNMCAxOGgyMHYySDB2LTJ6Ii8+PC9zdmc+" class="button-icon"> CRX Download
+        </button>
+        <button id="toggleStats">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO3N0cm9rZTojMDAwO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6MnB4O308L3N0eWxlPjwvZGVmcz48dGl0bGUvPjxnIGlkPSJkYXNoYm9hcmQiPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjMiIHgyPSIyOSIgeTE9IjI5IiB5Mj0iMjkiLz48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIzIiB4Mj0iMyIgeTE9IjMiIHkyPSIyOSIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjE2IiB4Mj0iMTYiIHkxPSI3IiB5Mj0iMjUiLz48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIyMiIgeDI9IjIyIiB5MT0iMTEiIHkyPSIyNSIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjEwIiB4Mj0iMTAiIHkxPSIxNiIgeTI9IjI1Ii8+PC9nPjwvc3ZnPg==" class="button-icon"> Stats
+        </button>
+        <button id="toggleCRXcavator" class="rounded-right">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDY0IDY0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGlkPSJFZmZpY2FjeV9yZXNlYXJjaGluZyI+PHBhdGggZD0iTTQwLjYzNDUsMjQuNTUyNmwuMjU1Ni0uMDQ4YTEuMzM0OSwxLjMzNDksMCwwLDAsMS4wODg5LTEuMzEyVjE5LjkzNkExLjMzNDgsMS4zMzQ4LDAsMCwwLDQwLjg5LDE4LjYyNGwtMy43NzM3LS43MDhhMi4wNTE3LDIuMDUxNywwLDAsMS0xLjU2NDktMS4zMTksMTQuNzk1MiwxNC43OTUyLDAsMCwwLS41OTIzLTEuNDM0NywyLjA1MTQsMi4wNTE0LDAsMCwxLC4xNzQ4LTIuMDM2NmwyLjE2NjgtMy4xNjc1YTEuMzM1MSwxLjMzNTEsMCwwLDAtLjE1OC0xLjY5NzVMMzQuODQsNS45NThBMS4zMzQ4LDEuMzM0OCwwLDAsMCwzMy4xNDI2LDUuOEwyOS45NzQ4LDcuOTY3YTIuMDUxOCwyLjA1MTgsMCwwLDEtMi4wMzY2LjE3NDgsMTQuNzAzNCwxNC43MDM0LDAsMCwwLTEuNDM0Ni0uNTkyNSwyLjA1MTYsMi4wNTE2LDAsMCwxLTEuMzE4OC0xLjU2NWwtLjcwOC0zLjc3MzhhMS4zMzQ5LDEuMzM0OSwwLDAsMC0xLjMxMi0xLjA4ODdIMTkuOTA4MmExLjMzNDYsMS4zMzQ2LDAsMCwwLTEuMzExOCwxLjA4ODdsLS43MDgsMy43NzM3QTIuMDUyOCwyLjA1MjgsMCwwLDEsMTYuNTcsNy41NDkzYTE0LjcwNywxNC43MDcsMCwwLDAtMS40MzQ4LjU5MjUsMi4wNTE0LDIuMDUxNCwwLDAsMS0yLjAzNjctLjE3NDhMOS45Myw1LjhhMS4zMzQ5LDEuMzM0OSwwLDAsMC0xLjY5NzUuMTU4TDUuOTMsOC4yNjA3YTEuMzM1MSwxLjMzNTEsMCwwLDAtLjE1OCwxLjY5NzVsMi4xNjcsMy4xNjc1YTIuMDUxNiwyLjA1MTYsMCwwLDEsLjE3NDgsMi4wMzY3LDE0Ljc0NjQsMTQuNzQ2NCwwLDAsMC0uNTkyNSwxLjQzNDcsMi4wNTIxLDIuMDUyMSwwLDAsMS0xLjU2NSwxLjMxODlsLTMuNzczNy43MDhhMS4zMzQ3LDEuMzM0NywwLDAsMC0xLjA4ODYsMS4zMTJ2My4yNTY2YTEuMzM0NywxLjMzNDcsMCwwLDAsMS4wODg2LDEuMzEybDMuNzczNy43MDc5YTIuMDUxNywyLjA1MTcsMCwwLDEsMS41NjUsMS4zMTg5QTE0LjczNDMsMTQuNzM0MywwLDAsMCw4LjExNCwyNy45NjZhMi4wNTE0LDIuMDUxNCwwLDAsMS0uMTc0OCwyLjAzNjZMNS43NzIyLDMzLjE3YTEuMzM1NSwxLjMzNTUsMCwwLDAsLjE1OCwxLjY5NzhsMi4zMDI3LDIuMzAyN2ExLjMzNDcsMS4zMzQ3LDAsMCwwLDEuNjk3NS4xNTc3bDMuMTY3Ny0yLjE2NjdhMi4wNTEzLDIuMDUxMywwLDAsMSwyLjAzNjctLjE3NDgsMTQuNzc3NSwxNC43Nzc1LDAsMCwwLDEuNDM0OC41OTI1LDIuMDUyMiwyLjA1MjIsMCwwLDEsMS4zMTg4LDEuNTY0OWwuNzA3OCwzLjc3MzdhMS4zMzQ4LDEuMzM0OCwwLDAsMCwxLjMxMiwxLjA4ODhoMy4yNTY2YTEuMzM0OCwxLjMzNDgsMCwwLDAsMS4zMTItMS4wODg4bC4wOTExLS40ODQ5YTE2Ljk5MTMsMTYuOTkxMywwLDAsMSwxNi4wNjY2LTE1Ljg4Wk0yMS41MzY2LDI5LjE0MDhhNy41NzY3LDcuNTc2NywwLDEsMSw3LjU3NjctNy41NzY2QTcuNTc2NSw3LjU3NjUsMCwwLDEsMjEuNTM2NiwyOS4xNDA4WiIvPjxwYXRoIGQ9Ik02MC40Njc1LDU2LjY2ODksNTMuNTE3Niw0OS42YTE0LjQwMzgsMTQuNDAzOCwwLDEsMC00LjQ5NDQsNC4yNzM3TDU2LjA4NjksNjEuMDVhMy4wOTc2LDMuMDk3NiwwLDAsMCw0LjM4MDYtNC4zODA2Wk00MS41ODM3LDQ5LjAwMzZhNy40MTg2LDcuNDE4NiwwLDEsMSw3LjQxODUtNy40MTg3QTcuNDE4Nyw3LjQxODcsMCwwLDEsNDEuNTgzNyw0OS4wMDM2WiIvPjwvZz48L3N2Zz4=" class="button-icon"> CRXcavator Report
+        </button>
+    </div>
+
+    <div class="extensions">
+        <div class="enabled">
+            <h2>Enabled Extensions</h2>
+            <ol>
+                <li>
+                        <a href="https://chrome.google.com/webstore/detail/bonkcfmjkpdnieejahndognlbogaikdg" target="_blank" title="Automatically shorten Amazon product URL.">Amazon URL Shortener 1.4.0</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbonkcfmjkpdnieejahndognlbogaikdg%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/bonkcfmjkpdnieejahndognlbogaikdg" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/bonkcfmjkpdnieejahndognlbogaikdg?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/eignhdfgaldabilaaegmdfbajngjmoke" target="_blank" title="様々なGoogleサービスにかんたんアクセス">Black Menu for Google™ 25.44.2</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Deignhdfgaldabilaaegmdfbajngjmoke%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/eignhdfgaldabilaaegmdfbajngjmoke" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/eignhdfgaldabilaaegmdfbajngjmoke?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/pganeibhckoanndahmnfggfoeofncnii" target="_blank" title="Chrome may be blocked if this extension is disabled or removed during a locked block.">Cold Turkey Blocker 4.5.4</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpganeibhckoanndahmnfggfoeofncnii%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/pganeibhckoanndahmnfggfoeofncnii" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/pganeibhckoanndahmnfggfoeofncnii?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/cofdbpoegempjloogbagkncekinflcnj" target="_blank" title="世界最高レベルの精度を誇るDeepL翻訳で、テキストを読みながら、または書きながら訳せます。">DeepL翻訳 1.26.1</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dcofdbpoegempjloogbagkncekinflcnj%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/cofdbpoegempjloogbagkncekinflcnj" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/cofdbpoegempjloogbagkncekinflcnj?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/doikmfpjbcjjimnbablebijofdbgfepb" target="_blank" title="Export name and URL of all installed extensions into an HTML file.">Extension Exporter 3.0.0</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Ddoikmfpjbcjjimnbablebijofdbgfepb%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/doikmfpjbcjjimnbablebijofdbgfepb" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/doikmfpjbcjjimnbablebijofdbgfepb?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/piiljfhidimfponnkjlkecnpjhdijfde" target="_blank" title="Googleカレンダーで、今日、日曜、土曜など、曜日の文字色や背景色をあなたの好きな色に変更できます。">G-calize 2.1.3</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpiiljfhidimfponnkjlkecnpjhdijfde%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/piiljfhidimfponnkjlkecnpjhdijfde" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/piiljfhidimfponnkjlkecnpjhdijfde?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/dahenjhkoodjbpjheillcadbppiidmhp" target="_blank" title="参考情報と概要の確認、図へのジャンプ、引用、保存などの機能で論文が劇的に読みやすくなります。">Google Scholar PDF Reader 0.1.8</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Ddahenjhkoodjbpjheillcadbppiidmhp%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/dahenjhkoodjbpjheillcadbppiidmhp" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/dahenjhkoodjbpjheillcadbppiidmhp?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/neebplgakaahbhdphmkckjjcegoiijjo" target="_blank" title="Adds price history charts and the option to be alerted on price drops to all supported Amazon sites.">Keepa - Amazon Price Tracker 5.29</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dneebplgakaahbhdphmkckjjcegoiijjo%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/neebplgakaahbhdphmkckjjcegoiijjo" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/neebplgakaahbhdphmkckjjcegoiijjo?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/hdokiejnpimakedhajhdlcegeplioahd" target="_blank" title="LastPass is an award-winning password manager for secure credential management on any device.">LastPass: Free Password Manager 4.134.0</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhdokiejnpimakedhajhdlcegeplioahd%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/hdokiejnpimakedhajhdlcegeplioahd" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/hdokiejnpimakedhajhdlcegeplioahd?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc" target="_blank" title="Material icons for the file browser of popular websites like GitHub, Azure, Bitbucket etc.">Material Icons for GitHub 1.8.19</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbggfcpfjbdkhfhfmkjpbhnkhnpjjeomc%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/pbgidoglkjhfgjhalbbiiahdlokjcplb" target="_blank" title="Automatically closes the page opened by Zoom to launch meetings and restores focus to the tab you were on before opened.">Meetings Page Auto Closer for Zoom 0.3.1</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpbgidoglkjhfgjhalbbiiahdlokjcplb%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/pbgidoglkjhfgjhalbbiiahdlokjcplb" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/pbgidoglkjhfgjhalbbiiahdlokjcplb?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/jkgehijlkoolgcjifalbiicaomkngakb" target="_blank" title="Open Slack in Browser, not App">Open Slack in Browser, not App 1.0.2</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djkgehijlkoolgcjifalbiicaomkngakb%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/jkgehijlkoolgcjifalbiicaomkngakb" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/jkgehijlkoolgcjifalbiicaomkngakb?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/olnblpmehglpcallpnbgmikjblmkopia" target="_blank" title="Edit web pages prior to printing. Delete, hide and format elements. Edit text. Remove adverts and sidebars.">Print Edit WE 31.3</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dolnblpmehglpcallpnbgmikjblmkopia%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/olnblpmehglpcallpnbgmikjblmkopia" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/olnblpmehglpcallpnbgmikjblmkopia?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/ldgfbffkinooeloadekpmfoklnobpien" target="_blank" title="全部入りブックマーク管理ツール">Raindrop.io 6.6.53</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dldgfbffkinooeloadekpmfoklnobpien%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/ldgfbffkinooeloadekpmfoklnobpien" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/ldgfbffkinooeloadekpmfoklnobpien?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/hlepfoohegkhhmjieoechaddaejaokhf" target="_blank" title="Simplifies the GitHub interface and adds useful features">Refined GitHub 24.8.30</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhlepfoohegkhhmjieoechaddaejaokhf%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/hlepfoohegkhhmjieoechaddaejaokhf" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/hlepfoohegkhhmjieoechaddaejaokhf?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/cedcejfiniojnlhlfhcppenochinijfo" target="_blank" title="Search Result Previews adds "page previews" into Google search result page. PRO version shows also PageRank of each search result.">Search Result Previews 4.2</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dcedcejfiniojnlhlfhcppenochinijfo%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/cedcejfiniojnlhlfhcppenochinijfo" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/cedcejfiniojnlhlfhcppenochinijfo?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/jppepdecgemgbgnjnnfjcmanlleioikj" target="_blank" title="Detect when your installed Chrome extensions have changed owners.">Under New Management 0.1.3</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djppepdecgemgbgnjnnfjcmanlleioikj%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/jppepdecgemgbgnjnnfjcmanlleioikj" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/jppepdecgemgbgnjnnfjcmanlleioikj?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/lobiadjfmkomemokdfhiaaaidgdhcded" target="_blank" title="スポイトでページから色を取得します。">カラースポイトツール 21</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dlobiadjfmkomemokdfhiaaaidgdhcded%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/lobiadjfmkomemokdfhiaaaidgdhcded" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/lobiadjfmkomemokdfhiaaaidgdhcded?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/ghbhakkknnmocmiilhneahbkiaegdnmf" target="_blank" title="絵文字ジェネレーターを便利に利用するための拡張機能です。">絵文字ジェネレーター 1.1.4</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dghbhakkknnmocmiilhneahbkiaegdnmf%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/ghbhakkknnmocmiilhneahbkiaegdnmf" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/ghbhakkknnmocmiilhneahbkiaegdnmf?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+            </ol>
+        </div>
+
+        <div class="disabled">
+            <h2>Disabled Extensions</h2>
+            <ol>
+                <li>
+                        <a href="https://chrome.google.com/webstore/detail/bhghoamapcdpbohphigoooaddinpkbai" target="_blank" title="Authenticator はお使いのブラウザーで2段階認証コードを生成します。">Authenticator 8.0.1</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbhghoamapcdpbohphigoooaddinpkbai%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/bhghoamapcdpbohphigoooaddinpkbai" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/bhghoamapcdpbohphigoooaddinpkbai?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/idehaflielbgpaokehlhidbjlehlfcep" target="_blank" title="Chrome extension that visually merges the same event on multiple Google Calendars into one event.">Event Merge for Google Calendar™ 2.2.1</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Didehaflielbgpaokehlhidbjlehlfcep%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/idehaflielbgpaokehlhidbjlehlfcep" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/idehaflielbgpaokehlhidbjlehlfcep?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/kimbiihomiiklblgkdllffbakadjgako" target="_blank" title="Synchronously manage your extensions for Chrome and Fireforx through the Github.">Extension Sync 0.0.4</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dkimbiihomiiklblgkdllffbakadjgako%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/kimbiihomiiklblgkdllffbakadjgako" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/kimbiihomiiklblgkdllffbakadjgako?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/omfegkgipldobddijcpagdabgifghdgb" target="_blank" title="WEBサイトに出てくる英単語の意味をマウスオーバーするだけで簡単に調べられる、iKnow! 公式のポップアップ英和辞書です。">iKnow! ポップアップ辞書 1.3.1</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Domfegkgipldobddijcpagdabgifghdgb%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/omfegkgipldobddijcpagdabgifghdgb" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/omfegkgipldobddijcpagdabgifghdgb?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/jddbpaokijdkekemooahanabaclcnbbf" target="_blank" title="">Peaceful Slack 0.1</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djddbpaokijdkekemooahanabaclcnbbf%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/jddbpaokijdkekemooahanabaclcnbbf" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/jddbpaokijdkekemooahanabaclcnbbf?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/ldmmifpegigmeammaeckplhnjbbpccmm" target="_blank" title="Save the Web to Notion">Save to Notion 3.1.2</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dldmmifpegigmeammaeckplhnjbbpccmm%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/ldmmifpegigmeammaeckplhnjbbpccmm" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/ldmmifpegigmeammaeckplhnjbbpccmm?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/cgipifjpcbhdppbjjphmgkmmgbeaggpc" target="_blank" title="Slackに絵文字の追加、削除、ダウンロードをする機能を追加します">Slack Custom Emoji Manager 1.3.0</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dcgipifjpcbhdppbjjphmgkmmgbeaggpc%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/cgipifjpcbhdppbjjphmgkmmgbeaggpc" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/cgipifjpcbhdppbjjphmgkmmgbeaggpc?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://chrome.google.com/webstore/detail/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank" title="指定したサイトが Google の検索結果で表示されないようにします">uBlacklist 8.9.2</a>
+                        <a href="https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpncfbmialoiaghdehhbnbhkkgmjanfhe%26installsource%3Dondemand%26uc" target="_blank" title="Download CRX file" alt="Download CRX file">
+                            <span class="crxdownload-icon"></span>
+                        </a> 
+                        <a href="https://chrome-stats.com/d/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank" title="Stats" alt="Stats">
+                            <span class="stats-icon"></span>
+                        </a> 
+                        <a href="https://crxcavator.io/report/pncfbmialoiaghdehhbnbhkkgmjanfhe?platform=Chrome" target="_blank" title="CRXcavator Report" alt="CRXcavator Report">
+                            <span class="crxcavator-icon"></span>
+                        </a>
+                    </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Hidden JSON object for use by script -->
+    <div id="textOnlyListingJson" data-json="[{&quot;name&quot;:&quot;Amazon URL Shortener&quot;,&quot;version&quot;:&quot;1.4.0&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/bonkcfmjkpdnieejahndognlbogaikdg&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dbonkcfmjkpdnieejahndognlbogaikdg%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/bonkcfmjkpdnieejahndognlbogaikdg&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/bonkcfmjkpdnieejahndognlbogaikdg?platform=Chrome&quot;},{&quot;name&quot;:&quot;Authenticator&quot;,&quot;version&quot;:&quot;8.0.1&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/bhghoamapcdpbohphigoooaddinpkbai&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dbhghoamapcdpbohphigoooaddinpkbai%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/bhghoamapcdpbohphigoooaddinpkbai&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/bhghoamapcdpbohphigoooaddinpkbai?platform=Chrome&quot;},{&quot;name&quot;:&quot;Black Menu for Google™&quot;,&quot;version&quot;:&quot;25.44.2&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/eignhdfgaldabilaaegmdfbajngjmoke&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Deignhdfgaldabilaaegmdfbajngjmoke%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/eignhdfgaldabilaaegmdfbajngjmoke&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/eignhdfgaldabilaaegmdfbajngjmoke?platform=Chrome&quot;},{&quot;name&quot;:&quot;Cold Turkey Blocker&quot;,&quot;version&quot;:&quot;4.5.4&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/pganeibhckoanndahmnfggfoeofncnii&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dpganeibhckoanndahmnfggfoeofncnii%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/pganeibhckoanndahmnfggfoeofncnii&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/pganeibhckoanndahmnfggfoeofncnii?platform=Chrome&quot;},{&quot;name&quot;:&quot;DeepL翻訳&quot;,&quot;version&quot;:&quot;1.26.1&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/cofdbpoegempjloogbagkncekinflcnj&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dcofdbpoegempjloogbagkncekinflcnj%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/cofdbpoegempjloogbagkncekinflcnj&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/cofdbpoegempjloogbagkncekinflcnj?platform=Chrome&quot;},{&quot;name&quot;:&quot;Event Merge for Google Calendar™&quot;,&quot;version&quot;:&quot;2.2.1&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/idehaflielbgpaokehlhidbjlehlfcep&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Didehaflielbgpaokehlhidbjlehlfcep%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/idehaflielbgpaokehlhidbjlehlfcep&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/idehaflielbgpaokehlhidbjlehlfcep?platform=Chrome&quot;},{&quot;name&quot;:&quot;Extension Exporter&quot;,&quot;version&quot;:&quot;3.0.0&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/doikmfpjbcjjimnbablebijofdbgfepb&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Ddoikmfpjbcjjimnbablebijofdbgfepb%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/doikmfpjbcjjimnbablebijofdbgfepb&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/doikmfpjbcjjimnbablebijofdbgfepb?platform=Chrome&quot;},{&quot;name&quot;:&quot;Extension Sync&quot;,&quot;version&quot;:&quot;0.0.4&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/kimbiihomiiklblgkdllffbakadjgako&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dkimbiihomiiklblgkdllffbakadjgako%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/kimbiihomiiklblgkdllffbakadjgako&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/kimbiihomiiklblgkdllffbakadjgako?platform=Chrome&quot;},{&quot;name&quot;:&quot;G-calize&quot;,&quot;version&quot;:&quot;2.1.3&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/piiljfhidimfponnkjlkecnpjhdijfde&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dpiiljfhidimfponnkjlkecnpjhdijfde%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/piiljfhidimfponnkjlkecnpjhdijfde&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/piiljfhidimfponnkjlkecnpjhdijfde?platform=Chrome&quot;},{&quot;name&quot;:&quot;Google Scholar PDF Reader&quot;,&quot;version&quot;:&quot;0.1.8&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/dahenjhkoodjbpjheillcadbppiidmhp&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Ddahenjhkoodjbpjheillcadbppiidmhp%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/dahenjhkoodjbpjheillcadbppiidmhp&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/dahenjhkoodjbpjheillcadbppiidmhp?platform=Chrome&quot;},{&quot;name&quot;:&quot;iKnow! ポップアップ辞書&quot;,&quot;version&quot;:&quot;1.3.1&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/omfegkgipldobddijcpagdabgifghdgb&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Domfegkgipldobddijcpagdabgifghdgb%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/omfegkgipldobddijcpagdabgifghdgb&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/omfegkgipldobddijcpagdabgifghdgb?platform=Chrome&quot;},{&quot;name&quot;:&quot;Keepa - Amazon Price Tracker&quot;,&quot;version&quot;:&quot;5.29&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/neebplgakaahbhdphmkckjjcegoiijjo&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dneebplgakaahbhdphmkckjjcegoiijjo%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/neebplgakaahbhdphmkckjjcegoiijjo&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/neebplgakaahbhdphmkckjjcegoiijjo?platform=Chrome&quot;},{&quot;name&quot;:&quot;LastPass: Free Password Manager&quot;,&quot;version&quot;:&quot;4.134.0&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/hdokiejnpimakedhajhdlcegeplioahd&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dhdokiejnpimakedhajhdlcegeplioahd%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/hdokiejnpimakedhajhdlcegeplioahd&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/hdokiejnpimakedhajhdlcegeplioahd?platform=Chrome&quot;},{&quot;name&quot;:&quot;Material Icons for GitHub&quot;,&quot;version&quot;:&quot;1.8.19&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dbggfcpfjbdkhfhfmkjpbhnkhnpjjeomc%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc?platform=Chrome&quot;},{&quot;name&quot;:&quot;Meetings Page Auto Closer for Zoom&quot;,&quot;version&quot;:&quot;0.3.1&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/pbgidoglkjhfgjhalbbiiahdlokjcplb&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dpbgidoglkjhfgjhalbbiiahdlokjcplb%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/pbgidoglkjhfgjhalbbiiahdlokjcplb&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/pbgidoglkjhfgjhalbbiiahdlokjcplb?platform=Chrome&quot;},{&quot;name&quot;:&quot;Open Slack in Browser, not App&quot;,&quot;version&quot;:&quot;1.0.2&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/jkgehijlkoolgcjifalbiicaomkngakb&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Djkgehijlkoolgcjifalbiicaomkngakb%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/jkgehijlkoolgcjifalbiicaomkngakb&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/jkgehijlkoolgcjifalbiicaomkngakb?platform=Chrome&quot;},{&quot;name&quot;:&quot;Peaceful Slack&quot;,&quot;version&quot;:&quot;0.1&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/jddbpaokijdkekemooahanabaclcnbbf&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Djddbpaokijdkekemooahanabaclcnbbf%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/jddbpaokijdkekemooahanabaclcnbbf&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/jddbpaokijdkekemooahanabaclcnbbf?platform=Chrome&quot;},{&quot;name&quot;:&quot;Print Edit WE&quot;,&quot;version&quot;:&quot;31.3&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/olnblpmehglpcallpnbgmikjblmkopia&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dolnblpmehglpcallpnbgmikjblmkopia%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/olnblpmehglpcallpnbgmikjblmkopia&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/olnblpmehglpcallpnbgmikjblmkopia?platform=Chrome&quot;},{&quot;name&quot;:&quot;Raindrop.io&quot;,&quot;version&quot;:&quot;6.6.53&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/ldgfbffkinooeloadekpmfoklnobpien&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dldgfbffkinooeloadekpmfoklnobpien%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/ldgfbffkinooeloadekpmfoklnobpien&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/ldgfbffkinooeloadekpmfoklnobpien?platform=Chrome&quot;},{&quot;name&quot;:&quot;Refined GitHub&quot;,&quot;version&quot;:&quot;24.8.30&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/hlepfoohegkhhmjieoechaddaejaokhf&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dhlepfoohegkhhmjieoechaddaejaokhf%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/hlepfoohegkhhmjieoechaddaejaokhf&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/hlepfoohegkhhmjieoechaddaejaokhf?platform=Chrome&quot;},{&quot;name&quot;:&quot;Save to Notion&quot;,&quot;version&quot;:&quot;3.1.2&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/ldmmifpegigmeammaeckplhnjbbpccmm&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dldmmifpegigmeammaeckplhnjbbpccmm%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/ldmmifpegigmeammaeckplhnjbbpccmm&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/ldmmifpegigmeammaeckplhnjbbpccmm?platform=Chrome&quot;},{&quot;name&quot;:&quot;Search Result Previews&quot;,&quot;version&quot;:&quot;4.2&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/cedcejfiniojnlhlfhcppenochinijfo&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dcedcejfiniojnlhlfhcppenochinijfo%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/cedcejfiniojnlhlfhcppenochinijfo&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/cedcejfiniojnlhlfhcppenochinijfo?platform=Chrome&quot;},{&quot;name&quot;:&quot;Slack Custom Emoji Manager&quot;,&quot;version&quot;:&quot;1.3.0&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/cgipifjpcbhdppbjjphmgkmmgbeaggpc&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dcgipifjpcbhdppbjjphmgkmmgbeaggpc%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/cgipifjpcbhdppbjjphmgkmmgbeaggpc&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/cgipifjpcbhdppbjjphmgkmmgbeaggpc?platform=Chrome&quot;},{&quot;name&quot;:&quot;uBlacklist&quot;,&quot;version&quot;:&quot;8.9.2&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/pncfbmialoiaghdehhbnbhkkgmjanfhe&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dpncfbmialoiaghdehhbnbhkkgmjanfhe%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/pncfbmialoiaghdehhbnbhkkgmjanfhe&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/pncfbmialoiaghdehhbnbhkkgmjanfhe?platform=Chrome&quot;},{&quot;name&quot;:&quot;Under New Management&quot;,&quot;version&quot;:&quot;0.1.3&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/jppepdecgemgbgnjnnfjcmanlleioikj&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Djppepdecgemgbgnjnnfjcmanlleioikj%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/jppepdecgemgbgnjnnfjcmanlleioikj&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/jppepdecgemgbgnjnnfjcmanlleioikj?platform=Chrome&quot;},{&quot;name&quot;:&quot;カラースポイトツール&quot;,&quot;version&quot;:&quot;21&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/lobiadjfmkomemokdfhiaaaidgdhcded&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dlobiadjfmkomemokdfhiaaaidgdhcded%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/lobiadjfmkomemokdfhiaaaidgdhcded&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/lobiadjfmkomemokdfhiaaaidgdhcded?platform=Chrome&quot;},{&quot;name&quot;:&quot;絵文字ジェネレーター&quot;,&quot;version&quot;:&quot;1.1.4&quot;,&quot;storeUrl&quot;:&quot;https://chrome.google.com/webstore/detail/ghbhakkknnmocmiilhneahbkiaegdnmf&quot;,&quot;crxLink&quot;:&quot;https://clients2.google.com/service/update2/crx?response=redirect\u0026prodversion=49.0\u0026acceptformat=crx3\u0026x=id%3Dghbhakkknnmocmiilhneahbkiaegdnmf%26installsource%3Dondemand%26uc&quot;,&quot;statsLink&quot;:&quot;https://chrome-stats.com/d/ghbhakkknnmocmiilhneahbkiaegdnmf&quot;,&quot;crxcavatorLink&quot;:&quot;https://crxcavator.io/report/ghbhakkknnmocmiilhneahbkiaegdnmf?platform=Chrome&quot;}]" style="display:none;"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const textOnlyListingJson = JSON.parse(document.getElementById('textOnlyListingJson').getAttribute('data-json'));
+
+            const generateTextListing = () => {
+                let textListing = '';
+                textOnlyListingJson.forEach(extension => {
+                    textListing += `<p>${extension.name} ${extension.version}<br>`;
+                    textListing += `Store URL: ${extension.storeUrl}<br>`;
+                    if (document.body.classList.contains('show-crxdownload-icons')) {
+                        textListing += `CRX Link: ${extension.crxLink}<br>`;
+                    }
+                    if (document.body.classList.contains('show-stats-icons')) {
+                        textListing += `Stats Link: ${extension.statsLink}<br>`;
+                    }
+                    if (document.body.classList.contains('show-crxcavator-icons')) {
+                        textListing += `CRXcavator Link: ${extension.crxcavatorLink}<br>`;
+                    }
+                    textListing += `</p>`;
+                });
+                return textListing.trim();
+            };
+
+            // Toggle CRX icons
+            document.getElementById('toggleCrxIcons').addEventListener('click', function () {
+                document.body.classList.toggle('show-crxdownload-icons');
+            });
+
+            // Toggle Stats icons
+            document.getElementById('toggleStats').addEventListener('click', function () {
+                document.body.classList.toggle('show-stats-icons');
+            });
+
+            // Toggle CRXcavator icons
+            document.getElementById('toggleCRXcavator').addEventListener('click', function () {
+                document.body.classList.toggle('show-crxcavator-icons');
+            });
+
+            // Calculate popup dimensions
+            function calculatePopupDimensions(widthPercent, heightPercent) {
+                let width = screen.width * (widthPercent / 100);
+                let height = screen.height * (heightPercent / 100);
+                let left = (screen.width - width) / 2;
+                let top = (screen.height - height) / 2;
+                return { width, height, left, top };
+            }
+
+            // Text-Only Listing
+            document.getElementById('showTextOnly').addEventListener('click', function () {
+                const textOnlyListingJson = JSON.parse(document.getElementById('textOnlyListingJson').getAttribute('data-json'));
+
+                let dimensions = calculatePopupDimensions(80, 60);
+                let popupWindow = window.open('', '_blank', `width=${dimensions.width},height=${dimensions.height},left=${dimensions.left},top=${dimensions.top}`);
+
+                let popupContent = `
+                    <html>
+                    <head>
+                        <title>Extension Export 2024/9/22 14:16:43</title>
+                        <style>
+                            body {
+                                font-family: 'Roboto', sans-serif;
+                                line-height: 1.6;
+                                padding: 30px;
+                                text-align: left;
+                            }
+                            h1 {
+                                font-size: 40px;
+                                font-weight: 600;
+                                margin: 0 0 20px 0;
+                            }
+                            h3 {
+                                font-size: 18px;
+                                color: gray;
+                                margin: 0 0 20px 0;
+                                font-weight: 300;
+                            }
+                            .print-icon {
+                                cursor: pointer;
+                                margin-bottom: 20px;
+                                display: flex;
+                                align-items: center;
+                                color: #007bff;
+                            }
+                            .print-icon img {
+                                width: 24px;
+                                height: 24px;
+                                margin-right: 8px;
+                            }
+                            .print-icon span {
+                                color: #007bff;
+                                font-size: 16px;
+                            }
+                            @media print {
+                                .print-icon {
+                                    display: none;
+                                }
+                            }
+                            .extension-title {
+                                font-weight: bold;
+                                font-size: 18px;
+                                margin-bottom: 5px;
+                            }
+                            .extension-detail {
+                                font-size: 14px;
+                                margin-bottom: 15px;
+                            }
+                            .extension-detail strong {
+                                display: block;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Extension Export</h1>
+                        <h3>2024/9/22 14:16:43</h3>
+                        <div class="print-icon" onclick="window.print();">
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48cGF0aCBkPSJNMjEwLjcsNzJIMjAwVjQwYTgsOCwwLDAsMC04LThINjRhOCw4LDAsMCwwLTgsOFY3Mkg0NS4zQzMxLjQsNzIsMjAsODIuOCwyMCw5NnY4MGE4LDgsMCwwLDAsOCw4SDU2djM2YTgsOCwwLDAsMCw4LDhIMTkyYTgsOCwwLDAsMCw4LThWMTg0aDI4YTgsOCwwLDAsMCw4LThWOTZDMjM2LDgyLjgsMjI0LjYsNzIsMjEwLjcsNzJaTTcyLDQ4SDE4NFY3Mkg3MlpNMTg0LDIxMkg3MlYxNjBIMTg0Wm00LTg0YTEyLDEyLDAsMSwxLDEyLTEyQTEyLDEyLDAsMCwxLDE4OCwxMjhaIi8+PC9zdmc+" alt="Print">
+                            <span>Print</span>
+                        </div>`;
+
+                textOnlyListingJson.forEach(extension => {
+                    popupContent += `
+                        <div class="extension-detail">
+                            <div class="extension-title">${extension.name} ${extension.version}</div>
+                            <strong>Store URL:</strong> ${extension.storeUrl}`;
+                    if (document.body.classList.contains('show-crxdownload-icons')) {
+                        popupContent += `<strong>CRX Link:</strong> ${extension.crxLink}`;
+                    }
+                    if (document.body.classList.contains('show-stats-icons')) {
+                        popupContent += `<strong>Stats Link:</strong> ${extension.statsLink}`;
+                    }
+                    if (document.body.classList.contains('show-crxcavator-icons')) {
+                        popupContent += `<strong>CRXcavator Link:</strong> ${extension.crxcavatorLink}`;
+                    }
+                    popupContent += `</div>`;
+                });
+
+                popupContent += `
+                    </body>
+                    </html>`;
+
+                popupWindow.document.write(popupContent);
+                popupWindow.document.close();
+            });
+
+            // Help
+            document.getElementById('showHelp').addEventListener('click', function () {
+                let dimensions = calculatePopupDimensions(60, 60);
+                let helpPopup = window.open('', '_blank', `width=${dimensions.width},height=${dimensions.height},left=${dimensions.left},top=${dimensions.top}`);
+                let helpContent = `
+                    <html>
+                    <head>
+                        <title>Help</title>
+                        <style>
+                            body {
+                                font-family: 'Roboto', sans-serif;
+                                line-height: 1.6;
+                                padding: 20px;
+                            }
+                            h1 {
+                                font-size: 24px;
+                                font-weight: bold;
+                                margin-bottom: 10px;
+                            }
+                            p {
+                                margin-bottom: 10px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Help</h1>
+                        <h2>Options</h2>
+                        <p><strong>Text-Only Listing:</strong> Displays a plain text listing of all extensions. This includes a copy-to-clipboard function and the option to print the listing.</p>
+                        <p><strong>Help:</strong> Provides information on the functionality of each button and option available in the extension exporter tool.</p>
+
+                        <h2>Toggle</h2>
+                        <p><strong>CRX Download:</strong> Provides a direct link to download the extension's CRX file, which can be used for offline installation or backup purposes.</p>
+                        <p><strong>Stats:</strong> Offers a link to the extension's statistics page on the Chrome Web Store or Edge Add-ons site, where you can view user ratings, reviews, and other performance metrics. For more details, visit 
+                            <a href="https://chrome-stats.com" target="_blank">Chrome-Stats.com</a> and 
+                            <a href="https://edge-stats.com" target="_blank">Edge-Stats.com</a>. These sites provide comprehensive analytics and insights on extension performance, including download counts, active users, and more.</p>
+                        <p><strong>CRXcavator Report:</strong> Links to the CRXcavator security analysis report, providing detailed insights into the security and privacy aspects of the extension. CRXcavator performs automated analysis of Chrome extensions to assess their risk and provide recommendations. Learn more at 
+                            <a href="https://crxcavator.io" target="_blank">CRXcavator.io</a>.</p>
+
+                        <h2>Disclaimer</h2>
+                        <p style="font-size: 12px;">
+                            The author of Extension Exporter is not affiliated with Chrome-Stats.com, Edge-Stats.com, or CRXcavator.com. The author makes no guarantee regarding their effectiveness or accuracy. All information provided by these tools is based on data available from the respective platforms and automated analysis tools. Always review extension permissions and ratings before installation. All rights reserved.
+                        </p>
+                    </body>
+                    </html>
+                `;
+                helpPopup.document.write(helpContent);
+                helpPopup.document.close();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

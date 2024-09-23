@@ -1,0 +1,68 @@
+name: Installation test on macOS
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/actions.yml
+      - brewfiles/Brewfile
+      - init.sh
+      - link.sh
+      - other.sh
+      - Taskfile.yml
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      changed_files: ${{ steps.set-changed-files.outputs.changed_files }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # https://github.com/tj-actions/changed-files
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v45
+        # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
+        # with:
+        #   since_last_remote_commit: true
+
+      - name: Set changed files
+        id: set-changed-files
+        run: |
+          echo "changed_files=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
+
+  run:
+    runs-on: macos-latest
+    needs: setup
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # https://github.com/arduino/setup-task
+      - name: Install Task (go-task)
+        uses: arduino/setup-task@v2
+        with:
+          version: 3.x
+          repo-token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Initialization test
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'init.sh')
+        run: task init
+
+      - name: Symlink test
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'link.sh')
+        run: |
+          task link
+          ls -al $HOME/.config
+
+      - name: Homrbrew test (without mas)
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile')
+        run: task brew
+
+      - name: Other test
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'other.sh')
+        run: task other

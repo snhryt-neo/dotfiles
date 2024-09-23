@@ -1,0 +1,49 @@
+version: "3"
+
+silent: true
+
+tasks:
+  default:
+    aliases:
+      - list
+    desc: List all tasks
+    cmd: task -l
+
+  setup-all:
+    desc: "Setup all"
+    cmds:
+      - task: init
+      - task: brew
+      - task: brew-mas
+      - task: link
+      - task: gui
+      - task: git
+      - task: other
+
+  init:
+    desc: "Install Rosetta-2 and Homebrew"
+    cmd: sh ./init.sh
+
+  brew:
+    desc: "Installing apps and command line tools with Homebrew"
+    cmd: brew bundle --file=brewfiles/Brewfile
+
+  brew-mas:
+    desc: "Installing Mac App Store apps with Homebrew"
+    cmd: brew bundle --file=brewfiles/Brewfile.mas
+
+  link:
+    desc: "Creating symlinks of dotfiles"
+    cmd: sh ./link.sh
+
+  gui:
+    desc: "Configuring MacOS GUI"
+    cmd: sh ./gui.sh
+
+  git:
+    desc: "Configuring GitHub"
+    cmd: sh ./github.sh
+
+  other:
+    desc: "Configuring others"
+    cmd: sh ./other.sh
