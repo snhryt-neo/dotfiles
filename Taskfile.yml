@@ -26,7 +26,10 @@ tasks:
 
   brew:
     desc: "Installing apps and command line tools with Homebrew"
-    cmd: brew bundle --file=brewfiles/Brewfile
+    cmds:
+      - brew bundle --file=brewfiles/Brewfile
+      # 数少ないIntel CPUでインストール不可能なappのため、例外的にベタ書き
+      - if [[ $(uname -m) == "arm64" ]]; then brew install --cask chatgpt; fi
 
   brew-mas:
     desc: "Installing Mac App Store apps with Homebrew"
