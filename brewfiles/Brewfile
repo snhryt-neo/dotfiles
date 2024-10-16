@@ -93,7 +93,7 @@ cask "warp"
 # Usefulls
 cask "android-file-transfer"
 cask "alt-tab"
-cask "cold-turkey-blocker"
+# cask "cold-turkey-blocker"  # 最近はあまり使ってないのでコメントアウト
 cask "funter"
 cask "keyboardcleantool"
 cask "mp3gain-express"

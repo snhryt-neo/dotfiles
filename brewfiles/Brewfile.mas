@@ -1,4 +1,6 @@
 brew "mas"
 mas "CopyClip - Clipboard History", id: 595191960
-mas "Focus To-Do", id: 1258530160
 mas "LINE", id: 539883307
+
+# GUIぽちぽちでは成功するがCLIでは失敗する事例あり
+# mas "Focus To-Do", id: 1258530160
