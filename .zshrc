@@ -64,8 +64,8 @@ alias ga='git add'
 alias gc='git commit'
 alias gl='git log'
 alias gd='git diff'
-alias gsw='git switch -c'
-alias gcm='git checkout main'
+alias gsw='git switch -C'
+alias gcm='git switch main'
 alias gsl='git stash list'
 
 ## gcloud
