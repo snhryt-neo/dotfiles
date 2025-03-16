@@ -74,6 +74,7 @@ cask "brave-browser"
 
 # Text editor
 cask "visual-studio-code"
+cask "cursor"
 
 # Infrastructure
 cask "google-drive"
