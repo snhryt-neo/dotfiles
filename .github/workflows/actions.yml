@@ -50,7 +50,7 @@ jobs:
           repo-token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Initialization test
-        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'init.sh')
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'init.sh') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'other.sh')
         run: task init
 
       - name: Symlink test
@@ -60,7 +60,7 @@ jobs:
           ls -al $HOME/.config
 
       - name: Homrbrew test (without mas)
-        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile')
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'other.sh')
         run: task brew
 
       - name: Other test
