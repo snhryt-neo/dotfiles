@@ -11,10 +11,18 @@ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/instal
 # Python実行環境の構築
 # =============================================================================
 # asdfで最新のPythonをインストール＆グローバルなバージョンに設定
-asdf plugin-add python
+asdf plugin add python
 asdf install python latest
 asdf global python "$(asdf list python | sed 's/  //')"
 
-# Poetry（公式のインストールオプションにHomebrewがないためcurlでインストールする）
-# https://python-poetry.org/docs/#installing-with-the-official-installer
-curl -sSL https://install.python-poetry.org | python3 -
+# =============================================================================
+# Node.js実行環境の構築
+# =============================================================================
+# asdfで最新のNode.jsをインストール＆グローバルなバージョンに設定
+asdf plugin add nodejs
+asdf install nodejs latest
+asdf global nodejs "$(asdf list nodejs | sed 's/  //')"
+
+# brew ではなく npm でいれるべきツールをインストール
+npm i -g @openai/codex
+npm i -g @dataform/cli

@@ -8,6 +8,9 @@ export PATH="$PATH:/opt/homebrew/bin" # Homebrew (ARM)
 export PATH="$PATH:$HOME/.local/bin"  # pipx
 export PATH="$PATH:$HOME/.rd/bin"     # Rancher Desktop
 
+# asdfのnpmでインストールしたパッケージにパスを通す（codexなど）
+export PATH="$PATH:$HOME/.asdf/installs/nodejs/$(node -v | cut -c2-)/bin"
+
 # Initialization
 # ============================================================
 # zplug
