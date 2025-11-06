@@ -68,7 +68,7 @@ cask "font-plemol-jp"
 # ==================================================================
 # Browser
 cask "brave-browser"
-# cask "arc"
+cask "chatgpt-atlas"
 
 # Text editor
 cask "visual-studio-code"
@@ -80,6 +80,7 @@ cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "raycast"
 cask "zoom"
+cask "openmtp"  # android-file-transfer の代替
 
 # Programming
 # cask "docker"
@@ -87,17 +88,17 @@ cask "rancher"  # Docker Desktop とコンフリクトするのでどっちか�
 cask "warp"
 # cask "lm-studio"
 # cask "tableplus"
-# cask "microsoft-azure-storage-explorer"
+
+# Sound
+cask "mp3gain-express"
+cask "blackhole-2ch"
 
 # Usefulls
-cask "android-file-transfer"
 cask "alt-tab"
-# cask "cold-turkey-blocker"  # 最近はあまり使ってないのでコメントアウト
 cask "funter"
 cask "keyboardcleantool"
-cask "mp3gain-express"
 cask "obsidian"
 cask "spotify"
-cask "tunnelblick"
-# cask "hyperswitch" # 2023-04-15時点で消滅している？
+# cask "cold-turkey-blocker"
+# cask "tunnelblick"
 # cask "microsoft-remote-desktop"
