@@ -63,9 +63,6 @@ brew "azure-cli"
 cask "font-hack-nerd-font"
 cask "font-plemol-jp"
 
-# Androidスマホ接続用
-brew "android-platform-tools"
-
 #==================================================================
 # Desktop applications
 # ==================================================================
@@ -83,6 +80,7 @@ cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "raycast"
 cask "zoom"
+cask "android-platform-tools"
 
 # Programming
 # cask "docker"
