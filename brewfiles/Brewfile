@@ -80,7 +80,7 @@ cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "raycast"
 cask "zoom"
-cask "openmtp"  # android-file-transfer の代替
+cask "android-platform-tools"
 
 # Programming
 # cask "docker"

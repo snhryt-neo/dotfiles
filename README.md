@@ -30,13 +30,17 @@
 $ git clone https://github.com/snhryt-neo/dotfiles.git
 $ cd dotfiles
 $ sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d # タスクランナーの go-task をバイナリからインストール
-$ export PATH="$PATH:$(pwd)/bin"      # ./bin にインストールされるのでパスを通す
+$ export PATH="$PATH:$(pwd)/bin"      # go-task が ./bin にインストールされるのでパスを通す
 $ export GIT_USER_EMAIL="xxxxx@xxxxx" # GitHubに登録しているメールアドレス
 $ task setup-all
 # 以降、大体20分ぐらいかかる＆ちょこちょこインタラクティブにターミナル操作する必要あり
 # エラーが発生したら task other のようにタスク個別で指定すると効率よし
 $ rm -r ./bin # Homebrew経由で go-task インストール済のため、バイナリからインストールしたものは消す
 ```
+
+> [!NOTE]
+> [DroidDock](https://rajivm1991.github.io/DroidDock/) がbrewでのインストールに対応していないので手動で落とす必要アリ
+
 
 ## Directory Structure
 ```bash
