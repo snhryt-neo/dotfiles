@@ -1,6 +1,8 @@
 brew "mas"
 mas "CopyClip - Clipboard History", id: 595191960
 mas "LINE", id: 539883307
+mas "Kindle", id: 302584613
 
-# GUIぽちぽちでは成功するがCLIでは失敗する事例あり
+# CLIでは失敗する
+# mas "Proton Authenticator", id: 6741758667
 # mas "Focus To-Do", id: 1258530160

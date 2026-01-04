@@ -74,6 +74,11 @@ cask "chatgpt-atlas"
 cask "visual-studio-code"
 cask "cursor"
 
+# AI
+cask "claude"
+cask "claude-code"
+cask "chatgpt"
+
 # Infrastructure
 cask "google-drive"
 cask "google-japanese-ime"
