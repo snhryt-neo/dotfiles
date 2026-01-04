@@ -77,7 +77,7 @@ cask "cursor"
 # AI
 cask "claude"
 cask "claude-code"
-cask "cha`tgpt"
+cask "chatgpt"
 
 # Infrastructure
 cask "google-drive"
