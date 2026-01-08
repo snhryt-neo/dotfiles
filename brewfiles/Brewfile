@@ -38,8 +38,8 @@ brew "duf"       # `df`
 brew "dust"      # `du`
 brew "trash-cli" # `rm`
 
-# Virtual environment
-brew "asdf"
+# Virtual environment / Version manager
+brew "mise"
 
 # Python
 brew "uv"
