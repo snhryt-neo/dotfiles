@@ -136,7 +136,11 @@
                     },
                     "simple_modifications": [
                         {
-                            "from": { "key_code": "caps_lock" },
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
                             "to": [{ "key_code": "left_command" }]
                         }
                     ]
@@ -151,12 +155,12 @@
                     "ignore": false,
                     "simple_modifications": [
                         {
-                            "from": { "key_code": "left_command" },
-                            "to": [{ "key_code": "left_option" }]
-                        },
-                        {
                             "from": { "key_code": "left_option" },
                             "to": [{ "key_code": "left_command" }]
+                        },
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
                         }
                     ]
                 }
