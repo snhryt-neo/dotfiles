@@ -11,6 +11,9 @@ export PATH="$PATH:$HOME/.rd/bin"     # Rancher Desktop
 # asdfのnpmでインストールしたパッケージにパスを通す（codexなど）
 export PATH="$PATH:$HOME/.asdf/installs/nodejs/$(node -v | cut -c2-)/bin"
 
+# Claude Codeのエラー解消用
+export TMPDIR="$HOME/.tmp"
+
 # Initialization
 # ============================================================
 # zplug
@@ -104,3 +107,4 @@ if ! zplug check --verbose; then
   zplug install
 fi
 zplug load #--verbose
+
