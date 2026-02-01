@@ -1,11 +1,16 @@
-#!/usr/local/bin/zsh
+#!/bin/zsh
 set -e
 
 # =============================================================================
 # zplugのインストール（Homebrew経由だと変になったことがあるため公式手順通りにcurlでインストール）
 # https://github.com/zplug/zplug
 # =============================================================================
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+if [ ! -d "$HOME/.zplug" ]; then
+  echo "📦 Installing zplug..."
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+else
+  echo "✅ zplug is already installed"
+fi
 
 # =============================================================================
 # Python実行環境の構築

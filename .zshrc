@@ -8,6 +8,9 @@ export PATH="$PATH:/opt/homebrew/bin" # Homebrew (ARM)
 export PATH="$PATH:$HOME/.local/bin"  # pipx
 export PATH="$PATH:$HOME/.rd/bin"     # Rancher Desktop
 
+# Claude Codeのエラー解消用
+export TMPDIR="$HOME/.tmp"
+
 # Initialization
 # ============================================================
 # zplug
@@ -93,3 +96,4 @@ if ! zplug check --verbose; then
   zplug install
 fi
 zplug load #--verbose
+
