@@ -15,12 +15,12 @@ backup_and_link() {
     # バックアップ名には本日の日付を含めて作成する
     today=$(date '+%Y%m%d')
     backup="${dst_path}_${today}"
-    mv $dst_path $backup
+    mv "$dst_path" "$backup"
     echo "🚚 $name was backed up to $backup"
   fi
 
   # シンボリックリンクを作成する
-  ln -s $src_path $dst_path
+  ln -s "$src_path" "$dst_path"
   echo "🎉 Created symbolic link to $name"
 }
 
@@ -32,17 +32,17 @@ FILES=(.zshrc)
 for dotfile in "${FILES[@]}"; do
   SRC_PATH="$HERE/$dotfile"
   DST_PATH="$HOME/$dotfile"
-  backup_and_link $SRC_PATH $DST_PATH $dotfile
+  backup_and_link "$SRC_PATH" "$DST_PATH" "$dotfile"
 done
 
 # ~/.config 直下に置く設定ファイル・ディレクトリ群
 CFGDIR="$HOME/.config"
-if [ ! -d $CFGDIR ]; then
-  mkdir -p $CFGDIR
+if [ ! -d "$CFGDIR" ]; then
+  mkdir -p "$CFGDIR"
 fi
 CONFIGS=(bat git karabiner)
 for cfg in "${CONFIGS[@]}"; do
   SRC_PATH="$HERE/$cfg"
   DST_PATH="$CFGDIR/$cfg"
-  backup_and_link $SRC_PATH $DST_PATH $cfg
+  backup_and_link "$SRC_PATH" "$DST_PATH" "$cfg"
 done
