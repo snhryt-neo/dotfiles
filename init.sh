@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/bin/zsh
 set -e
 
 # Apple SiliconのMacでIntel Mac用のアプリを使うために Rosetta 2 が必要
