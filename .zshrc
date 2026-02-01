@@ -8,9 +8,6 @@ export PATH="$PATH:/opt/homebrew/bin" # Homebrew (ARM)
 export PATH="$PATH:$HOME/.local/bin"  # pipx
 export PATH="$PATH:$HOME/.rd/bin"     # Rancher Desktop
 
-# asdfのnpmでインストールしたパッケージにパスを通す（codexなど）
-export PATH="$PATH:$HOME/.asdf/installs/nodejs/$(node -v | cut -c2-)/bin"
-
 # Claude Codeのエラー解消用
 export TMPDIR="$HOME/.tmp"
 
@@ -19,16 +16,8 @@ export TMPDIR="$HOME/.tmp"
 # zplug
 source "$HOME/.zplug/init.zsh"
 
-# asdf
-# IntelチップとARMチップで brew install したコマンドのインストール先が異なる
-ASDF_COMMON_PATH="opt/asdf/libexec/asdf.sh"
-INTEL_ASDF_INIT_FILEPATH="/usr/local/$ASDF_COMMON_PATH"
-ARM_ASDF_INIT_FILEPATH="/opt/homebrew/$ASDF_COMMON_PATH"
-if [ -f $INTEL_ASDF_INIT_FILEPATH ]; then
-  . $INTEL_ASDF_INIT_FILEPATH
-else
-  . $ARM_ASDF_INIT_FILEPATH
-fi
+# mise
+eval "$(mise activate zsh)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
