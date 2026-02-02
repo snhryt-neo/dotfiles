@@ -38,10 +38,6 @@ $ task setup-all
 $ rm -r ./bin # Homebrew経由で go-task インストール済のため、バイナリからインストールしたものは消す
 ```
 
-> [!NOTE]
-> [DroidDock](https://rajivm1991.github.io/DroidDock/) がbrewでのインストールに対応していないので手動で落とす必要アリ
-
-
 ## Directory Structure
 ```bash
 $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
