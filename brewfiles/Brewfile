@@ -84,7 +84,7 @@ cask "codex"
 # Infrastructure
 cask "google-drive"
 cask "google-japanese-ime"
-cask "azookey-desktop"
+cask "azooKey"
 cask "karabiner-elements"
 cask "raycast"
 cask "zoom"
