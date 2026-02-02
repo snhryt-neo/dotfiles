@@ -28,5 +28,4 @@ mise use -g node@latest
 
 # Node.jsのインストールを待機してから npm パッケージをインストール
 echo "📦 Installing global npm packages..."
-npm i -g @openai/codex
 npm i -g @dataform/cli

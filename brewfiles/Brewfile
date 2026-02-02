@@ -8,6 +8,7 @@ brew "git"
 brew "gh"
 brew "pre-commit"
 brew "vim"
+brew "neovim"
 brew "zsh"
 brew "gawk"
 brew "gnu-sed"
@@ -56,7 +57,7 @@ brew "awscli"
 
 ## Azure
 ## https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli-macos
-brew "azure-cli"
+# brew "azure-cli"
 
 # たわらさんのフォントシリーズ
 # https://github.com/yuru7/HackGen
@@ -78,10 +79,12 @@ cask "cursor"
 cask "claude"
 cask "claude-code"
 cask "chatgpt"
+cask "codex"
 
 # Infrastructure
 cask "google-drive"
 cask "google-japanese-ime"
+cask "azookey-desktop"
 cask "karabiner-elements"
 cask "raycast"
 cask "zoom"
@@ -90,7 +93,7 @@ cask "android-platform-tools"
 # Programming
 # cask "docker"
 cask "rancher"  # Docker Desktop とコンフリクトするのでどっちかにする
-cask "warp"
+cask "ghostty"
 # cask "lm-studio"
 # cask "tableplus"
 
