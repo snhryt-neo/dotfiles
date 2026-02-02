@@ -46,9 +46,6 @@ brew "mise"
 brew "uv"
 # brew "pipx"
 
-# Japanese IME
-brew "azooKey"
-
 # Public clouds' CLI command
 ## Google Cloud
 ## https://zenn.dev/phi/articles/gcloud-setup-with-homebrew-on-mac
@@ -87,6 +84,7 @@ cask "codex"
 # Infrastructure
 cask "google-drive"
 cask "google-japanese-ime"
+cask "azooKey" # 公式のGitHubのREADMEだと brew で入れるようになっているが、正しくは cask で入れる
 cask "karabiner-elements"
 cask "raycast"
 cask "zoom"
