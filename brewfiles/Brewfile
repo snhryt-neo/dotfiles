@@ -84,7 +84,7 @@ cask "codex"
 # Infrastructure
 cask "google-drive"
 cask "google-japanese-ime"
-cask "azookey-desktop"
+cask "azooKey" # 公式のGitHubのREADMEだと brew で入れるようになっているが、正しくは cask で入れる
 cask "karabiner-elements"
 cask "raycast"
 cask "zoom"
