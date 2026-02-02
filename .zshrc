@@ -48,7 +48,7 @@ alias la='ls -A'
 alias sz='source ~/.zshrc'
 alias cz='cat ~/.zshrc'
 alias vz='vi ~/.zshrc'
-alias rm='trash-put' # https://github.com/andreafrancia/trash-cli
+alias rm='trash' # https://github.com/andreafrancia/trash-cli
 
 ## Git
 alias g='git'
