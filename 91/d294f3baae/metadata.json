@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.4",
+  "checkpoint_id": "91d294f3baae",
+  "strategy": "manual-commit",
+  "branch": "feat/claude-code-nize",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "README.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/91/d294f3baae/0/metadata.json",
+      "transcript": "/91/d294f3baae/0/full.jsonl",
+      "context": "/91/d294f3baae/0/context.md",
+      "content_hash": "/91/d294f3baae/0/content_hash.txt",
+      "prompt": "/91/d294f3baae/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 9,
+    "cache_creation_tokens": 4335,
+    "cache_read_tokens": 281597,
+    "output_tokens": 416,
+    "api_call_count": 7
+  }
+}

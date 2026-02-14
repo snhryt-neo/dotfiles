@@ -1,0 +1,45 @@
+CLAUDE.md のコミットメッセージ部分を Conventional Commits でcommitするように指示変更して。templateの中身には絵文字もあるけどこのリポジトリでのcommitはconventioanlでいいよ。あと、コミットメッセージ日本語で
+
+---
+
+CLAUDE.md commit, pushして、PRのdraft作って
+
+---
+
+entire のインストールスクリプトを追加して。brew 使う方式で
+
+---
+
+commit, pushした後で entire enable して
+
+---
+
+今入ってる entire は curl -fsSL https://entire.io/install.sh | bash でインストールしたやつなので一度アンインストールしてbrewで入れ直して
+
+---
+
+.entire ディレクトリの更新必要だったら更新して
+
+---
+
+よろ
+
+---
+
+git status
+
+---
+
+.claude の変更点って何？
+
+---
+
+settings.json だけコミットで
+
+---
+
+.zshrc の末尾は entire 関連のスクリプトだよね？そうわかる感じで .zshrc 追記してcommit, pushしておいて
+
+---
+
+README.md更新した後にPR更新して
