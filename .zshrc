@@ -97,3 +97,10 @@ if ! zplug check --verbose; then
 fi
 zplug load #--verbose
 
+
+# =============================================================================
+# Entire CLI (AIエージェントのセッション記録ツール)
+# https://github.com/entireio/cli
+# =============================================================================
+# シェル補完を有効化
+autoload -Uz compinit && compinit && source <(entire completion zsh)
