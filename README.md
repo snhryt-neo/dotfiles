@@ -42,19 +42,25 @@ $ rm -r ./bin # Homebrew経由で go-task インストール済のため、バ�
 ```bash
 $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ./
+├── .claude/
+│   └── settings.json       # Claude Code のフック設定（entire 連携）
+├── .entire/
+│   └── settings.json       # Entire CLI の設定（AIセッション記録ツール）
 ├── .github/
 │   └── workflows/
-│       └── actions.yml # GitHub Actionsによる一部インストールのテスト
+│       └── actions.yml     # GitHub Actionsによる一部インストールのテスト
 ├── bat/ # bat（catコマンドのカラー版）のconfig
 │   └── config
 ├── brewfiles/ # brew bundle でインストールするアプリ・コマンドの一覧
 │   ├── Brewfile
 │   └── Brewfile.mas
+├── claude_global/
+│   └── settings.json       # Claude Code のグローバル設定（~/.claude/settings.json にリンク）
 ├── git/ # グローバルなGitの設定
 │   ├── templates/
 │   │   ├── secrets/ # git init時の git-secrets 自動追加設定
 │   │   │   └── hooks/
-│   │   └── commit-message # Emoji prefix, Conventional commits等のリファレンス
+│   │   └── commit-message # Conventional commits のリファレンス
 │   ├── config # ~/.gitconfig と等価
 │   └── ignore # macOS用のグローバルなignore設定
 ├── karabiner/ # Karabiner-Elements のキーバインディング
@@ -67,6 +73,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 │   └── chrome-extensions_20240922.html
 ├── .pre-commit-config.yaml # pre-commit config
 ├── .zshrc                  # zsh config
+├── CLAUDE.md               # Claude Code へのプロジェクト指示
 ├── README.md               # このドキュメント
 ├── Taskfile.yml            # タスクランナーの設定ファイル (go-task)
 ├── github.sh*              # 以下、詳細は Taskfile.yml を参照
