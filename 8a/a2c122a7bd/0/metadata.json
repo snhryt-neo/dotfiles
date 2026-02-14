@@ -1,0 +1,33 @@
+{
+  "cli_version": "0.4.3",
+  "checkpoint_id": "8aa2c122a7bd",
+  "session_id": "aba4a2c6-c75e-48a5-af54-ea4f168c6006",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-14T15:47:38.797627Z",
+  "branch": "feat/claude-code-nize",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "brewfiles/Brewfile"
+  ],
+  "agent": "Claude Code",
+  "transcript_identifier_at_start": "2d7b0ef0-706f-4828-9ac7-4cfbf4efbbf2",
+  "checkpoint_transcript_start": 39,
+  "transcript_lines_at_start": 39,
+  "token_usage": {
+    "input_tokens": 16,
+    "cache_creation_tokens": 6722,
+    "cache_read_tokens": 319040,
+    "output_tokens": 2110,
+    "api_call_count": 12
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-14T15:47:38.746459Z",
+    "agent_lines": 0,
+    "human_added": 94,
+    "human_modified": 7,
+    "human_removed": 0,
+    "total_committed": 99,
+    "agent_percentage": 0
+  },
+  "transcript_path": ".claude/projects/-Users-snhryt-workspace-dotfiles/aba4a2c6-c75e-48a5-af54-ea4f168c6006.jsonl"
+}
