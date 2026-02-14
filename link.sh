@@ -46,3 +46,13 @@ for cfg in "${CONFIGS[@]}"; do
   DST_PATH="$CFGDIR/$cfg"
   backup_and_link "$SRC_PATH" "$DST_PATH" "$cfg"
 done
+
+# Claude Code のグローバルな設定
+CLAUDEDIR="$HOME/.claude"
+if [ ! -d "$CLAUDEDIR" ]; then
+  mkdir -p "$CLAUDEDIR"
+fi
+SRC_PATH="$HERE/claude_global/settings.json"
+DST_PATH="$CLAUDEDIR/settings.json"
+backup_and_link "$SRC_PATH" "$DST_PATH" .claude/settings.json
+
