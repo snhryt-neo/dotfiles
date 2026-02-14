@@ -1,0 +1,31 @@
+{
+  "cli_version": "0.4.3",
+  "checkpoint_id": "0ed39802b03b",
+  "session_id": "255d17df-8768-452f-9b58-43d14ffac341",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-14T15:32:01.31195Z",
+  "branch": "feat/add-claude-global-settings",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "CLAUDE.md",
+    "claude_global/settings.json"
+  ],
+  "agent": "Claude Code",
+  "token_usage": {
+    "input_tokens": 25,
+    "cache_creation_tokens": 31491,
+    "cache_read_tokens": 424814,
+    "output_tokens": 949,
+    "api_call_count": 15
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-14T15:32:01.182783Z",
+    "agent_lines": 4,
+    "human_added": 51,
+    "human_modified": 37,
+    "human_removed": 0,
+    "total_committed": 92,
+    "agent_percentage": 4.3478260869565215
+  },
+  "transcript_path": ".claude/projects/-Users-snhryt-workspace-dotfiles/255d17df-8768-452f-9b58-43d14ffac341.jsonl"
+}
