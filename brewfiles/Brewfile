@@ -110,6 +110,12 @@ cask "spotify"
 # cask "cold-turkey-blocker"
 # cask "tunnelblick"
 # cask "microsoft-remote-desktop"
+cask "aqua-voice"
+
+# Entire (AIエージェントのセッションをgitと連携して記録)
+# https://github.com/entireio/cli
+tap "entireio/tap"
+brew "entireio/tap/entire"
 
 # DroidDock
 tap "rajivm1991/droiddock"
