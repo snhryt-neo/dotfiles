@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.4",
+  "checkpoint_id": "9dd43a92dd2d",
+  "session_id": "349c2ef9-189e-4aa5-b24c-3530a228d0f9",
+  "strategy": "manual-commit",
+  "created_at": "2026-02-16T05:10:15.73145Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    ".zshrc"
+  ],
+  "agent": "Claude Code",
+  "token_usage": {
+    "input_tokens": 25,
+    "cache_creation_tokens": 12636,
+    "cache_read_tokens": 526381,
+    "output_tokens": 1335,
+    "api_call_count": 21
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-02-16T05:10:15.684795Z",
+    "agent_lines": 3,
+    "human_added": 40,
+    "human_modified": 1,
+    "human_removed": 0,
+    "total_committed": 44,
+    "agent_percentage": 6.8181818181818175
+  },
+  "transcript_path": ".claude/projects/-Users-snhryt-workspace-dotfiles/349c2ef9-189e-4aa5-b24c-3530a228d0f9.jsonl"
+}
