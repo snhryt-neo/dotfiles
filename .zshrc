@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090,SC1091
 export CLICOLOR=1
 autoload -Uz compinit && compinit
 
@@ -64,10 +66,10 @@ alias gcm='git switch main'
 alias gsl='git stash list'
 
 ## gcloud
-alias gcloud-switch='switch_gcloud_configuration'
+alias gcactivate='switch_gcloud_configuration'
 
 function switch_gcloud_configuration() {
-  gcloud config configurations activate $(gcloud config configurations list | awk '{print $1}' | grep -v NAME | peco)
+  gcloud config configurations activate "$(gcloud config configurations list | awk '{print $1}' | grep -v NAME | peco)"
 }
 # ============================================================
 
@@ -90,7 +92,7 @@ setopt correct
 setopt pushd_ignore_dups
 
 # 移動した後は 'ls' する
-function chpwd() { ls -F }
+function chpwd() { ls -F; }
 
 if ! zplug check --verbose; then
   zplug install
