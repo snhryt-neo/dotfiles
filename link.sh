@@ -5,16 +5,36 @@ backup_and_link() {
   local src_path=$1
   local dst_path=$2
   local name=$3
+  local timestamp backup current_target
 
+  if [ ! -e "$src_path" ]; then
+    echo "❌ Source not found: $src_path" >&2
+    return 1
+  fi
+
+  # 既にシンボリックリンクが存在する場合の処理
   if [ -L "$dst_path" ]; then
-    # すでにシンボリックリンクが貼られている場合は無視する
-    echo "⚠️ $dst_path is already a symbolic link"
-    return
+    # 現在のリンク先を取得（壊れたリンクでもエラーにしないために || true）
+    current_target=$(readlink "$dst_path" || true)
+
+    # すでに期待しているリンク先（src_path）を向いている場合は何もしない
+    if [ "$current_target" = "$src_path" ]; then
+      echo "⏭️ $name is already linked"
+      return 0
+    fi
+
+    # 別のリンク先を向いている場合はバックアップを作成して退避する
+    # バックアップのサフィックスには現在のタイムスタンプを付与
+    timestamp=$(date '+%Y%m%d_%H%M%S')
+    backup="${dst_path}_${timestamp}"
+    mv "$dst_path" "$backup"
+    echo "🚚 Existing symlink for $name was backed up to $backup"
+
   elif [ -e "$dst_path" ]; then
-    # ファイルまたはディレクトリの実態存在する場合はバックアップを作成する
-    # バックアップ名には本日の日付を含めて作成する
-    today=$(date '+%Y%m%d')
-    backup="${dst_path}_${today}"
+    # ファイルまたはディレクトリの実態が存在する場合はバックアップを作成する
+    # バックアップのサフィックスには現在のタイムスタンプを付与
+    timestamp=$(date '+%Y%m%d_%H%M%S')
+    backup="${dst_path}_${timestamp}"
     mv "$dst_path" "$backup"
     echo "🚚 $name was backed up to $backup"
   fi
@@ -24,8 +44,8 @@ backup_and_link() {
   echo "🎉 Created symbolic link to $name"
 }
 
-# カレントディレクトリの取得
-HERE=$(pwd)
+# スクリプト自身のあるディレクトリ
+HERE=$(cd "$(dirname "$0")" && pwd)
 
 # ~/ 直下に置く .xxx 系のファイル群
 FILES=(.zshrc)
@@ -37,10 +57,8 @@ done
 
 # ~/.config 直下に置く設定ファイル・ディレクトリ群
 CFGDIR="$HOME/.config"
-if [ ! -d "$CFGDIR" ]; then
-  mkdir -p "$CFGDIR"
-fi
-CONFIGS=(bat git karabiner)
+mkdir -p "$CFGDIR"
+CONFIGS=(bat git karabiner sheldon)
 for cfg in "${CONFIGS[@]}"; do
   SRC_PATH="$HERE/$cfg"
   DST_PATH="$CFGDIR/$cfg"
@@ -49,10 +67,14 @@ done
 
 # Claude Code のグローバルな設定
 CLAUDEDIR="$HOME/.claude"
-if [ ! -d "$CLAUDEDIR" ]; then
-  mkdir -p "$CLAUDEDIR"
-fi
+mkdir -p "$CLAUDEDIR"
 SRC_PATH="$HERE/claude_global/settings.json"
 DST_PATH="$CLAUDEDIR/settings.json"
 backup_and_link "$SRC_PATH" "$DST_PATH" .claude/settings.json
 
+# Ghostty
+GHOSTTYDIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
+mkdir -p "$GHOSTTYDIR"
+SRC_PATH="$HERE/ghostty/config"
+DST_PATH="$GHOSTTYDIR/config"
+backup_and_link "$SRC_PATH" "$DST_PATH" ghostty/config
