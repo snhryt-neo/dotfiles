@@ -1,6 +1,3 @@
-# shellcheck shell=bash
-# shellcheck disable=SC1090,SC1091
-
 export CLICOLOR=1
 export TMPDIR="$HOME/.tmp"
 
