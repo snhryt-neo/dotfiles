@@ -1,0 +1,23 @@
+shell = "zsh"
+
+[plugins]
+
+# 補完
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+# 履歴検索
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+
+# シンタックスハイライト（最後に読み込む必要あり）
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+# docker補完
+[plugins.docker-zsh-completion]
+github = "greymd/docker-zsh-completion"
+
+# lime（使ってるので一応維持）
+[plugins.lime]
+github = "yous/lime"

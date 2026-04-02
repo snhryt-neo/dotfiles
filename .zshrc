@@ -1,47 +1,71 @@
 # shellcheck shell=bash
 # shellcheck disable=SC1090,SC1091
+
 export CLICOLOR=1
-autoload -Uz compinit && compinit
-
-# PATHを通す
-export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/opt/homebrew/bin" # Homebrew (ARM)
-export PATH="$PATH:$HOME/.local/bin"  # pipx
-export PATH="$PATH:$HOME/.rd/bin"     # Rancher Desktop
-
-# Claude Codeのエラー解消用
 export TMPDIR="$HOME/.tmp"
 
-# Initialization
-# ============================================================
-# zplug
-source "$HOME/.zplug/init.zsh"
+# ======================================================================
+# PATH
+# ======================================================================
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin
+  /usr/local/bin
+  /usr/local/sbin
+  "$HOME/.local/bin"
+  "$HOME/.rd/bin"
+  "${path[@]}"
+)
 
-# mise
+# ======================================================================
+# Tool init
+# ======================================================================
 eval "$(mise activate zsh)"
-
-# Zoxide
 eval "$(zoxide init zsh)"
 
-# google-cloud-sdk
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-# ============================================================
+# gcloud
+if command -v brew >/dev/null 2>&1; then
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+fi
 
+# ======================================================================
+# Zsh plugin manager
+# ======================================================================
+eval "$(sheldon source)"
+
+# ======================================================================
+# Zsh Completion
+# ======================================================================
+autoload -Uz compinit
+compinit
+
+# Entire CLI
+source <(entire completion zsh)
+
+# ======================================================================
+# Options
+# ======================================================================
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+
+# ======================================================================
 # Alias
-# ============================================================
-## Substitution of basic commands
+# ======================================================================
+
+## Core replacements
 alias cd='z'
 alias ls='lsd -F --group-directories-first'
 alias find='fd'
 alias cat='bat'
 alias grep='rg'
-# alias curl='https' # ← さすがに curl とは違いすぎた
 alias ps='procs'
 alias top='btm'
 alias df='duf'
 alias du='dust'
+alias rm='trash'
+# alias curl='https' # さすがに curl とは違いすぎた
 
 ## General
 alias vi='vim'
@@ -50,59 +74,29 @@ alias la='ls -A'
 alias sz='source ~/.zshrc'
 alias cz='cat ~/.zshrc'
 alias vz='vi ~/.zshrc'
-alias rm='trash' # https://github.com/andreafrancia/trash-cli
 
 ## Git
-alias g='git'
-compdef g=git
-
 alias gs='git status'
 alias ga='git add'
-alias gc='git commit'
 alias gl='git log'
 alias gd='git diff'
 alias gsw='git switch -C'
 alias gcm='git switch main'
+alias gcd='git switch -C develop'
 alias gsl='git stash list'
 
-## gcloud
+## Claude Code
+alias claude-dang='claude --dangerously-skip-permissions'
+alias ccc='cat ~/.claude/settings.json'
+alias vcc='vi ~/.claude/settings.json'
+
+## Google Cloud
 alias gcactivate='switch_gcloud_configuration'
 
-function switch_gcloud_configuration() {
-  gcloud config configurations activate "$(gcloud config configurations list | awk '{print $1}' | grep -v NAME | peco)"
+switch_gcloud_configuration() {
+  gcloud config configurations activate "$(
+    gcloud config configurations list \
+      | awk 'NR>1 {print $1}' \
+      | peco
+  )"
 }
-# ============================================================
-
-# Zplug plugins
-zplug "yous/lime"
-zplug "zsh-users/zsh-completions"
-# zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "greymd/docker-zsh-completion"
-
-# 'cd' なしで移動する
-setopt auto_cd
-setopt auto_pushd
-
-# 重複するディレクトリは記録しないようにする
-setopt correct
-
-# 'cd -' [Tab] で以前移動したディレクトリに移動する
-setopt pushd_ignore_dups
-
-# 移動した後は 'ls' する
-function chpwd() { ls -F; }
-
-if ! zplug check --verbose; then
-  zplug install
-fi
-zplug load #--verbose
-
-
-# =============================================================================
-# Entire CLI (AIエージェントのセッション記録ツール)
-# https://github.com/entireio/cli
-# =============================================================================
-# シェル補完を有効化
-autoload -Uz compinit && compinit && source <(entire completion zsh)
