@@ -16,7 +16,7 @@ brew "tree"
 brew "wget"
 brew "openssh"
 brew "go-task"
-brew "gitmoji"     # git commitするときの絵文字一覧
+# brew "gitmoji"     # git commitするときの絵文字一覧
 brew "git-secrets" # credentialファイルをgit commitしないようにする
 brew "peco"        # 高度な検索
 brew "xz"          # ファイル圧縮
@@ -38,6 +38,9 @@ brew "bottom"    # `top`
 brew "duf"       # `df`
 brew "dust"      # `du`
 brew "trash-cli" # `rm`
+
+# Zsh plugin manager
+brew "sheldon"
 
 # Virtual environment / Version manager
 brew "mise"
@@ -64,12 +67,13 @@ brew "awscli"
 cask "font-hack-nerd-font"
 cask "font-plemol-jp"
 
-#==================================================================
+# ==================================================================
 # Desktop applications
 # ==================================================================
 # Browser
 cask "brave-browser"
-cask "chatgpt-atlas"
+cask "google-chrome"
+# cask "chatgpt-atlas"
 
 # Text editor
 cask "visual-studio-code"
@@ -77,13 +81,13 @@ cask "cursor"
 
 # AI
 cask "claude"
-cask "claude-code"
 cask "chatgpt"
+cask "claude-code"
 cask "codex"
 
 # Infrastructure
 cask "google-drive"
-cask "google-japanese-ime"
+# cask "google-japanese-ime"
 cask "azooKey" # 公式のGitHubのREADMEだと brew で入れるようになっているが、正しくは cask で入れる
 cask "karabiner-elements"
 cask "raycast"
@@ -120,4 +124,3 @@ cask "entireio/tap/entire"
 # DroidDock
 tap "rajivm1991/droiddock"
 cask "rajivm1991/droiddock/droiddock"
-
