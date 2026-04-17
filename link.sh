@@ -65,12 +65,20 @@ for cfg in "${CONFIGS[@]}"; do
   backup_and_link "$SRC_PATH" "$DST_PATH" "$cfg"
 done
 
-# Claude Code のグローバルな設定
+# Claude Code のグローバルな設定（claude_global/ 配下を ~/.claude/ に一括リンク）
 CLAUDEDIR="$HOME/.claude"
 mkdir -p "$CLAUDEDIR"
-SRC_PATH="$HERE/claude_global/settings.json"
-DST_PATH="$CLAUDEDIR/settings.json"
-backup_and_link "$SRC_PATH" "$DST_PATH" .claude/settings.json
+for entry in "$HERE/claude_global/"*; do
+  name=$(basename "$entry")
+  backup_and_link "$entry" "$CLAUDEDIR/$name" ".claude/$name"
+done
+
+# Codex のグローバルな設定
+CODEXDIR="$HOME/.codex"
+mkdir -p "$CODEXDIR"
+SRC_PATH="$HERE/codex_global/config.toml"
+DST_PATH="$CODEXDIR/config.toml"
+backup_and_link "$SRC_PATH" "$DST_PATH" .codex/config.toml
 
 # Ghostty
 GHOSTTYDIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
