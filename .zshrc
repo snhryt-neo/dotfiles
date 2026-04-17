@@ -82,10 +82,13 @@ alias gcm='git switch main'
 alias gcd='git switch -C develop'
 alias gsl='git stash list'
 
-## Claude Code
+## Claude Code / Codex
 alias claude-dang='claude --dangerously-skip-permissions'
 alias ccc='cat ~/.claude/settings.json'
 alias vcc='vi ~/.claude/settings.json'
+alias codex-dang='codex --dangerously-bypass-approvals-and-sandbox'
+alias ccdx='cat ~/.codex/config.toml'
+alias vcdx='vi ~/.codex/config.toml'
 
 ## Google Cloud
 alias gcactivate='switch_gcloud_configuration'
