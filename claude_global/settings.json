@@ -30,7 +30,12 @@
       "Bash(gh api -X DELETE*)",
       "Bash(sudo *)"
     ],
-    "defaultMode": "auto"
+    "defaultMode": "plan"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0
   },
   "enabledPlugins": {
     "claude-md-management@claude-plugins-official": true,
@@ -66,9 +71,11 @@
     }
   },
   "language": "japanese",
+  "effortLevel": "medium",
   "autoUpdatesChannel": "stable",
   "autoDreamEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "preferredNotifChannel": "terminal_bell"
 }
