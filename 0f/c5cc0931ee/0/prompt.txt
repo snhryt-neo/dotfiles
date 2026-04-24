@@ -1,0 +1,37 @@
+/skill-creator:skill-creator @claude_global/skills/SKILL.md Claude Codeのスキルとして使うことを想定して改善して。GitHubにアップロードする README や 各種Markdownを書くときに、GitHub固有のMarkdown記法を使うためのスキル
+
+---
+
+あと、kono
+
+---
+
+あと、README.md と docs/xxx.md 以外にはこのスキル適用しなくていいや。複雑になりすぎるから。これらのドキュメントを作成・更新・修正するように依頼されたときに、必要に応じて使うようにして
+
+---
+
+Auto-linked references,  Syntax highlighting,  Relative links もGitHub固有じゃないので決してok
+
+---
+
+バッジは https://shields.io/ をベースに使うような書き方に修正しといて
+
+---
+
+task link でこのスキルも ~/.claude に反映できる？
+
+---
+
+というより、~/.claude/ に claude_global/ 配下をまるっとシンボリックリンク貼りたいんだけど、そういうのってできる？
+
+---
+
+よろ
+
+---
+
+Claude Codeのグローバルスキルを管理する方法って上記以外に何かいい方法内？
+
+---
+
+よろ
