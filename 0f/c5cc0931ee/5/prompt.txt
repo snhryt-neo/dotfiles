@@ -1,0 +1,126 @@
+/skill-creator:skill-creator 
+Claude Code 上で /imagegen スラッシュコマンドとして呼び出せる画像生成コマンドを作りたいです。内部で Codex CLI の組み込み画像生成（$imagegen）に処理を委譲します。
+ユーザーが /imagegen <プロンプト> を実行すると、Claude Code が codex exec で Codex CLI を呼び出し、gpt-image-2 で画像を生成します。生成された画像はカレントディレクトリ直下に保存し（デフォルトの ~/.codex/generated_images/ ではなく）、完了後に保存先パスを報告します。
+スキルの種類は Claude Code カスタムスラッシュコマンドで、~/.claude/commands/imagegen.md に置いてグローバルに使えるようにしたいです。
+前提として、Codex CLI はインストール済みで ChatGPT アカウントで認証済みです。API キーは使わず、Codex CLI の組み込み使用量で処理します。出力先の制御は codex exec への自然言語指示でまず試み、うまくいかない場合は find と mv のフォールバックで対応します。
+インプットは以下を想定しています。プロンプト（日本語・英語どちらでも可）は必須です。オプションとして、サイズ（デフォルト 1024x1024）、quality（デフォルト medium）、出力ファイル名（デフォルトはプロンプトから自動生成した snake_case の PNG ファイル名）を指定できるようにしたいです。
+テストケースのイメージは以下です。/imagegen 富士山と桜のポスター、/imagegen a minimalist logo for a data engineering tool、/imagegen dashboard mockup for BigQuery monitoring --size 1536x864、/imagegen 猫のアイコン --output cat_icon.png といった使い方を想定しています。
+
+---
+
+どっちでもなくて、~/.claude/skills/imagegen/SKILL.md でユーザーレベルのスキルとして定義して /imagegen で呼び出すイメージだった。これだと問題ある？
+
+---
+
+/imagegen ゴルゴンゾーラチーズとくるみのクッキーの美味しそうな画像
+
+---
+
+そしたら imagegen スキルからフォールバックの処理は消しておいて。あと、画像作るときにプリセットの画像サイズをいくつか用意しておいて、ユーザーから指示がない場合はどれで作るかをユーザー確認させるようにしたい
+・汎用（横長、1280×720）
+・アイコン/サムネイル用（正方形、512x512）
+・OGP/アイキャッチ用（横長、1200x630）
+・フルHD（横長、1920×1080）
+
+---
+
+正方形だけ最小Pixelx最小pixelにしたい。それ以外は代替案でok
+
+---
+
+--size 指定があった時も以下の規約に違反している場合はその旨をアラートし、なるべく近い条件で生成する。ユーザー指定のサイズが小さすぎたり大きすぎたりして、条件の近似が難しい場合はユーザーにサイズを再考してもらう
+ - **サイズ制約** (gpt-image-2): 各辺は 16px の倍数、長辺 ≤ 3840px、縦横比 ≤ 3:1、総ピクセル数 655,360〜8,294,400
+
+---
+
+/imagegen GA4, Salesforce をデータソースとして、それらをBigQueryに連携し、内部のデータモデリングはDataformで source, warehouse, martの3層構成で行う。martをData Studio から参照するような構成図を作って
+
+---
+
+1
+
+---
+
+Codexに渡すプロンプトをブラッシュアップするために、Step2でサイズ確認と同時にユーザーに意図を確認させたい。イメージはこんな感じ。ここで確認した意図を元に "/imagegen/templates/prompt.md" を埋めた内容をCodexに渡すような仕様に変えれる？
+
+## Step 2 — 画像仕様の補完・確認
+
+ユーザーのプロンプトをそのまま実行せず、まず画像生成に必要な仕様を補完する。
+
+### 2.1 プロンプトの意図を分類
+
+以下を推定する:
+
+| 項目 | 例 |
+|---|---|
+| 用途 | アイコン、OGP、ポスター、SNS投稿、スライド挿絵、UIモック、壁紙 |
+| 主題 | 人物、動物、風景、商品、図解、抽象表現 |
+| テイスト | 写実、ミニマル、アニメ調、フラットイラスト、3D、手描き、水彩、サイバーパンク |
+| 構図 | 正面、俯瞰、横長、中央配置、余白多め、クローズアップ |
+| 文字入れ | あり / なし |
+| 背景 | 単色、透明希望、自然背景、オフィス、抽象背景 |
+| 禁止事項 | ロゴなし、文字なし、人物なし、過度な装飾なし |
+
+### 2.2 不足情報の自動補完
+
+ユーザーの指定が曖昧な場合、以下のデフォルトを使う:
+
+| 項目 | デフォルト |
+|---|---|
+| テイスト | clean, modern, high quality |
+| 構図 | main subject centered, balanced composition |
+| 背景 | simple background |
+| 文字 | 原則なし |
+| 人物 | 指定がなければ出さない |
+| ブランドロゴ | 指定がなければ出さない |
+
+### 2.3 確認が必要なケース
+
+以下のいずれかに該当する場合は、生成前にユーザーへ確認する:
+
+- テイスト候補が複数ありそうな場合
+- 用途に対してサイズが未指定の場合
+- 文字入れの有無が成果物に大きく影響する場合
+- 人物・顔・実在ブランド・ロゴが含まれる場合
+- 透明背景を希望している場合
+- 「いい感じに」「おしゃれに」など、解釈幅が大きい場合
+
+確認メッセージ例:
+
+```text
+生成前に確認させてください。
+
+1. テイスト: ミニマル / 写実 / フラットイラスト / 3D
+2. 用途: アイコン / OGP / スライド挿絵 / その他
+3. 文字入れ: あり / なし
+
+未指定なら、ミニマルなフラットイラスト・文字なしで進めます。
+
+prompt.md
+Create an image with the following specifications:
+
+Subject:
+- ...
+
+Purpose:
+- ...
+
+Style:
+- ...
+
+Composition:
+- ...
+
+Background:
+- ...
+
+Text:
+- No text unless explicitly requested.
+
+Constraints:
+- Do not include logos, watermarks, or extra text.
+- Keep the composition clean and suitable for the intended use.
+
+---
+
+Step1.5とStep2.3 が一部重複していたり、スキル内に非効率な部分があるので最適化して。あと、SizeとQualityも templates/prompt.md に含めるようにしたい

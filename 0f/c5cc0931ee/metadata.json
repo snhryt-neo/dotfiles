@@ -3,7 +3,7 @@
   "checkpoint_id": "0fc5cc0931ee",
   "strategy": "manual-commit",
   "branch": "feat/add-ccstatusline",
-  "checkpoints_count": 13,
+  "checkpoints_count": 23,
   "files_touched": [
     "claude_global/settings.json",
     "link.sh"
@@ -38,13 +38,19 @@
       "transcript": "/0f/c5cc0931ee/4/full.jsonl",
       "content_hash": "/0f/c5cc0931ee/4/content_hash.txt",
       "prompt": "/0f/c5cc0931ee/4/prompt.txt"
+    },
+    {
+      "metadata": "/0f/c5cc0931ee/5/metadata.json",
+      "transcript": "/0f/c5cc0931ee/5/full.jsonl",
+      "content_hash": "/0f/c5cc0931ee/5/content_hash.txt",
+      "prompt": "/0f/c5cc0931ee/5/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 1028,
-    "cache_creation_tokens": 147430,
-    "cache_read_tokens": 977119,
-    "output_tokens": 16000,
-    "api_call_count": 41
+    "input_tokens": 1240,
+    "cache_creation_tokens": 269394,
+    "cache_read_tokens": 2585367,
+    "output_tokens": 66718,
+    "api_call_count": 78
   }
 }
