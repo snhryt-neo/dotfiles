@@ -1,0 +1,77 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "0fc5cc0931ee",
+  "session_id": "66682bec-c57f-4e00-bf7f-131196008d2b",
+  "strategy": "manual-commit",
+  "created_at": "2026-04-24T03:46:22.273131Z",
+  "branch": "feat/add-ccstatusline",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "claude_global/settings.json"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-4-6",
+  "turn_id": "77fa868c8606",
+  "token_usage": {
+    "input_tokens": 13,
+    "cache_creation_tokens": 28133,
+    "cache_read_tokens": 129391,
+    "output_tokens": 2409,
+    "api_call_count": 7
+  },
+  "session_metrics": {
+    "turn_count": 3
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-04-24T03:46:22.262429Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 104,
+    "human_modified": 1,
+    "human_removed": 0,
+    "total_committed": 104,
+    "total_lines_changed": 106,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 37,
+      "user_lines_removed": 12,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 28,
+        "brewfiles/Brewfile": 1,
+        "claude_global/settings.json": 3,
+        "codex_global/config.toml": 5
+      },
+      "user_removed_per_file": {
+        "brewfiles/Brewfile": 3,
+        "claude_global/settings.json": 1,
+        "codex_global/config.toml": 8
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 28,
+      "user_lines_removed": 0,
+      "agent_lines_added": 9,
+      "agent_lines_removed": 12,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 28
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 28,
+      "user_lines_removed": 0,
+      "agent_lines_added": 9,
+      "agent_lines_removed": 12,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 28
+      }
+    }
+  ]
+}
