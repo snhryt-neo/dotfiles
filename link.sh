@@ -58,7 +58,7 @@ done
 # ~/.config 直下に置く設定ファイル・ディレクトリ群
 CFGDIR="$HOME/.config"
 mkdir -p "$CFGDIR"
-CONFIGS=(bat git karabiner sheldon)
+CONFIGS=(bat git karabiner sheldon ccstatusline)
 for cfg in "${CONFIGS[@]}"; do
   SRC_PATH="$HERE/$cfg"
   DST_PATH="$CFGDIR/$cfg"
