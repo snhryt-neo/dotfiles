@@ -1,0 +1,57 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "0fc5cc0931ee",
+  "session_id": "91ed52cc-9d61-4d40-ad0e-582b19d65c7c",
+  "strategy": "manual-commit",
+  "created_at": "2026-04-24T03:46:22.376543Z",
+  "branch": "feat/add-ccstatusline",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "claude_global/settings.json"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-4-6",
+  "turn_id": "887e7af6a09e",
+  "token_usage": {
+    "input_tokens": 12,
+    "cache_creation_tokens": 11737,
+    "cache_read_tokens": 121123,
+    "output_tokens": 1867,
+    "api_call_count": 7
+  },
+  "session_metrics": {
+    "turn_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-04-24T03:46:22.37245Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 103,
+    "human_modified": 2,
+    "human_removed": 0,
+    "total_committed": 103,
+    "total_lines_changed": 106,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 36,
+      "user_lines_removed": 13,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/settings.local.json": 27,
+        "brewfiles/Brewfile": 1,
+        "claude_global/settings.json": 3,
+        "codex_global/config.toml": 5
+      },
+      "user_removed_per_file": {
+        "brewfiles/Brewfile": 3,
+        "claude_global/settings.json": 2,
+        "codex_global/config.toml": 8
+      }
+    }
+  ]
+}

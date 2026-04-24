@@ -1,0 +1,5 @@
+今のbranchでcommitしている内容でPR作って、Squashマージして
+
+---
+
+未コミットの変更は無視でいい。今のbranchでcommitしている内容でPR作って、Squashマージして
