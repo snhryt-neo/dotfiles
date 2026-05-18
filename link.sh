@@ -73,13 +73,6 @@ for entry in "$HERE/claude_global/"*; do
   backup_and_link "$entry" "$CLAUDEDIR/$name" ".claude/$name"
 done
 
-# Codex のグローバルな設定
-CODEXDIR="$HOME/.codex"
-mkdir -p "$CODEXDIR"
-SRC_PATH="$HERE/codex_global/config.toml"
-DST_PATH="$CODEXDIR/config.toml"
-backup_and_link "$SRC_PATH" "$DST_PATH" .codex/config.toml
-
 # Ghostty
 GHOSTTYDIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
 mkdir -p "$GHOSTTYDIR"
