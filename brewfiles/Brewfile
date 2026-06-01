@@ -128,11 +128,6 @@ cask "spotify"
 # cask "tunnelblick"
 # cask "aqua-voice"
 
-# Entire (AIエージェントのセッションをgitと連携して記録)
-# https://github.com/entireio/cli
-tap "entireio/tap"
-cask "entireio/tap/entire"
-
 # DroidDock
 tap "rajivm1991/droiddock"
 cask "rajivm1991/droiddock/droiddock"
