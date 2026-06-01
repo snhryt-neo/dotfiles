@@ -33,13 +33,15 @@ chub search <キーワード>
 ```
 
 **例:**
-- ユーザー: 「OpenAI の chat completions API でストリーミングしたい」→ `chub search openai chat completions`
+- ユーザー: 「OpenAI の chat completions API でストリーミングしたい」→ `chub search openai chat`
 - ユーザー: 「Stripe で支払いを実装したい」→ `chub search stripe payment`
-- ユーザー: 「Claude API の tool_use を使いたい」→ `chub search anthropic tool use`
+- ユーザー: 「Claude API の tool_use を使いたい」→ `chub search anthropic`
 
-検索結果から最も関連性の高いドキュメントの ID を選ぶ。
+検索結果には `<provider>/<name>` 形式のIDが表示される（例: `openai/chat`, `anthropic/claude-api`, `stripe/package`）。最も関連性の高いものを選ぶ。
 
 ## ステップ 3: ドキュメントを取得する
+
+検索結果のIDをそのまま使う（`<provider>/<name>` 形式）。
 
 ```bash
 chub get <id>
@@ -51,6 +53,8 @@ chub get <id>
 chub get <id> --lang py   # Python
 chub get <id> --lang js   # JavaScript/TypeScript
 ```
+
+ドキュメントには `updated-on` フィールド（最終更新日）と `versions`（対応バージョン）が含まれる。これを確認することで最新仕様かどうかを判断できる。
 
 取得したドキュメントをコンテキストとして使い、最新仕様に基づいて回答・コードを生成する。
 
