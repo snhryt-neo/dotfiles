@@ -1,0 +1,23 @@
+{
+  "skill_name": "context-hub-api-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "OpenAI の Responses API を使って Python でストリーミングレスポンスを受け取るコードを書いて。最新の書き方で。",
+      "expected_output": "chub CLI で OpenAI のドキュメントを取得し、最新の Responses API のストリーミング実装コードを提示する。正確なメソッド名・パラメータを使っていること。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Anthropic Claude API の tool_use で複数ツールを定義する最新の書き方を教えて。Python で実装したい。",
+      "expected_output": "chub CLI で Anthropic のドキュメントを取得し、tool_use の最新パラメータ・スキーマ定義を正確に示す。input_schema など現行の仕様に基づいたコードを提示する。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Stripe で一回払いの決済を実装したい。最新の PaymentIntent API の使い方を Python で教えて。",
+      "expected_output": "chub CLI で Stripe のドキュメントを取得し、PaymentIntent の作成・確認フローを最新仕様に基づいて実装する。非推奨になった Charges API ではなく現行の方法を使うこと。",
+      "files": []
+    }
+  ]
+}
