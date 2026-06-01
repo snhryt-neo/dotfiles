@@ -1,6 +1,8 @@
 # 外部スキルの宣言ファイル
-# 書式: <owner/repo> <skill-name>
+# 書式:
+#   <owner/repo>           → リポジトリの全スキルをインストール
+#   <owner/repo> <skill>   → 特定スキルのみインストール
 # インストール: task skills
 # 更新:         task skills-update
 
-google/skills cloud
+google/skills

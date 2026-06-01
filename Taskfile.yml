@@ -55,7 +55,20 @@ tasks:
         while IFS= read -r line || [ -n "$line" ]; do
           [[ "$line" =~ ^[[:space:]]*# ]] && continue
           [[ -z "${line//[[:space:]]/}" ]] && continue
-          gh skill install $line --agent claude-code --scope user --force
+          repo=$(echo "$line" | awk '{print $1}')
+          skill=$(echo "$line" | awk '{print $2}')
+          if [ -z "$skill" ]; then
+            # スキル名省略時: リポジトリの全スキルを動的にインストール
+            namespaces=$(gh api "repos/$repo/contents/skills" --jq '.[].name' 2>/dev/null)
+            for ns in $namespaces; do
+              skill_names=$(gh api "repos/$repo/contents/skills/$ns" --jq '.[].name' 2>/dev/null)
+              for s in $skill_names; do
+                gh skill install "$repo" "$ns/$s" --agent claude-code --scope user --force
+              done
+            done
+          else
+            gh skill install $line --agent claude-code --scope user --force
+          fi
         done < claude_global/Skillfile
 
   skills-update:
