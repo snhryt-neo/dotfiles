@@ -1,0 +1,6 @@
+# 外部スキルの宣言ファイル
+# 書式: <owner/repo> <skill-name>
+# インストール: task skills
+# 更新:         task skills-update
+
+google/skills cloud
