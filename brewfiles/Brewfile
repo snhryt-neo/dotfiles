@@ -16,14 +16,12 @@ brew "tree"
 brew "wget"
 brew "openssh"
 brew "go-task"
-# brew "gitmoji"     # git commitするときの絵文字一覧
 brew "git-secrets" # credentialファイルをgit commitしないようにする
 brew "peco"        # 高度な検索
 brew "xz"          # ファイル圧縮
 brew "glow"        # ターミナルでMarkdownをプレビュー
 brew "tig"         # Gitリポジトリの履歴確認
-brew "shellcheck"  # Shell Scirptの静的解析
-# brew "starship"    # zshのプロンプトのカスタマイズ
+brew "pinact"      # GitHub Action のタグをコミットSHAに
 
 # Substitution of basic commands
 # https://zenn.dev/the_exile/articles/5176b7a5c29bce
@@ -62,6 +60,21 @@ brew "awscli"
 ## https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli-macos
 # brew "azure-cli"
 
+# Data Warehouse/Lakehouse
+## Snowflake
+## https://docs.snowflake.com/en/developer-guide/snowflake-cli/installation/installation
+tap "snowflakedb/snowflake-cli"
+brew "snowflake-cli"
+
+## Databricks
+## https://docs.databricks.com/aws/en/dev-tools/cli/install
+tap "databricks/tap"
+brew "databricks"
+
+# Secret Management
+# https://infisical.com/docs/cli/overview
+brew "infisical/get-cli/infisical"
+
 # たわらさんのフォントシリーズ
 # https://github.com/yuru7/HackGen
 cask "font-hack-nerd-font"
@@ -73,21 +86,20 @@ cask "font-plemol-jp"
 # Browser
 cask "brave-browser"
 cask "google-chrome"
-# cask "chatgpt-atlas"
 
 # Text editor
 cask "visual-studio-code"
-cask "cursor"
+# cask "cursor"
 
 # AI
 cask "claude"
 cask "chatgpt"
 cask "claude-code"
 cask "codex"
+cask "codex-app"
 
 # Infrastructure
 cask "google-drive"
-# cask "google-japanese-ime"
 cask "azooKey" # 公式のGitHubのREADMEだと brew で入れるようになっているが、正しくは cask で入れる
 cask "karabiner-elements"
 cask "raycast"
@@ -98,6 +110,7 @@ cask "android-platform-tools"
 # cask "docker"
 cask "rancher"  # Docker Desktop とコンフリクトするのでどっちかにする
 cask "ghostty"
+cask "windows-app" # 旧 microsoft-remote-desktop
 # cask "lm-studio"
 # cask "tableplus"
 
@@ -113,8 +126,7 @@ cask "obsidian"
 cask "spotify"
 # cask "cold-turkey-blocker"
 # cask "tunnelblick"
-# cask "microsoft-remote-desktop"
-cask "aqua-voice"
+# cask "aqua-voice"
 
 # Entire (AIエージェントのセッションをgitと連携して記録)
 # https://github.com/entireio/cli
