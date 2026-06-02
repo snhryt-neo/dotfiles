@@ -69,7 +69,7 @@ brew "snowflake-cli"
 ## Databricks
 ## https://docs.databricks.com/aws/en/dev-tools/cli/install
 tap "databricks/tap"
-brew "databricks"
+brew "databricks/tap/databricks"
 
 # Secret Management
 # https://infisical.com/docs/cli/overview
