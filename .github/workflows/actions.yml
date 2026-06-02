@@ -9,6 +9,9 @@ on:
       - link.sh
       - other.sh
       - Taskfile.yml
+      - claude_global/Skillfile
+
+permissions: {}
 
 jobs:
   setup:
@@ -19,35 +22,50 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       # https://github.com/tj-actions/changed-files
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v45
+        uses: tj-actions/changed-files@48d8f15b2aaa3d255ca5af3eba4870f807ce6b3c # v45.0.2
         # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
         # with:
         #   since_last_remote_commit: true
 
       - name: Set changed files
         id: set-changed-files
+        env:
+          ALL_CHANGED: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          echo "changed_files=${{ steps.changed-files.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
+          echo "changed_files=$ALL_CHANGED" >> $GITHUB_OUTPUT
 
   run:
     runs-on: macos-latest
     needs: setup
+    permissions:
+      contents: read
     timeout-minutes: 20
+    env:
+      MISE_PYTHON_GITHUB_ATTESTATIONS: "false"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       # https://github.com/arduino/setup-task
       - name: Install Task (go-task)
-        uses: arduino/setup-task@v2
+        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 # v2.0.0
         with:
           version: 3.x
           repo-token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Taskfile syntax check
+        if: contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
+        run: |
+          task --dry init
+          task --dry link
+          task --dry brew
+          task --dry skills
+          task --dry other
 
       - name: Initialization test
         if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'init.sh') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'other.sh')
@@ -59,9 +77,14 @@ jobs:
           task link
           ls -al $HOME/.config
 
-      - name: Homrbrew test (without mas)
-        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'other.sh')
+      - name: Homebrew test (without mas)
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'other.sh')
         run: task brew
+
+      - name: Skills test
+        if: contains(needs.setup.outputs.changed_files, 'claude_global/Skillfile') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
+        continue-on-error: true
+        run: task skills
 
       - name: Other test
         if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'other.sh')
