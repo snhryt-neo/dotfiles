@@ -28,4 +28,5 @@ mise use -g node@latest
 
 # Node.jsのインストールを待機してから npm パッケージをインストール
 echo "📦 Installing global npm packages..."
-npm i -g @dataform/cli
+npm install -g @dataform/cli
+npm install -g @aisuite/chub

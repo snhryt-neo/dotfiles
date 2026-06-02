@@ -1,0 +1,35 @@
+{
+  "skill_name": "dev-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "OpenAI の Responses API を使って Python でストリーミングレスポンスを受け取るコードを書いて。最新の書き方で。",
+      "expected_output": "種別Aとして Context Hub → Context7 → llms.txt の順で調査し、最新の Responses API ストリーミング実装コードを提示する。正確なメソッド名・パラメータを使っていること。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Anthropic Claude API の tool_use で複数ツールを定義する最新の書き方を教えて。Python で実装したい。",
+      "expected_output": "種別Aとして Context Hub → Context7 の順で調査し、tool_use の最新パラメータ・スキーマ定義を正確に示す。情報が得られた時点で次のツールに進まない。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "OpenAI API の料金とレート制限を教えて。gpt-4o は1リクエストあたりいくら？",
+      "expected_output": "種別Bとして Exa のみで最新の料金ページを調査する。Context Hub や Context7 は使わない。",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "langchain を使っていたら 'No module named langchain_community' というエラーが出た。どうすれば直る？",
+      "expected_output": "種別Cとして GitHub Issues → GitHub Discussions → Context7 → Exa の順で調査する。解決策が見つかった時点で次のツールに進まない。",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Python の HTTP クライアントライブラリで httpx と requests どっちを使えばいい？非同期対応が必要。",
+      "expected_output": "種別Dとして Context7 → Exa の順で調査し、両ライブラリの機能・非同期サポートを比較して推奨を出す。GitHub Activity は必要に応じて確認。",
+      "files": []
+    }
+  ]
+}
