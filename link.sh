@@ -70,7 +70,23 @@ CLAUDEDIR="$HOME/.claude"
 mkdir -p "$CLAUDEDIR"
 for entry in "$HERE/claude_global/"*; do
   name=$(basename "$entry")
+  [ "$name" = "skills" ] && continue  # skills は後で個別処理
   backup_and_link "$entry" "$CLAUDEDIR/$name" ".claude/$name"
+done
+
+# ~/.claude/skills/ は実ディレクトリとして確保し、ローカルスキルのみ個別リンク
+# （外部スキルは task skills で直接インストールされる）
+SKILLSDIR="$CLAUDEDIR/skills"
+if [ -L "$SKILLSDIR" ]; then
+  rm "$SKILLSDIR"
+  echo "🔄 Converted ~/.claude/skills from symlink to real directory"
+fi
+mkdir -p "$SKILLSDIR"
+for skill_src in "$HERE/claude_global/skills/"*/; do
+  skill_name=$(basename "$skill_src")
+  # gitignore 対象（外部スキル）はスキップ
+  git -C "$HERE" check-ignore -q "claude_global/skills/$skill_name" && continue
+  backup_and_link "$skill_src" "$SKILLSDIR/$skill_name" ".claude/skills/$skill_name"
 done
 
 # Ghostty
