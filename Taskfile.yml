@@ -56,7 +56,7 @@ tasks:
           [[ "$line" =~ ^[[:space:]]*# ]] && continue
           [[ -z "${line//[[:space:]]/}" ]] && continue
           gh skill install $line --agent claude-code --scope user --force
-        done < claude_global/Skillfile
+        done < claude_global/skills/Skillfile
 
   skills-update:
     desc: "インストール済みの外部スキルをアップデート"
