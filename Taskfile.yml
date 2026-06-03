@@ -23,7 +23,7 @@ tasks:
 
   init:
     desc: "Install Rosetta-2 and Homebrew"
-    cmd: sh ./init.sh
+    cmd: ./init.sh
 
   brew:
     desc: "Installing apps and command line tools with Homebrew"
@@ -38,15 +38,15 @@ tasks:
 
   link:
     desc: "Creating symlinks of dotfiles"
-    cmd: sh ./link.sh
+    cmd: ./link.sh
 
   gui:
     desc: "Configuring MacOS GUI"
-    cmd: sh ./gui.sh
+    cmd: ./gui.sh
 
   git:
     desc: "Configuring GitHub"
-    cmd: sh ./github.sh
+    cmd: ./github.sh
 
   skills:
     desc: "Skillfile から外部スキルをインストール"
@@ -64,4 +64,4 @@ tasks:
 
   other:
     desc: "Configuring others"
-    cmd: sh ./other.sh
+    cmd: ./other.sh
