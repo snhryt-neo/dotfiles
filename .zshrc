@@ -81,8 +81,8 @@ alias gsl='git stash list'
 
 ## Claude Code / Codex
 alias claude-dang='claude agents --allow-dangerously-skip-permissions'
-alias claude-compress='HEADROOM_TELEMETRY=off headroom wrap claude'
-alias codex-compress='HEADROOM_TELEMETRY=off headroom wrap codex'
+alias claude-compress='HEADROOM_TELEMETRY=off headroom wrap claude --no-context-tool'
+alias codex-compress='HEADROOM_TELEMETRY=off headroom wrap codex --no-context-tool'
 alias ccc='cat ~/.claude/settings.json'
 alias vcc='vi ~/.claude/settings.json'
 alias codex-dang='codex --dangerously-bypass-approvals-and-sandbox'
