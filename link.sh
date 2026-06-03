@@ -102,8 +102,7 @@ link_local_skills() {
 HERE=$(cd "$(dirname "$0")" && pwd)
 
 # ~/ 直下に置く .xxx 系のファイル群
-FILES=(.zshrc)
-for dotfile in "${FILES[@]}"; do
+for dotfile in .zshrc; do
   SRC_PATH="$HERE/$dotfile"
   DST_PATH="$HOME/$dotfile"
   backup_and_link "$SRC_PATH" "$DST_PATH" "$dotfile"
@@ -112,8 +111,7 @@ done
 # ~/.config 直下に置く設定ファイル・ディレクトリ群
 CFGDIR="$HOME/.config"
 mkdir -p "$CFGDIR"
-CONFIGS=(bat git karabiner sheldon ccstatusline)
-for cfg in "${CONFIGS[@]}"; do
+for cfg in bat git karabiner sheldon ccstatusline; do
   SRC_PATH="$HERE/$cfg"
   DST_PATH="$CFGDIR/$cfg"
   backup_and_link "$SRC_PATH" "$DST_PATH" "$cfg"
