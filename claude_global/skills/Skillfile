@@ -1,0 +1,16 @@
+# 外部スキルの宣言ファイル
+# 書式: <owner/repo> <skill-name>
+# インストール: task skills
+# 更新:         task skills-update
+#
+# [既知の問題] task skills 実行時に "(could not read directory)" が表示されるが動作上の問題はない。
+# google/skills のスキルは skills/cloud/gcloud/ のような namespaced 構成だが、
+# gh skill install が gcloud/（flat）にインストールしつつ表示は cloud/gcloud/ を参照するため不一致が起きる。
+# 同種のバグが gh skill update でも確認されており下記 PR で修正済み（install の表示部分は未適用）。
+# https://github.com/cli/cli/pull/13449
+# https://github.com/cli/cli/pull/13235
+
+google/skills cloud/gcloud
+google/skills cloud/bigquery-basics
+google/skills cloud/cloud-run-basics
+google/skills cloud/gemini-api

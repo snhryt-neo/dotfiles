@@ -1,9 +1,0 @@
-# 外部スキルの宣言ファイル
-# 書式: <owner/repo> <skill-name>
-# インストール: task skills
-# 更新:         task skills-update
-
-google/skills cloud/gcloud
-google/skills cloud/bigquery-basics
-google/skills cloud/cloud-run-basics
-google/skills cloud/gemini-api
