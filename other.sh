@@ -15,13 +15,13 @@ fi
 # =============================================================================
 # Python実行環境の構築
 # =============================================================================
-# miseで最新のPythonをインストール＆グローバルなバージョンに設定
+# miseでPython 3.13をインストール＆グローバルなバージョンに設定
 echo "📦 Installing Python with mise..."
-mise use -g python@latest
+mise use -g python@3.13
 
 # uv tool でグローバルな Python ツールをインストール
 echo "📦 Installing Python tools with uv..."
-uv tool install "headroom-ai[all]"
+uv tool install --python 3.13 "headroom-ai[all]"
 
 # =============================================================================
 # Node.js実行環境の構築
