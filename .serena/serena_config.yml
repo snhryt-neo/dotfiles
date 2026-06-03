@@ -1,0 +1,3 @@
+# Serena global configuration managed by dotfiles.
+# Keep the dashboard available, but prevent opening a localhost browser tab on each session start.
+web_dashboard_open_on_launch: false

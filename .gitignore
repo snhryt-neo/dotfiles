@@ -5,3 +5,4 @@ brewfiles/*.lock.json
 .claude/settings.local.json
 .serena/*
 !.serena/project.yml
+!.serena/serena_config.yml
