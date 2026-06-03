@@ -15,11 +15,11 @@ tasks:
       - task: init
       - task: brew
       - task: brew-mas
-      - task: link
-      - task: skills
-      - task: gui
-      - task: git
       - task: nonbrew
+      - task: link
+      - task: github
+      - task: gui
+      - task: skills
 
   init:
     desc: "Install Rosetta-2 and Homebrew"
@@ -44,7 +44,7 @@ tasks:
     desc: "Configuring MacOS GUI"
     cmd: ./gui.sh
 
-  git:
+  github:
     desc: "Configuring GitHub"
     cmd: ./github.sh
 
