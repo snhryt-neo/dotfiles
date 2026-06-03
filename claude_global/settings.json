@@ -30,7 +30,7 @@
       "Bash(gh api -X DELETE*)",
       "Bash(sudo *)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "statusLine": {
     "type": "command",
