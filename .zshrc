@@ -37,9 +37,6 @@ eval "$(sheldon source)"
 autoload -Uz compinit
 compinit
 
-# Entire CLI
-source <(entire completion zsh)
-
 # ======================================================================
 # Options
 # ======================================================================
