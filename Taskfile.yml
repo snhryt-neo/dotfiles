@@ -64,4 +64,5 @@ tasks:
 
   other:
     desc: "Configuring others"
+    # テスト: CI検証用コメント
     cmd: sh ./other.sh

@@ -95,5 +95,3 @@ mkdir -p "$GHOSTTYDIR"
 SRC_PATH="$HERE/ghostty/config"
 DST_PATH="$GHOSTTYDIR/config"
 backup_and_link "$SRC_PATH" "$DST_PATH" ghostty/config
-
-# テスト: CI検証用コメント
