@@ -44,6 +44,60 @@ backup_and_link() {
   echo "🎉 Created symbolic link to $name"
 }
 
+replace_and_link() {
+  local src_path=$1
+  local dst_path=$2
+  local name=$3
+  local current_target normalized_src
+
+  if [ ! -e "$src_path" ]; then
+    echo "❌ Source not found: $src_path" >&2
+    return 1
+  fi
+
+  normalized_src=${src_path%/}
+  if [ -L "$dst_path" ]; then
+    current_target=$(readlink "$dst_path" || true)
+    if [ "$current_target" = "$src_path" ] || [ "$current_target" = "$normalized_src" ]; then
+      echo "⏭️ $name is already linked"
+      return 0
+    fi
+  fi
+
+  if [ -e "$dst_path" ] || [ -L "$dst_path" ]; then
+    rm -rf "$dst_path"
+    echo "🗑️ Replaced existing $name"
+  fi
+
+  ln -s "$src_path" "$dst_path"
+  echo "🎉 Created symbolic link to $name"
+}
+
+link_local_skills() {
+  local skills_dir=$1
+  local label=$2
+  local mode=$3
+  local skill_src skill_name
+
+  if [ -L "$skills_dir" ]; then
+    rm "$skills_dir"
+    echo "🔄 Converted $label from symlink to real directory"
+  fi
+  mkdir -p "$skills_dir"
+
+  for skill_src in "$HERE/claude_global/skills/"*/; do
+    skill_name=$(basename "$skill_src")
+    # gitignore 対象（外部スキル）はスキップ
+    git -C "$HERE" check-ignore -q "claude_global/skills/$skill_name" && continue
+
+    if [ "$mode" = "replace" ]; then
+      replace_and_link "$skill_src" "$skills_dir/$skill_name" "$label/$skill_name"
+    else
+      backup_and_link "$skill_src" "$skills_dir/$skill_name" "$label/$skill_name"
+    fi
+  done
+}
+
 # スクリプト自身のあるディレクトリ
 HERE=$(cd "$(dirname "$0")" && pwd)
 
@@ -77,17 +131,11 @@ done
 # ~/.claude/skills/ は実ディレクトリとして確保し、ローカルスキルのみ個別リンク
 # （外部スキルは task skills で直接インストールされる）
 SKILLSDIR="$CLAUDEDIR/skills"
-if [ -L "$SKILLSDIR" ]; then
-  rm "$SKILLSDIR"
-  echo "🔄 Converted ~/.claude/skills from symlink to real directory"
-fi
-mkdir -p "$SKILLSDIR"
-for skill_src in "$HERE/claude_global/skills/"*/; do
-  skill_name=$(basename "$skill_src")
-  # gitignore 対象（外部スキル）はスキップ
-  git -C "$HERE" check-ignore -q "claude_global/skills/$skill_name" && continue
-  backup_and_link "$skill_src" "$SKILLSDIR/$skill_name" ".claude/skills/$skill_name"
-done
+link_local_skills "$SKILLSDIR" ".claude/skills" "backup"
+
+# ~/.agents/skills/ にもローカルスキルをリンクし、Codex などの agents 系ツールから参照できるようにする
+AGENTSSKILLSDIR="$HOME/.agents/skills"
+link_local_skills "$AGENTSSKILLSDIR" ".agents/skills" "replace"
 
 # Ghostty
 GHOSTTYDIR="$HOME/Library/Application Support/com.mitchellh.ghostty"

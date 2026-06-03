@@ -38,6 +38,9 @@ $ task setup-all
 $ rm -r ./bin # Homebrew経由で go-task インストール済のため、バイナリからインストールしたものは消す
 ```
 
+`task link` は `claude_global/skills` 配下のローカルスキルを `~/.claude/skills` と `~/.agents/skills` の両方へリンクする。
+`~/.agents/skills` の同名スキルは `claude_global/skills` 側を最新として置き換える。
+
 ## Directory Structure
 ```bash
 $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
@@ -53,6 +56,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 │   ├── Brewfile
 │   └── Brewfile.mas
 ├── claude_global/
+│   ├── skills/             # ~/.claude/skills と ~/.agents/skills にリンクするローカルスキル
 │   └── settings.json       # Claude Code のグローバル設定（~/.claude/settings.json にリンク）
 ├── git/ # グローバルなGitの設定
 │   ├── templates/

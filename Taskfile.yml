@@ -38,7 +38,7 @@ tasks:
 
   link:
     desc: "Creating symlinks of dotfiles"
-    cmd: sh ./link.sh
+    cmd: zsh ./link.sh
 
   gui:
     desc: "Configuring MacOS GUI"
