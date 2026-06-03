@@ -128,6 +128,8 @@ cask "spotify"
 # cask "tunnelblick"
 # cask "aqua-voice"
 
+brew "jq"
+
 # DroidDock
 tap "rajivm1991/droiddock"
 cask "rajivm1991/droiddock/droiddock"
