@@ -43,7 +43,8 @@
     "commit-commands@claude-plugins-official": true,
     "codex@openai-codex": true,
     "security-guidance@claude-plugins-official": true,
-    "exa@claude-plugins-official": true
+    "exa@claude-plugins-official": true,
+    "cosense-cli@cosense-cli": true
   },
   "extraKnownMarketplaces": {
     "superpowers-marketplace": {
@@ -68,6 +69,12 @@
       "source": {
         "source": "github",
         "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "cosense-cli": {
+      "source": {
+        "source": "github",
+        "repo": "helpfeel/cosense-cli"
       }
     }
   },
