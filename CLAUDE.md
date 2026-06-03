@@ -22,6 +22,32 @@ task skills         # Skillfile から外部スキルをインストール
 task skills-update  # インストール済み外部スキルをアップデート
 ```
 
+## ワークツリーの管理
+
+`claude agents` コマンドでサブエージェントを起動すると、`.claude/worktrees/` 配下にワークツリーが作成される。
+マージ済みのものは定期的に以下の手順で削除する。
+
+```bash
+# リモートで削除済みのブランチを確認（マージ済みの目印）
+git fetch --prune origin
+
+# ワークツリーを削除
+git worktree remove --force .claude/worktrees/<name>
+
+# ローカルブランチを削除
+git branch -D worktree-<name>
+```
+
+一括削除する場合:
+```bash
+git worktree list  # 残っているワークツリーを確認
+# リモート削除済み (origin/worktree-* が [deleted]) のものをまとめて削除
+for wt in <name1> <name2>; do
+  git worktree remove --force ".claude/worktrees/$wt"
+  git branch -D "worktree-$wt"
+done
+```
+
 ## Git関連
 - diffが出ているファイルについてはpre-commitがパスするまでcommitしてはいけない
 - GitHub Flow. 必ず最新のmainからfeatureブランチ、もしくはワークツリーを切って作業を進める
