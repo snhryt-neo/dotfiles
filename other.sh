@@ -30,3 +30,4 @@ mise use -g node@latest
 echo "📦 Installing global npm packages..."
 npm install -g @dataform/cli
 npm install -g @aisuite/chub
+# テスト: CI検証用コメント
