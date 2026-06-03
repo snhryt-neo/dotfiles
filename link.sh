@@ -74,10 +74,6 @@ for entry in "$HERE/claude_global/"*; do
   backup_and_link "$entry" "$CLAUDEDIR/$name" ".claude/$name"
 done
 
-SERENADIR="$HOME/.serena"
-mkdir -p "$SERENADIR"
-backup_and_link "$HERE/.serena/serena_config.yml" "$SERENADIR/serena_config.yml" ".serena/serena_config.yml"
-
 # ~/.claude/skills/ は実ディレクトリとして確保し、ローカルスキルのみ個別リンク
 # （外部スキルは task skills で直接インストールされる）
 SKILLSDIR="$CLAUDEDIR/skills"
@@ -99,3 +95,10 @@ mkdir -p "$GHOSTTYDIR"
 SRC_PATH="$HERE/ghostty/config"
 DST_PATH="$GHOSTTYDIR/config"
 backup_and_link "$SRC_PATH" "$DST_PATH" ghostty/config
+
+# Serena
+SERENADIR="$HOME/.serena"
+mkdir -p "$SERENADIR"
+SRC_PATH="$HERE/.serena/serena_config.yml"
+DST_PATH="$SERENADIR/serena_config.yml"
+backup_and_link "$SRC_PATH" "$DST_PATH" ".serena/serena_config.yml"
