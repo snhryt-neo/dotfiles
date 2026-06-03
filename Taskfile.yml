@@ -19,7 +19,7 @@ tasks:
       - task: skills
       - task: gui
       - task: git
-      - task: other
+      - task: nonbrew
 
   init:
     desc: "Install Rosetta-2 and Homebrew"
@@ -62,6 +62,6 @@ tasks:
     desc: "インストール済みの外部スキルをアップデート"
     cmd: gh skill update --agent claude-code --scope user
 
-  other:
-    desc: "Configuring others"
-    cmd: ./other.sh
+  nonbrew:
+    desc: "Installing tools not managed by Homebrew"
+    cmd: ./nonbrew.sh

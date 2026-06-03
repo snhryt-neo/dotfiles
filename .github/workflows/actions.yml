@@ -7,7 +7,7 @@ on:
       - brewfiles/Brewfile
       - init.sh
       - link.sh
-      - other.sh
+      - nonbrew.sh
       - Taskfile.yml
       - claude_global/Skillfile
   workflow_dispatch:
@@ -78,10 +78,10 @@ jobs:
           task --dry link
           task --dry brew
           task --dry skills
-          task --dry other
+          task --dry nonbrew
 
       - name: Initialization test
-        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'init.sh') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'other.sh')
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'init.sh') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'nonbrew.sh')
         run: task init
 
       - name: Symlink test
@@ -97,7 +97,7 @@ jobs:
           !inputs.full_brew_test &&
           (contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') ||
            contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') ||
-           contains(needs.setup.outputs.changed_files, 'other.sh'))
+           contains(needs.setup.outputs.changed_files, 'nonbrew.sh'))
         env:
           EVENT_NAME: ${{ github.event_name }}
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -127,16 +127,16 @@ jobs:
         continue-on-error: true
         run: task skills
 
-      # brew が走らなかった場合でも mise を保証（other.sh が mise に依存するため）
-      - name: Ensure mise and uv are installed
+      # brew が走らなかった場合でも nonbrew.sh の前提コマンドを保証
+      - name: Ensure nonbrew prerequisites are installed
         if: >-
           contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') ||
           contains(needs.setup.outputs.changed_files, 'Taskfile.yml') ||
-          contains(needs.setup.outputs.changed_files, 'other.sh')
+          contains(needs.setup.outputs.changed_files, 'nonbrew.sh')
         run: |
           command -v mise || brew install mise
           command -v uv || brew install uv
 
-      - name: Other test
-        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'other.sh')
-        run: task other
+      - name: Non-Homebrew tools test
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'nonbrew.sh')
+        run: task nonbrew
