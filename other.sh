@@ -21,7 +21,7 @@ mise use -g python@latest
 
 # uv tool でグローバルな Python ツールをインストール
 echo "📦 Installing Python tools with uv..."
-"$(brew --prefix)/bin/uv" tool install "headroom-ai[all]"
+uv tool install "headroom-ai[all]"
 
 # =============================================================================
 # Node.js実行環境の構築
