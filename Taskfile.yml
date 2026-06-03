@@ -15,11 +15,11 @@ tasks:
       - task: init
       - task: brew
       - task: brew-mas
+      - task: nonbrew
       - task: link
-      - task: skills
+      - task: github
       - task: gui
-      - task: git
-      - task: other
+      - task: skills
 
   init:
     desc: "Install Rosetta-2 and Homebrew"
@@ -44,7 +44,7 @@ tasks:
     desc: "Configuring MacOS GUI"
     cmd: ./gui.sh
 
-  git:
+  github:
     desc: "Configuring GitHub"
     cmd: ./github.sh
 
@@ -62,6 +62,6 @@ tasks:
     desc: "インストール済みの外部スキルをアップデート"
     cmd: gh skill update --agent claude-code --scope user
 
-  other:
-    desc: "Configuring others"
-    cmd: ./other.sh
+  nonbrew:
+    desc: "Installing tools not managed by Homebrew"
+    cmd: ./nonbrew.sh
