@@ -10,6 +10,12 @@ on:
       - other.sh
       - Taskfile.yml
       - claude_global/Skillfile
+  workflow_dispatch:
+    inputs:
+      full_brew_test:
+        description: "Homebrew 全量テスト（全パッケージを検証）"
+        type: boolean
+        default: false
 
 permissions: {}
 
@@ -50,6 +56,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
 
       # https://github.com/arduino/setup-task
       - name: Install Task (go-task)
@@ -77,14 +85,49 @@ jobs:
           task link
           ls -al $HOME/.config
 
-      - name: Homebrew test (without mas)
-        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') || contains(needs.setup.outputs.changed_files, 'other.sh')
+      # PR・workflow_dispatch（full_brew_test=false）では追加パッケージのみインストール
+      - name: Homebrew test (差分のみ)
+        if: >-
+          !inputs.full_brew_test &&
+          (contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') ||
+           contains(needs.setup.outputs.changed_files, 'brewfiles/Brewfile') ||
+           contains(needs.setup.outputs.changed_files, 'other.sh'))
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            BASE_SHA="$PR_BASE_SHA"
+          else
+            BASE_SHA=$(git rev-parse HEAD^)
+          fi
+          git diff "${BASE_SHA}"...HEAD -- brewfiles/Brewfile \
+            | grep '^+[^+]' | sed 's/^+//' \
+            > /tmp/Brewfile.diff
+          if [ -s /tmp/Brewfile.diff ]; then
+            echo "📦 追加パッケージをインストール中..."
+            brew bundle --file=/tmp/Brewfile.diff
+          else
+            echo "✅ Brewfile に追加パッケージなし、スキップ"
+          fi
+
+      # workflow_dispatch で full_brew_test=true のときのみ全量テスト
+      - name: Homebrew test (全量)
+        if: github.event_name == 'workflow_dispatch' && inputs.full_brew_test
         run: task brew
 
       - name: Skills test
         if: contains(needs.setup.outputs.changed_files, 'claude_global/Skillfile') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
         continue-on-error: true
         run: task skills
+
+      # brew が走らなかった場合でも mise を保証（other.sh が mise に依存するため）
+      - name: Ensure mise is installed
+        if: >-
+          contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') ||
+          contains(needs.setup.outputs.changed_files, 'Taskfile.yml') ||
+          contains(needs.setup.outputs.changed_files, 'other.sh')
+        run: command -v mise || brew install mise
 
       - name: Other test
         if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'other.sh')
