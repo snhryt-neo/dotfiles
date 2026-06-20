@@ -19,6 +19,7 @@ path=(
 # ======================================================================
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 
 # gcloud
 if command -v brew >/dev/null 2>&1; then

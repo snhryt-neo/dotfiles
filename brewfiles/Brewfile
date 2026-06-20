@@ -22,6 +22,7 @@ brew "xz"          # ファイル圧縮
 brew "glow"        # ターミナルでMarkdownをプレビュー
 brew "tig"         # Gitリポジトリの履歴確認
 brew "pinact"      # GitHub Action のタグをコミットSHAに
+brew "direnv"      # gcloud のADC認証設定をディレクトリ単位で .envrc で切り替える
 
 # Substitution of basic commands
 # https://zenn.dev/the_exile/articles/5176b7a5c29bce
