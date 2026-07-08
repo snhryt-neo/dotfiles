@@ -68,9 +68,6 @@ CLAUDEDIR="$HOME/.claude"
 mkdir -p "$CLAUDEDIR"
 for entry in "$HERE/claude_global/"*; do
   name=$(basename "$entry")
-  # skills はリンクせず、apm/apm.yml の自己参照エントリ経由で task skills が
-  # ~/.claude/skills/ と ~/.agents/skills/ の両方へ展開する（symlink があると apm が展開を拒否する）
-  [ "$name" = "skills" ] && continue
   backup_and_link "$entry" "$CLAUDEDIR/$name" ".claude/$name"
 done
 
