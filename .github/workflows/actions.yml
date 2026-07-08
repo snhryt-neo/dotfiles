@@ -9,7 +9,8 @@ on:
       - link.sh
       - nonbrew.sh
       - Taskfile.yml
-      - claude_global/Skillfile
+      - apm/apm.yml
+      - apm/apm.lock.yaml
   workflow_dispatch:
     inputs:
       full_brew_test:
@@ -110,6 +111,12 @@ jobs:
             | grep '^+[^+]' | sed 's/^+//' \
             > /tmp/Brewfile.diff
           if [ -s /tmp/Brewfile.diff ]; then
+            # GitHubランナーのHomebrewは HOMEBREW_REQUIRE_TAP_TRUST が有効で、
+            # brew trust で信頼していない非公式tapのformula読み込みを拒否するため、
+            # diffに追加されたtapを brew bundle の前に信頼しておく
+            grep -o '^tap "[^"]*"' /tmp/Brewfile.diff | cut -d'"' -f2 | while read -r t; do
+              brew trust --tap "$t"
+            done
             echo "📦 追加パッケージをインストール中..."
             brew bundle --file=/tmp/Brewfile.diff
           else
@@ -122,9 +129,17 @@ jobs:
         run: task brew
 
       - name: Skills test
-        if: contains(needs.setup.outputs.changed_files, 'claude_global/Skillfile') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
+        if: contains(needs.setup.outputs.changed_files, 'apm/apm.yml') || contains(needs.setup.outputs.changed_files, 'apm/apm.lock.yaml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
         continue-on-error: true
-        run: task skills
+        # task skills は ~/.apm/apm.yml を読むため、link.sh 相当の最小限のリンクを事前に張る
+        # （Symlink test は link.sh 変更時しか走らないため、このステップ内で自己完結させる）
+        run: |
+          # HOMEBREW_REQUIRE_TAP_TRUST が有効なランナーでは非公式tapの事前信頼が必要
+          command -v apm || { brew trust --tap microsoft/apm && brew install microsoft/apm/apm; }
+          mkdir -p "$HOME/.apm"
+          ln -sf "$PWD/apm/apm.yml" "$HOME/.apm/apm.yml"
+          ln -sf "$PWD/apm/apm.lock.yaml" "$HOME/.apm/apm.lock.yaml"
+          task skills
 
       # brew が走らなかった場合でも nonbrew.sh の前提コマンドを保証
       - name: Ensure nonbrew prerequisites are installed

@@ -1,0 +1,23 @@
+# 外部エージェントスキルの宣言ファイル
+# APM (Agent Package Manager: https://github.com/microsoft/apm) のグローバルマニフェスト。
+# link.sh が本ファイルと apm.lock.yaml を ~/.apm/ にリンクする。
+#
+# インストール: task skills
+# 更新:         task skills-update （apm.lock.yaml が更新されるので diff をコミットする）
+name: dotfiles-global
+version: 1.0.0
+
+# claude → ~/.claude/skills/、codex → ~/.agents/skills/ にそれぞれ展開される。
+# ローカルスキル（claude_global/skills/ 配下）も同じ2箇所へ link.sh がリンクしており、展開先を揃えている。
+targets:
+  - claude
+  - codex
+
+dependencies:
+  apm:
+    # バージョンはここでは固定せず apm.lock.yaml のコミットSHAで固定する
+    # （インストール時に unpinned 警告が出るが意図的なもの）
+    - google/skills/skills/cloud/gcloud
+    - google/skills/skills/cloud/bigquery-basics
+    - google/skills/skills/cloud/cloud-run-basics
+    - google/skills/skills/cloud/gemini-api
