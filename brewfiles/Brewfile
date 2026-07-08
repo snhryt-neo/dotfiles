@@ -48,6 +48,11 @@ brew "mise"
 brew "uv"
 # brew "pipx"
 
+# Agent skills
+# https://github.com/microsoft/apm
+tap "microsoft/apm"
+brew "apm" # 外部エージェントスキルを apm/apm.yml で宣言的に管理
+
 # Public clouds' CLI command
 ## Google Cloud
 ## https://zenn.dev/phi/articles/gcloud-setup-with-homebrew-on-mac

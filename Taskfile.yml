@@ -49,18 +49,16 @@ tasks:
     cmd: ./github.sh
 
   skills:
-    desc: "Skillfile から外部スキルをインストール"
-    cmds:
-      - |
-        while IFS= read -r line || [ -n "$line" ]; do
-          [[ "$line" =~ ^[[:space:]]*# ]] && continue
-          [[ -z "${line//[[:space:]]/}" ]] && continue
-          gh skill install $line --agent claude-code --scope user --force
-        done < claude_global/skills/Skillfile
+    desc: "apm.yml から外部スキルをインストール"
+    # ~/.apm/apm.yml（link.sh が apm/apm.yml をリンク）を読み、apm.lock.yaml の
+    # コミットSHAどおりに ~/.claude/skills/ と ~/.agents/skills/ の両方へ展開する
+    cmd: apm install -g
 
   skills-update:
     desc: "インストール済みの外部スキルをアップデート"
-    cmd: gh skill update --all
+    # 最新コミットへ更新すると apm.lock.yaml が書き換わる（symlink経由でリポジトリ側の
+    # apm/apm.lock.yaml に反映される）ため、更新後は lock の diff をコミットする
+    cmd: apm update -g -y
 
   nonbrew:
     desc: "Installing tools not managed by Homebrew"

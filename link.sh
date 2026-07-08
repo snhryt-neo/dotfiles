@@ -135,6 +135,14 @@ link_local_skills "$SKILLSDIR" ".claude/skills" "backup"
 AGENTSSKILLSDIR="$HOME/.agents/skills"
 link_local_skills "$AGENTSSKILLSDIR" ".agents/skills" "replace"
 
+# APM (Agent Package Manager) のグローバルマニフェスト（外部スキルの宣言）
+# ~/.apm/ には apm が生成するキャッシュ (apm_modules/) や config.json も置かれるため、
+# ディレクトリごとではなくマニフェストとロックファイルだけを個別にリンクする
+APMDIR="$HOME/.apm"
+mkdir -p "$APMDIR"
+backup_and_link "$HERE/apm/apm.yml" "$APMDIR/apm.yml" ".apm/apm.yml"
+backup_and_link "$HERE/apm/apm.lock.yaml" "$APMDIR/apm.lock.yaml" ".apm/apm.lock.yaml"
+
 # Codex のグローバルな AGENTS.md
 # 作業規約はツール中立な内容のため、Claude Code と同じ claude_global/CLAUDE.md を参照させる。
 # ※ config.toml は Codex が実行時に書き換える（trust_level 等）ため意図的にリンク管理しない（PR #40）

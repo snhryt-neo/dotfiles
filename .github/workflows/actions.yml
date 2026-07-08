@@ -9,7 +9,8 @@ on:
       - link.sh
       - nonbrew.sh
       - Taskfile.yml
-      - claude_global/Skillfile
+      - apm/apm.yml
+      - apm/apm.lock.yaml
   workflow_dispatch:
     inputs:
       full_brew_test:
@@ -122,9 +123,16 @@ jobs:
         run: task brew
 
       - name: Skills test
-        if: contains(needs.setup.outputs.changed_files, 'claude_global/Skillfile') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
+        if: contains(needs.setup.outputs.changed_files, 'apm/apm.yml') || contains(needs.setup.outputs.changed_files, 'apm/apm.lock.yaml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
         continue-on-error: true
-        run: task skills
+        # task skills は ~/.apm/apm.yml を読むため、link.sh 相当の最小限のリンクを事前に張る
+        # （Symlink test は link.sh 変更時しか走らないため、このステップ内で自己完結させる）
+        run: |
+          command -v apm || brew install microsoft/apm/apm
+          mkdir -p "$HOME/.apm"
+          ln -sf "$PWD/apm/apm.yml" "$HOME/.apm/apm.yml"
+          ln -sf "$PWD/apm/apm.lock.yaml" "$HOME/.apm/apm.lock.yaml"
+          task skills
 
       # brew が走らなかった場合でも nonbrew.sh の前提コマンドを保証
       - name: Ensure nonbrew prerequisites are installed
