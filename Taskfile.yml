@@ -49,13 +49,13 @@ tasks:
     cmd: ./github.sh
 
   skills:
-    desc: "apm.yml から外部スキルをインストール"
+    desc: "apm.yml からエージェントスキルをインストール"
     # ~/.apm/apm.yml（link.sh が apm/apm.yml をリンク）を読み、apm.lock.yaml の
     # コミットSHAどおりに ~/.claude/skills/ と ~/.agents/skills/ の両方へ展開する
     cmd: apm install -g
 
   skills-update:
-    desc: "インストール済みの外部スキルをアップデート"
+    desc: "インストール済みのスキルをアップデート"
     # 最新コミットへ更新すると apm.lock.yaml が書き換わる（symlink経由でリポジトリ側の
     # apm/apm.lock.yaml に反映される）ため、更新後は lock の diff をコミットする
     cmd: apm update -g -y
