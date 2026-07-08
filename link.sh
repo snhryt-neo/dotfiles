@@ -135,6 +135,13 @@ link_local_skills "$SKILLSDIR" ".claude/skills" "backup"
 AGENTSSKILLSDIR="$HOME/.agents/skills"
 link_local_skills "$AGENTSSKILLSDIR" ".agents/skills" "replace"
 
+# Codex のグローバルな AGENTS.md
+# 作業規約はツール中立な内容のため、Claude Code と同じ claude_global/CLAUDE.md を参照させる。
+# ※ config.toml は Codex が実行時に書き換える（trust_level 等）ため意図的にリンク管理しない（PR #40）
+CODEXDIR="$HOME/.codex"
+mkdir -p "$CODEXDIR"
+backup_and_link "$HERE/claude_global/CLAUDE.md" "$CODEXDIR/AGENTS.md" ".codex/AGENTS.md"
+
 # Ghostty
 GHOSTTYDIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
 mkdir -p "$GHOSTTYDIR"

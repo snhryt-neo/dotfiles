@@ -57,6 +57,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 │   └── Brewfile.mas
 ├── claude_global/
 │   ├── skills/             # ~/.claude/skills と ~/.agents/skills にリンクするローカルスキル
+│   ├── CLAUDE.md           # 全プロジェクト共通の作業規約（~/.claude/CLAUDE.md と ~/.codex/AGENTS.md にリンク）
 │   └── settings.json       # Claude Code のグローバル設定（~/.claude/settings.json にリンク）
 ├── git/ # グローバルなGitの設定
 │   ├── templates/
