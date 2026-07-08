@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-07-08T01:12:40.261954+00:00'
+generated_at: '2026-07-08T06:49:34.973652+00:00'
 apm_version: 0.23.1
 dependencies:
 - repo_url: google/skills
@@ -154,3 +154,133 @@ dependencies:
     .claude/skills/gemini-api/references/structured_and_tools.md: sha256:e5ffc58f95637efdf244a9994d73454b9ae56330045d2994f1bae75a79fe9bde
     .claude/skills/gemini-api/references/text_and_multimodal.md: sha256:122c37d0e321b0e431636aa43da6f4d7e3c80f38bf0d02fa8fce3153ecb79495
   content_hash: sha256:9bc62cd049bcacc0bd85bf4687d38c659f89ee399f177d33677ae58e60617d0d
+- repo_url: snhryt-neo/dotfiles
+  name: dotfiles
+  host: github.com
+  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  version: unknown
+  virtual_path: claude_global/skills/dev-research
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/dev-research
+  - .agents/skills/dev-research/SKILL.md
+  - .agents/skills/dev-research/evals/evals.json
+  - .claude/skills/dev-research
+  - .claude/skills/dev-research/SKILL.md
+  - .claude/skills/dev-research/evals/evals.json
+  deployed_file_hashes:
+    .agents/skills/dev-research/SKILL.md: sha256:d67fdc583d6e7229394e6c22fa15adb728d9bd6500066aa6779ec63ec5eb0568
+    .agents/skills/dev-research/evals/evals.json: sha256:61842a8da05b9dd0c216ff7bbcc4869474103e649db4420c8b43c31b59c611da
+    .claude/skills/dev-research/SKILL.md: sha256:d67fdc583d6e7229394e6c22fa15adb728d9bd6500066aa6779ec63ec5eb0568
+    .claude/skills/dev-research/evals/evals.json: sha256:61842a8da05b9dd0c216ff7bbcc4869474103e649db4420c8b43c31b59c611da
+  content_hash: sha256:8b8fff13549611ecaa30ff67730cf5e8d2d093908533040a56750dbf4ffaeeb4
+- repo_url: snhryt-neo/dotfiles
+  name: dotfiles
+  host: github.com
+  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  version: unknown
+  virtual_path: claude_global/skills/empirical-prompt-tuning
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/empirical-prompt-tuning
+  - .agents/skills/empirical-prompt-tuning/SKILL.md
+  - .agents/skills/empirical-prompt-tuning/provenance.md
+  - .claude/skills/empirical-prompt-tuning
+  - .claude/skills/empirical-prompt-tuning/SKILL.md
+  - .claude/skills/empirical-prompt-tuning/provenance.md
+  deployed_file_hashes:
+    .agents/skills/empirical-prompt-tuning/SKILL.md: sha256:21cb213c1d2c02794c94e6fd0ad20e779e6c767850f292e6475b60cb3500c82f
+    .agents/skills/empirical-prompt-tuning/provenance.md: sha256:cd86636ed455606ad60ffd100a62f0b0aa68a8ca94bb7670dbba89b9b4c22aef
+    .claude/skills/empirical-prompt-tuning/SKILL.md: sha256:21cb213c1d2c02794c94e6fd0ad20e779e6c767850f292e6475b60cb3500c82f
+    .claude/skills/empirical-prompt-tuning/provenance.md: sha256:cd86636ed455606ad60ffd100a62f0b0aa68a8ca94bb7670dbba89b9b4c22aef
+  content_hash: sha256:f71249b10dbc5e1b2858f3660ed041efd73c101b4b14fa84eb90176df4662d3f
+- repo_url: snhryt-neo/dotfiles
+  name: dotfiles
+  host: github.com
+  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  version: unknown
+  virtual_path: claude_global/skills/gh-markdown
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gh-markdown
+  - .agents/skills/gh-markdown/SKILL.md
+  - .claude/skills/gh-markdown
+  - .claude/skills/gh-markdown/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/gh-markdown/SKILL.md: sha256:4d8a511675a41a6613d1802c015ede9643deacd2f4ebf6846a20939d3771e3ba
+    .claude/skills/gh-markdown/SKILL.md: sha256:4d8a511675a41a6613d1802c015ede9643deacd2f4ebf6846a20939d3771e3ba
+  content_hash: sha256:33f315ea87cb48cddbc1db7a3f28f1c04329cdecbe435e6dc2c5738130b06465
+- repo_url: snhryt-neo/dotfiles
+  name: dotfiles
+  host: github.com
+  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  version: unknown
+  virtual_path: claude_global/skills/gha-security-review
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/gha-security-review
+  - .agents/skills/gha-security-review/SKILL.md
+  - .agents/skills/gha-security-review/references/github-actions-security-checklist.md
+  - .agents/skills/gha-security-review/references/terraform-cicd-review.md
+  - .agents/skills/gha-security-review/references/tooling.md
+  - .claude/skills/gha-security-review
+  - .claude/skills/gha-security-review/SKILL.md
+  - .claude/skills/gha-security-review/references/github-actions-security-checklist.md
+  - .claude/skills/gha-security-review/references/terraform-cicd-review.md
+  - .claude/skills/gha-security-review/references/tooling.md
+  deployed_file_hashes:
+    .agents/skills/gha-security-review/SKILL.md: sha256:119241ac4494717f155fb6cf47c5aa0bf7ed49d60e69ac2474a84eada4a2d6c5
+    .agents/skills/gha-security-review/references/github-actions-security-checklist.md: sha256:f8ab8f71f1aea01999ccf930babdb592288e8b5d0ac64c9eb85dd116f55c25c5
+    .agents/skills/gha-security-review/references/terraform-cicd-review.md: sha256:65cd5350a8ad680dee7e8382ead91cbe8ecbb883c58db50d86d843e878b8b533
+    .agents/skills/gha-security-review/references/tooling.md: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
+    .claude/skills/gha-security-review/SKILL.md: sha256:119241ac4494717f155fb6cf47c5aa0bf7ed49d60e69ac2474a84eada4a2d6c5
+    .claude/skills/gha-security-review/references/github-actions-security-checklist.md: sha256:f8ab8f71f1aea01999ccf930babdb592288e8b5d0ac64c9eb85dd116f55c25c5
+    .claude/skills/gha-security-review/references/terraform-cicd-review.md: sha256:65cd5350a8ad680dee7e8382ead91cbe8ecbb883c58db50d86d843e878b8b533
+    .claude/skills/gha-security-review/references/tooling.md: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
+  content_hash: sha256:5f05b7c38a50fd4f0896f2f0db65f9110fcd780834993fafb7ee5b5a045705ed
+- repo_url: snhryt-neo/dotfiles
+  name: dotfiles
+  host: github.com
+  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  version: unknown
+  virtual_path: claude_global/skills/graphify
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/graphify
+  - .agents/skills/graphify/.graphify_version
+  - .agents/skills/graphify/SKILL.md
+  - .claude/skills/graphify
+  - .claude/skills/graphify/.graphify_version
+  - .claude/skills/graphify/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/graphify/.graphify_version: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
+    .agents/skills/graphify/SKILL.md: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
+    .claude/skills/graphify/.graphify_version: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
+    .claude/skills/graphify/SKILL.md: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
+  content_hash: sha256:0bf2560fcc0b4e7b87c75e0cb90841e59039a249637ae4d05ab98584864b5cd9
+- repo_url: snhryt-neo/dotfiles
+  name: dotfiles
+  host: github.com
+  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  version: unknown
+  virtual_path: claude_global/skills/imagegen
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/imagegen
+  - .agents/skills/imagegen/SKILL.md
+  - .agents/skills/imagegen/templates/prompt.md
+  - .claude/skills/imagegen
+  - .claude/skills/imagegen/SKILL.md
+  - .claude/skills/imagegen/templates/prompt.md
+  deployed_file_hashes:
+    .agents/skills/imagegen/SKILL.md: sha256:09d0d4151097a30e0b13557a48b8d1ea5d54ae8b10835e9c333ea92724d2655c
+    .agents/skills/imagegen/templates/prompt.md: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
+    .claude/skills/imagegen/SKILL.md: sha256:09d0d4151097a30e0b13557a48b8d1ea5d54ae8b10835e9c333ea92724d2655c
+    .claude/skills/imagegen/templates/prompt.md: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
+  content_hash: sha256:ae1c8c997ca923b45ed7f2a17f925d58994fddaef17b4d7d8c7b044a794ccbcb

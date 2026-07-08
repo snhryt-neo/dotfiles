@@ -38,12 +38,10 @@ $ task setup-all
 $ rm -r ./bin # Homebrew経由で go-task インストール済のため、バイナリからインストールしたものは消す
 ```
 
-`task link` は `claude_global/skills` 配下のローカルスキルを `~/.claude/skills` と `~/.agents/skills` の両方へリンクする。
-`~/.agents/skills` の同名スキルは `claude_global/skills` 側を最新として置き換える。
-
-外部公開されているスキルは [APM](https://github.com/microsoft/apm) で管理する。
-`apm/apm.yml` に宣言したスキルが `task skills` で同じ2箇所（`~/.claude/skills` と `~/.agents/skills`）へ展開されるため、Claude Code と Codex の双方から利用できる。
+エージェントスキルは自作・外部を問わず [APM](https://github.com/microsoft/apm) で管理する。
+`apm/apm.yml` に宣言したスキルが `task skills` で `~/.claude/skills` と `~/.agents/skills` の両方へ展開されるため、Claude Code と Codex の双方から利用できる。
 バージョンは `apm/apm.lock.yaml` のコミットSHAで固定され、`task skills-update` で更新する。
+自作スキル（`skills/` 配下）も GitHub 経由の自己参照でインストールされるため、編集内容は main へのマージ後に `task skills-update` を実行して反映する。
 
 ## Directory Structure
 ```bash
@@ -54,7 +52,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ├── .github/
 │   └── workflows/
 │       └── actions.yml     # GitHub Actionsによる一部インストールのテスト
-├── apm/ # APM で管理する外部エージェントスキルの宣言（~/.apm/ にリンク）
+├── apm/ # APM で管理するエージェントスキルの宣言（~/.apm/ にリンク）
 │   ├── apm.lock.yaml
 │   └── apm.yml
 ├── bat/ # bat（catコマンドのカラー版）のconfig
@@ -62,8 +60,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ├── brewfiles/ # brew bundle でインストールするアプリ・コマンドの一覧
 │   ├── Brewfile
 │   └── Brewfile.mas
-├── claude_global/
-│   ├── skills/             # ~/.claude/skills と ~/.agents/skills にリンクするローカルスキル
+├── claude_global/ # ~/.claude/ 直下に一括リンクされるファイル群
 │   ├── CLAUDE.md           # 全プロジェクト共通の作業規約（~/.claude/CLAUDE.md と ~/.codex/AGENTS.md にリンク）
 │   └── settings.json       # Claude Code のグローバル設定（~/.claude/settings.json にリンク）
 ├── git/ # グローバルなGitの設定
@@ -78,6 +75,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 │   │   └── complex_modifications/
 │   │       └── 1726838703.json # https://ke-complex-modifications.pqrs.org/#japanese
 │   └── karabiner.json
+├── skills/ # 自作スキル（apm/apm.yml の自己参照エントリ経由で Claude Code と Codex にインストールされる）
 ├── snapshots/ # 手動インストール対応が必要なもののスナップショット
 │   ├── black-formatter-settings_20240922.json
 │   └── chrome-extensions_20240922.html

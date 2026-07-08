@@ -1,4 +1,4 @@
-# 外部エージェントスキルの宣言ファイル
+# エージェントスキルの宣言ファイル
 # APM (Agent Package Manager: https://github.com/microsoft/apm) のグローバルマニフェスト。
 # link.sh が本ファイルと apm.lock.yaml を ~/.apm/ にリンクする。
 #
@@ -8,7 +8,6 @@ name: dotfiles-global
 version: 1.0.0
 
 # claude → ~/.claude/skills/、codex → ~/.agents/skills/ にそれぞれ展開される。
-# ローカルスキル（claude_global/skills/ 配下）も同じ2箇所へ link.sh がリンクしており、展開先を揃えている。
 targets:
   - claude
   - codex
@@ -21,3 +20,13 @@ dependencies:
     - google/skills/skills/cloud/bigquery-basics
     - google/skills/skills/cloud/cloud-run-basics
     - google/skills/skills/cloud/gemini-api
+    # 自作スキル（skills/ 配下）の自己参照。
+    # APM のローカルパス依存はグローバルスコープでは相対パスを解決できず、
+    # 絶対パスはマシン依存になるため、GitHub 経由のサブパス参照で統一している。
+    # 編集内容は main へのマージ後に task skills-update を実行するまで反映されない点に注意。
+    - snhryt-neo/dotfiles/skills/dev-research
+    - snhryt-neo/dotfiles/skills/empirical-prompt-tuning
+    - snhryt-neo/dotfiles/skills/gh-markdown
+    - snhryt-neo/dotfiles/skills/gha-security-review
+    - snhryt-neo/dotfiles/skills/graphify
+    - snhryt-neo/dotfiles/skills/imagegen
