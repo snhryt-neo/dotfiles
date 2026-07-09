@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-07-08T06:49:34.973652+00:00'
+generated_at: '2026-07-08T17:09:21.432668+00:00'
 apm_version: 0.23.1
 dependencies:
 - repo_url: google/skills
@@ -157,9 +157,9 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: dotfiles
   host: github.com
-  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
   version: unknown
-  virtual_path: claude_global/skills/dev-research
+  virtual_path: skills/dev-research
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -178,9 +178,9 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: dotfiles
   host: github.com
-  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
   version: unknown
-  virtual_path: claude_global/skills/empirical-prompt-tuning
+  virtual_path: skills/empirical-prompt-tuning
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -199,9 +199,9 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: dotfiles
   host: github.com
-  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
   version: unknown
-  virtual_path: claude_global/skills/gh-markdown
+  virtual_path: skills/gh-markdown
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -216,9 +216,9 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: dotfiles
   host: github.com
-  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
   version: unknown
-  virtual_path: claude_global/skills/gha-security-review
+  virtual_path: skills/gha-security-review
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -245,9 +245,9 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: dotfiles
   host: github.com
-  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
   version: unknown
-  virtual_path: claude_global/skills/graphify
+  virtual_path: skills/graphify
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -266,9 +266,9 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: dotfiles
   host: github.com
-  resolved_commit: 54b0ffa04410f59350ec8e46650abaa3512da53d
+  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
   version: unknown
-  virtual_path: claude_global/skills/imagegen
+  virtual_path: skills/imagegen
   is_virtual: true
   package_type: claude_skill
   deployed_files:
