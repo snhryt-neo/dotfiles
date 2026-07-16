@@ -6,7 +6,7 @@ on:
       - .github/workflows/actions.yml
       - brewfiles/Brewfile
       - init.sh
-      - link.sh
+      - mise.toml
       - nonbrew.sh
       - Taskfile.yml
       - apm/apm.yml
@@ -85,9 +85,11 @@ jobs:
         run: task init
 
       - name: Symlink test
-        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'link.sh')
+        if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'mise.toml')
         run: |
+          command -v mise || brew install mise
           task link
+          mise dotfiles status --missing
           ls -al $HOME/.config
 
       # PR・workflow_dispatch（full_brew_test=false）では追加パッケージのみインストール
@@ -131,8 +133,8 @@ jobs:
       - name: Skills test
         if: contains(needs.setup.outputs.changed_files, 'apm/apm.yml') || contains(needs.setup.outputs.changed_files, 'apm/apm.lock.yaml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml')
         continue-on-error: true
-        # task skills は ~/.apm/apm.yml を読むため、link.sh 相当の最小限のリンクを事前に張る
-        # （Symlink test は link.sh 変更時しか走らないため、このステップ内で自己完結させる）
+        # task skills は ~/.apm/apm.yml を読むため、miseによるSymlink testが走らない場合に備えて
+        # このステップ内でも必要なリンクを作成し、APM関連ファイルだけの変更時も自己完結させる
         run: |
           # HOMEBREW_REQUIRE_TAP_TRUST が有効なランナーでは非公式tapの事前信頼が必要
           command -v apm || { brew trust --tap microsoft/apm && brew install microsoft/apm/apm; }

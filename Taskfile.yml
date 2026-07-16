@@ -34,8 +34,8 @@ tasks:
     cmd: brew bundle --file=brewfiles/Brewfile.mas
 
   link:
-    desc: "Creating symlinks of dotfiles"
-    cmd: ./link.sh
+    desc: "Applying dotfiles with mise"
+    cmd: mise dotfiles apply --yes
 
   gui:
     desc: "Configuring MacOS GUI"
@@ -47,7 +47,7 @@ tasks:
 
   skills:
     desc: "apm.yml からエージェントスキルをインストール"
-    # ~/.apm/apm.yml（link.sh が apm/apm.yml をリンク）を読み、apm.lock.yaml の
+    # ~/.apm/apm.yml（mise.toml が apm/apm.yml をリンク）を読み、apm.lock.yaml の
     # コミットSHAどおりに ~/.claude/skills/ と ~/.agents/skills/ の両方へ展開する
     cmd: apm install -g
 

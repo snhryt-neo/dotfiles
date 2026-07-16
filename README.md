@@ -84,9 +84,9 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ├── CLAUDE.md               # Claude Code へのプロジェクト指示
 ├── README.md               # このドキュメント
 ├── Taskfile.yml            # タスクランナーの設定ファイル (go-task)
+├── mise.toml               # miseによるdotfilesのリンク設定
 ├── github.sh*              # 以下、詳細は Taskfile.yml を参照
 ├── gui.sh*
 ├── init.sh*
-├── link.sh*
 └── nonbrew.sh*
 ```

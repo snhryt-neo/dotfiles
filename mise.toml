@@ -1,0 +1,32 @@
+# dotfiles機能がstableになった版を要求し、古いmiseが設定を無視したまま処理を続けることを防ぐ。
+min_version = "2026.7.4"
+
+[settings]
+# リポジトリ内の設定を直接編集できる現在の運用を維持するため、コピーではなくシンボリックリンクを使う。
+dotfiles.default_mode = "symlink"
+
+[dotfiles]
+# シェル設定はホーム直下に置く必要があるため、リポジトリ内の実体へ直接リンクする。
+"~/.zshrc" = ".zshrc"
+
+# 各ツールが ~/.config/<tool> を参照するため、ツール単位のディレクトリをそのままリンクする。
+"~/.config/bat" = "bat"
+"~/.config/git" = "git"
+"~/.config/karabiner" = "karabiner"
+"~/.config/sheldon" = "sheldon"
+"~/.config/ccstatusline" = "ccstatusline"
+
+# Claude Code のグローバル設定は、claude_global/ へ追加したファイルも自動的に管理対象に含める。
+"~/.claude/*" = "claude_global/*"
+
+# APM がロックファイルを書き換えた結果をリポジトリへ反映できるよう、生成物を含めてリンクする。
+"~/.apm/apm.yml" = "apm/apm.yml"
+"~/.apm/apm.lock.yaml" = "apm/apm.lock.yaml"
+
+# 作業規約はツール中立なため、Claude Code と Codex で同じファイルを共有する。
+# config.toml は Codex が実行時に書き換えるため、意図的に管理対象に含めない。
+"~/.codex/AGENTS.md" = "claude_global/CLAUDE.md"
+
+# XDG Base Directory に従わないアプリ固有の保存先も、実際に参照されるパスへ直接リンクする。
+"~/Library/Application Support/com.mitchellh.ghostty/config" = "ghostty/config"
+"~/.serena/serena_config.yml" = ".serena/serena_config.yml"
