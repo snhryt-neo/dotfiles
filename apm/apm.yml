@@ -1,6 +1,6 @@
 # エージェントスキルの宣言ファイル
 # APM (Agent Package Manager: https://github.com/microsoft/apm) のグローバルマニフェスト。
-# link.sh が本ファイルと apm.lock.yaml を ~/.apm/ にリンクする。
+# mise.toml が本ファイルと apm.lock.yaml を ~/.apm/ にリンクする。
 #
 # インストール: task skills
 # 更新:         task skills-update （apm.lock.yaml が更新されるので diff をコミットする）
