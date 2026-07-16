@@ -87,7 +87,9 @@ jobs:
       - name: Symlink test
         if: contains(needs.setup.outputs.changed_files, '.github/workflows/actions.yml') || contains(needs.setup.outputs.changed_files, 'Taskfile.yml') || contains(needs.setup.outputs.changed_files, 'mise.toml')
         run: |
-          command -v mise || brew install mise
+          # runnerのHomebrewメタデータが古いと、dotfiles機能がstableになる前のmiseが入るため更新する
+          brew update
+          brew install mise
           task link
           mise dotfiles status --missing
           ls -al $HOME/.config
