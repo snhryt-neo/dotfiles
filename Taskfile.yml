@@ -46,13 +46,14 @@ tasks:
     cmd: ./github.sh
 
   skills:
-    desc: "apm.yml からエージェントスキルをインストール"
-    # ~/.apm/apm.yml（mise.toml が apm/apm.yml をリンク）を読み、apm.lock.yaml の
-    # コミットSHAどおりに ~/.claude/skills/ と ~/.agents/skills/ の両方へ展開する
+    desc: "apm.yml からエージェントスキルとMCPをインストール"
+    # ~/.apm/apm.yml（mise.toml が apm/apm.yml をリンク）を読み、スキルは apm.lock.yaml の
+    # コミットSHAどおりに ~/.claude/skills/ と ~/.agents/skills/ の両方へ展開する。
+    # MCP は apm.yml の targets に従い、Claude Code と Codex の両方で使える設定として登録する。
     cmd: apm install -g
 
   skills-update:
-    desc: "インストール済みのスキルをアップデート"
+    desc: "インストール済みのスキルとMCPをアップデート"
     # 最新コミットへ更新すると apm.lock.yaml が書き換わる（symlink経由でリポジトリ側の
     # apm/apm.lock.yaml に反映される）ため、更新後は lock の diff をコミットする
     cmd: apm update -g -y

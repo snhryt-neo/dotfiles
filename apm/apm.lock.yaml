@@ -1,11 +1,11 @@
 lockfile_version: '1'
-generated_at: '2026-07-08T17:09:21.432668+00:00'
-apm_version: 0.23.1
+generated_at: '2026-07-23T05:29:13.385356+00:00'
+apm_version: 0.26.0
 dependencies:
 - repo_url: google/skills
-  name: skills
+  name: bigquery-basics
   host: github.com
-  resolved_commit: c03169671232a50da03d7ce2cc9ab4919ffcd283
+  resolved_commit: 0ea2cd73e63c373b68364985673be7a56b8d266b
   version: unknown
   virtual_path: skills/cloud/bigquery-basics
   is_virtual: true
@@ -44,9 +44,9 @@ dependencies:
     .claude/skills/bigquery-basics/references/mcp-usage.md: sha256:f4cf2ef39e89ae3fc8e3a0bc19100e3382dc1eeec920d4cd8c5801dc51a62df7
   content_hash: sha256:baf46b2b3658a159da240bfc3900c2aef0ed0944ff3b70a91581bc64ab07856e
 - repo_url: google/skills
-  name: skills
+  name: cloud-run-basics
   host: github.com
-  resolved_commit: c03169671232a50da03d7ce2cc9ab4919ffcd283
+  resolved_commit: 0ea2cd73e63c373b68364985673be7a56b8d266b
   version: unknown
   virtual_path: skills/cloud/cloud-run-basics
   is_virtual: true
@@ -60,6 +60,7 @@ dependencies:
   - .agents/skills/cloud-run-basics/references/iac-usage.md
   - .agents/skills/cloud-run-basics/references/iam-security.md
   - .agents/skills/cloud-run-basics/references/mcp-usage.md
+  - .agents/skills/cloud-run-basics/references/networking.md
   - .claude/skills/cloud-run-basics
   - .claude/skills/cloud-run-basics/SKILL.md
   - .claude/skills/cloud-run-basics/references/cli-usage.md
@@ -68,26 +69,29 @@ dependencies:
   - .claude/skills/cloud-run-basics/references/iac-usage.md
   - .claude/skills/cloud-run-basics/references/iam-security.md
   - .claude/skills/cloud-run-basics/references/mcp-usage.md
+  - .claude/skills/cloud-run-basics/references/networking.md
   deployed_file_hashes:
-    .agents/skills/cloud-run-basics/SKILL.md: sha256:c408324ce9fd9401b30c18ffbacf4979bc0a300eef4a610fa87b174b1d3426a6
+    .agents/skills/cloud-run-basics/SKILL.md: sha256:2636ca9682e587bfa302332d05b352110d6804cec489b31a2b603e4665c0ff6d
     .agents/skills/cloud-run-basics/references/cli-usage.md: sha256:87a58f1c49b848f66fa6bf1e30882fe247232aa1bf76e90987abf5e8b031580e
     .agents/skills/cloud-run-basics/references/client-library-usage.md: sha256:2f2c95b3fe6b8c36cfea903644279abe129816a84785739d4ba49e6bb571e772
     .agents/skills/cloud-run-basics/references/core-concepts.md: sha256:459830cc25d643dfd255b127df4df01bf9987b9eafd5c8aa8baca054517ccffe
-    .agents/skills/cloud-run-basics/references/iac-usage.md: sha256:941839db410466ca94fc52ec264f9b5b1c603cb8daae1ade7d467beae8bbc6ff
-    .agents/skills/cloud-run-basics/references/iam-security.md: sha256:4bf26e48111c633ab57950a5fa7b27ae5934d835331f245bf037a6288f6cc055
+    .agents/skills/cloud-run-basics/references/iac-usage.md: sha256:429c3a3edba4bd108c5faea064fdd17f13fddc3fd2238a245de0c700d29d940c
+    .agents/skills/cloud-run-basics/references/iam-security.md: sha256:9430085095a0d16243ef7b8eb5a875690df633f8626078d3b004387bae2a7721
     .agents/skills/cloud-run-basics/references/mcp-usage.md: sha256:ad9aecf215e01dc4384918b39457a118d15d16f3f6c7e10aa80a50a686eca780
-    .claude/skills/cloud-run-basics/SKILL.md: sha256:c408324ce9fd9401b30c18ffbacf4979bc0a300eef4a610fa87b174b1d3426a6
+    .agents/skills/cloud-run-basics/references/networking.md: sha256:8a62caf6ae07721c77d384ec30991df7349ebc674fb8152d58dcad216527866c
+    .claude/skills/cloud-run-basics/SKILL.md: sha256:2636ca9682e587bfa302332d05b352110d6804cec489b31a2b603e4665c0ff6d
     .claude/skills/cloud-run-basics/references/cli-usage.md: sha256:87a58f1c49b848f66fa6bf1e30882fe247232aa1bf76e90987abf5e8b031580e
     .claude/skills/cloud-run-basics/references/client-library-usage.md: sha256:2f2c95b3fe6b8c36cfea903644279abe129816a84785739d4ba49e6bb571e772
     .claude/skills/cloud-run-basics/references/core-concepts.md: sha256:459830cc25d643dfd255b127df4df01bf9987b9eafd5c8aa8baca054517ccffe
-    .claude/skills/cloud-run-basics/references/iac-usage.md: sha256:941839db410466ca94fc52ec264f9b5b1c603cb8daae1ade7d467beae8bbc6ff
-    .claude/skills/cloud-run-basics/references/iam-security.md: sha256:4bf26e48111c633ab57950a5fa7b27ae5934d835331f245bf037a6288f6cc055
+    .claude/skills/cloud-run-basics/references/iac-usage.md: sha256:429c3a3edba4bd108c5faea064fdd17f13fddc3fd2238a245de0c700d29d940c
+    .claude/skills/cloud-run-basics/references/iam-security.md: sha256:9430085095a0d16243ef7b8eb5a875690df633f8626078d3b004387bae2a7721
     .claude/skills/cloud-run-basics/references/mcp-usage.md: sha256:ad9aecf215e01dc4384918b39457a118d15d16f3f6c7e10aa80a50a686eca780
-  content_hash: sha256:69a5feea75d3c1498bea8ff90feb5dd71b39555cb00a93a1d7c7a9cf13a2ce88
+    .claude/skills/cloud-run-basics/references/networking.md: sha256:8a62caf6ae07721c77d384ec30991df7349ebc674fb8152d58dcad216527866c
+  content_hash: sha256:468feb831926b2b42d5361c0685ecddf2693cabd511acf845ba8edad93c8ec45
 - repo_url: google/skills
-  name: skills
+  name: gcloud
   host: github.com
-  resolved_commit: c03169671232a50da03d7ce2cc9ab4919ffcd283
+  resolved_commit: 0ea2cd73e63c373b68364985673be7a56b8d266b
   version: unknown
   virtual_path: skills/cloud/gcloud
   is_virtual: true
@@ -98,13 +102,13 @@ dependencies:
   - .claude/skills/gcloud
   - .claude/skills/gcloud/SKILL.md
   deployed_file_hashes:
-    .agents/skills/gcloud/SKILL.md: sha256:bc61ed1c55a608395d18ac05198ab987a8943e027d77c7ce24e18da365eba40d
-    .claude/skills/gcloud/SKILL.md: sha256:bc61ed1c55a608395d18ac05198ab987a8943e027d77c7ce24e18da365eba40d
-  content_hash: sha256:23294abb27c0569af44578e1a9547dff021d51620f27c4f37a8acff29b400350
+    .agents/skills/gcloud/SKILL.md: sha256:aaf6cf7d186574fee97b669e1c9841cac5e9cd6912dc407c85c63c1107579489
+    .claude/skills/gcloud/SKILL.md: sha256:aaf6cf7d186574fee97b669e1c9841cac5e9cd6912dc407c85c63c1107579489
+  content_hash: sha256:c845aa9fb4f05e279ed5c69b5cc08897a1e63d2df714a25fb80980f5c494d944
 - repo_url: google/skills
-  name: skills
+  name: gemini-api
   host: github.com
-  resolved_commit: c03169671232a50da03d7ce2cc9ab4919ffcd283
+  resolved_commit: 0ea2cd73e63c373b68364985673be7a56b8d266b
   version: unknown
   virtual_path: skills/cloud/gemini-api
   is_virtual: true
@@ -133,31 +137,89 @@ dependencies:
   - .claude/skills/gemini-api/references/structured_and_tools.md
   - .claude/skills/gemini-api/references/text_and_multimodal.md
   deployed_file_hashes:
-    .agents/skills/gemini-api/SKILL.md: sha256:a5b6929703f4fd9234761d001246f2b481ff7f17fac75eb97866555a314cd8f7
-    .agents/skills/gemini-api/references/advanced_features.md: sha256:ad0c4c7c9d7bf24cf06160bf1650823ec6d050baad2877402d705335af89581c
-    .agents/skills/gemini-api/references/bounding_box.md: sha256:0317c2cf0d14dbc220828590086a128bfe61527d573bf0d79c78dba4af88702a
+    .agents/skills/gemini-api/SKILL.md: sha256:e730427242c5f958e4194db5f0083e18cabf8889d19ceb31bad69581a5980083
+    .agents/skills/gemini-api/references/advanced_features.md: sha256:77fdac142d7476a6c771ffccad0f8ed3bd93c31fcb1fb45ef5e240b42bf76ca1
+    .agents/skills/gemini-api/references/bounding_box.md: sha256:0bef8247e8443e857e8a8ba4fa67ef13da6fe787f54545e72b67968c861f5460
     .agents/skills/gemini-api/references/embeddings.md: sha256:4a3d3f754dbcd935a2f01d1bd33918c1d9bef3730115f4a744537c0506ee99fb
     .agents/skills/gemini-api/references/live_api.md: sha256:be927fcc21ee3cdea68d5172cad957885ab09281ddea8f85eccc02ef3747560f
-    .agents/skills/gemini-api/references/media_generation.md: sha256:d6a15200eacd0f95635f385e91234639be705ac7fa8d1b139c7d4676c05e1deb
-    .agents/skills/gemini-api/references/model_tuning.md: sha256:0311765a49e7d41be92123ee129e5affaa01ec6ceee36858fcf81d123ba52d06
-    .agents/skills/gemini-api/references/safety.md: sha256:12f2d0c60350b1f697020d1102cf6add5feddf0148e15e56534cd0d5b243fadb
-    .agents/skills/gemini-api/references/structured_and_tools.md: sha256:e5ffc58f95637efdf244a9994d73454b9ae56330045d2994f1bae75a79fe9bde
-    .agents/skills/gemini-api/references/text_and_multimodal.md: sha256:122c37d0e321b0e431636aa43da6f4d7e3c80f38bf0d02fa8fce3153ecb79495
-    .claude/skills/gemini-api/SKILL.md: sha256:a5b6929703f4fd9234761d001246f2b481ff7f17fac75eb97866555a314cd8f7
-    .claude/skills/gemini-api/references/advanced_features.md: sha256:ad0c4c7c9d7bf24cf06160bf1650823ec6d050baad2877402d705335af89581c
-    .claude/skills/gemini-api/references/bounding_box.md: sha256:0317c2cf0d14dbc220828590086a128bfe61527d573bf0d79c78dba4af88702a
+    .agents/skills/gemini-api/references/media_generation.md: sha256:d07674111ba566e5a86392dc6fa0bbc7d6bb96881ffa700a04f786eb51ed9d87
+    .agents/skills/gemini-api/references/model_tuning.md: sha256:b46fd342db759b17a8bdc6766574012ff4e282dff6f0b290f81bdc00e8bed288
+    .agents/skills/gemini-api/references/safety.md: sha256:59919c7a2ca9d3c6e7ab7999957ea4d5cf0c6bb0fbc274ab59df4a3ede40fefd
+    .agents/skills/gemini-api/references/structured_and_tools.md: sha256:6aab78bcd8d2a662db2f154ebf24d2747093c825ca87a51514e281cbce074918
+    .agents/skills/gemini-api/references/text_and_multimodal.md: sha256:a9c283c8b90110e2d4a35472eb55faa692886cdc9b30e752214dc6da6462ecb0
+    .claude/skills/gemini-api/SKILL.md: sha256:e730427242c5f958e4194db5f0083e18cabf8889d19ceb31bad69581a5980083
+    .claude/skills/gemini-api/references/advanced_features.md: sha256:77fdac142d7476a6c771ffccad0f8ed3bd93c31fcb1fb45ef5e240b42bf76ca1
+    .claude/skills/gemini-api/references/bounding_box.md: sha256:0bef8247e8443e857e8a8ba4fa67ef13da6fe787f54545e72b67968c861f5460
     .claude/skills/gemini-api/references/embeddings.md: sha256:4a3d3f754dbcd935a2f01d1bd33918c1d9bef3730115f4a744537c0506ee99fb
     .claude/skills/gemini-api/references/live_api.md: sha256:be927fcc21ee3cdea68d5172cad957885ab09281ddea8f85eccc02ef3747560f
-    .claude/skills/gemini-api/references/media_generation.md: sha256:d6a15200eacd0f95635f385e91234639be705ac7fa8d1b139c7d4676c05e1deb
-    .claude/skills/gemini-api/references/model_tuning.md: sha256:0311765a49e7d41be92123ee129e5affaa01ec6ceee36858fcf81d123ba52d06
-    .claude/skills/gemini-api/references/safety.md: sha256:12f2d0c60350b1f697020d1102cf6add5feddf0148e15e56534cd0d5b243fadb
-    .claude/skills/gemini-api/references/structured_and_tools.md: sha256:e5ffc58f95637efdf244a9994d73454b9ae56330045d2994f1bae75a79fe9bde
-    .claude/skills/gemini-api/references/text_and_multimodal.md: sha256:122c37d0e321b0e431636aa43da6f4d7e3c80f38bf0d02fa8fce3153ecb79495
-  content_hash: sha256:9bc62cd049bcacc0bd85bf4687d38c659f89ee399f177d33677ae58e60617d0d
-- repo_url: snhryt-neo/dotfiles
-  name: dotfiles
+    .claude/skills/gemini-api/references/media_generation.md: sha256:d07674111ba566e5a86392dc6fa0bbc7d6bb96881ffa700a04f786eb51ed9d87
+    .claude/skills/gemini-api/references/model_tuning.md: sha256:b46fd342db759b17a8bdc6766574012ff4e282dff6f0b290f81bdc00e8bed288
+    .claude/skills/gemini-api/references/safety.md: sha256:59919c7a2ca9d3c6e7ab7999957ea4d5cf0c6bb0fbc274ab59df4a3ede40fefd
+    .claude/skills/gemini-api/references/structured_and_tools.md: sha256:6aab78bcd8d2a662db2f154ebf24d2747093c825ca87a51514e281cbce074918
+    .claude/skills/gemini-api/references/text_and_multimodal.md: sha256:a9c283c8b90110e2d4a35472eb55faa692886cdc9b30e752214dc6da6462ecb0
+  content_hash: sha256:d924b24759f75e2364239a54c1b85e86e8c239cae41f7917f6da15116cc5c9c1
+- repo_url: helpfeel/cosense-cli
+  name: cosense-cli
   host: github.com
-  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
+  resolved_commit: e06bc890958cfe8d1b6fe932db06c35eb8c8577d
+  version: e06bc89
+  package_type: marketplace_plugin
+  deployed_files:
+  - .agents/skills/cosense
+  - .agents/skills/cosense/SKILL.md
+  - .agents/skills/cosense/edit-page.md
+  - .agents/skills/cosense/login.md
+  - .agents/skills/cosense/read-page.md
+  - .agents/skills/cosense/version-mismatch.md
+  - .claude/skills/cosense
+  - .claude/skills/cosense-cli/bin/cosense
+  - .claude/skills/cosense/SKILL.md
+  - .claude/skills/cosense/edit-page.md
+  - .claude/skills/cosense/login.md
+  - .claude/skills/cosense/read-page.md
+  - .claude/skills/cosense/version-mismatch.md
+  deployed_file_hashes:
+    .agents/skills/cosense/SKILL.md: sha256:f6abe54566a2bbb9b80d45d9832978cc8743a4571cc87881ce90996d32ad641b
+    .agents/skills/cosense/edit-page.md: sha256:bad0a2ba23a96cae91ead4fffc3fe3a0f37693061cdfd6ce0f1efa28399a6113
+    .agents/skills/cosense/login.md: sha256:2ec8b18196e6dc4aec61dae8a43fe5ea6a1b71185fd325545cb95577073c2a23
+    .agents/skills/cosense/read-page.md: sha256:10fbe746d1c6003539a3fd0ca30792e77a62c14cb73f1102aad468de0d1e63a6
+    .agents/skills/cosense/version-mismatch.md: sha256:894f46a5564169cf36637d7473c474fda76a17552acdcc2aa42c0d5be8713a5e
+    .claude/skills/cosense-cli/bin/cosense: sha256:323356cfaf5e4e2abc3bf7c2c01138d785feedd5cac0b996ae67a354ef7ff35d
+    .claude/skills/cosense/SKILL.md: sha256:f6abe54566a2bbb9b80d45d9832978cc8743a4571cc87881ce90996d32ad641b
+    .claude/skills/cosense/edit-page.md: sha256:bad0a2ba23a96cae91ead4fffc3fe3a0f37693061cdfd6ce0f1efa28399a6113
+    .claude/skills/cosense/login.md: sha256:2ec8b18196e6dc4aec61dae8a43fe5ea6a1b71185fd325545cb95577073c2a23
+    .claude/skills/cosense/read-page.md: sha256:10fbe746d1c6003539a3fd0ca30792e77a62c14cb73f1102aad468de0d1e63a6
+    .claude/skills/cosense/version-mismatch.md: sha256:894f46a5564169cf36637d7473c474fda76a17552acdcc2aa42c0d5be8713a5e
+  content_hash: sha256:1d68f8e314581e9d6ea297d7b1ccb71a98183792c97e2da7824b427c104609a7
+- repo_url: mizchi/skills
+  name: empirical-prompt-tuning
+  host: github.com
+  resolved_commit: 7a0d72866a0bb3e9ac3e2768c328b09ba2bc40c4
+  version: unknown
+  virtual_path: meta/empirical-prompt-tuning
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/empirical-prompt-tuning
+  - .agents/skills/empirical-prompt-tuning/README.md
+  - .agents/skills/empirical-prompt-tuning/SKILL-ja.md
+  - .agents/skills/empirical-prompt-tuning/SKILL.md
+  - .claude/skills/empirical-prompt-tuning
+  - .claude/skills/empirical-prompt-tuning/README.md
+  - .claude/skills/empirical-prompt-tuning/SKILL-ja.md
+  - .claude/skills/empirical-prompt-tuning/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/empirical-prompt-tuning/README.md: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
+    .agents/skills/empirical-prompt-tuning/SKILL-ja.md: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
+    .agents/skills/empirical-prompt-tuning/SKILL.md: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
+    .claude/skills/empirical-prompt-tuning/README.md: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
+    .claude/skills/empirical-prompt-tuning/SKILL-ja.md: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
+    .claude/skills/empirical-prompt-tuning/SKILL.md: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
+  content_hash: sha256:20e7fba93c7267ba6e3a7b27787ca49191b762dffcfb804b01da9183b1b0c891
+- repo_url: snhryt-neo/dotfiles
+  name: dev-research
+  host: github.com
+  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
   version: unknown
   virtual_path: skills/dev-research
   is_virtual: true
@@ -176,30 +238,9 @@ dependencies:
     .claude/skills/dev-research/evals/evals.json: sha256:61842a8da05b9dd0c216ff7bbcc4869474103e649db4420c8b43c31b59c611da
   content_hash: sha256:8b8fff13549611ecaa30ff67730cf5e8d2d093908533040a56750dbf4ffaeeb4
 - repo_url: snhryt-neo/dotfiles
-  name: dotfiles
+  name: gh-markdown
   host: github.com
-  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
-  version: unknown
-  virtual_path: skills/empirical-prompt-tuning
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .agents/skills/empirical-prompt-tuning
-  - .agents/skills/empirical-prompt-tuning/SKILL.md
-  - .agents/skills/empirical-prompt-tuning/provenance.md
-  - .claude/skills/empirical-prompt-tuning
-  - .claude/skills/empirical-prompt-tuning/SKILL.md
-  - .claude/skills/empirical-prompt-tuning/provenance.md
-  deployed_file_hashes:
-    .agents/skills/empirical-prompt-tuning/SKILL.md: sha256:21cb213c1d2c02794c94e6fd0ad20e779e6c767850f292e6475b60cb3500c82f
-    .agents/skills/empirical-prompt-tuning/provenance.md: sha256:cd86636ed455606ad60ffd100a62f0b0aa68a8ca94bb7670dbba89b9b4c22aef
-    .claude/skills/empirical-prompt-tuning/SKILL.md: sha256:21cb213c1d2c02794c94e6fd0ad20e779e6c767850f292e6475b60cb3500c82f
-    .claude/skills/empirical-prompt-tuning/provenance.md: sha256:cd86636ed455606ad60ffd100a62f0b0aa68a8ca94bb7670dbba89b9b4c22aef
-  content_hash: sha256:f71249b10dbc5e1b2858f3660ed041efd73c101b4b14fa84eb90176df4662d3f
-- repo_url: snhryt-neo/dotfiles
-  name: dotfiles
-  host: github.com
-  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
+  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
   version: unknown
   virtual_path: skills/gh-markdown
   is_virtual: true
@@ -214,9 +255,9 @@ dependencies:
     .claude/skills/gh-markdown/SKILL.md: sha256:4d8a511675a41a6613d1802c015ede9643deacd2f4ebf6846a20939d3771e3ba
   content_hash: sha256:33f315ea87cb48cddbc1db7a3f28f1c04329cdecbe435e6dc2c5738130b06465
 - repo_url: snhryt-neo/dotfiles
-  name: dotfiles
+  name: gha-security-review
   host: github.com
-  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
+  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
   version: unknown
   virtual_path: skills/gha-security-review
   is_virtual: true
@@ -243,9 +284,9 @@ dependencies:
     .claude/skills/gha-security-review/references/tooling.md: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
   content_hash: sha256:5f05b7c38a50fd4f0896f2f0db65f9110fcd780834993fafb7ee5b5a045705ed
 - repo_url: snhryt-neo/dotfiles
-  name: dotfiles
+  name: graphify
   host: github.com
-  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
+  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
   version: unknown
   virtual_path: skills/graphify
   is_virtual: true
@@ -264,9 +305,9 @@ dependencies:
     .claude/skills/graphify/SKILL.md: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
   content_hash: sha256:0bf2560fcc0b4e7b87c75e0cb90841e59039a249637ae4d05ab98584864b5cd9
 - repo_url: snhryt-neo/dotfiles
-  name: dotfiles
+  name: imagegen
   host: github.com
-  resolved_commit: 9850beb08d9b460efb6bd25e727126e407fc0493
+  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
   version: unknown
   virtual_path: skills/imagegen
   is_virtual: true
@@ -284,3 +325,1078 @@ dependencies:
     .claude/skills/imagegen/SKILL.md: sha256:09d0d4151097a30e0b13557a48b8d1ea5d54ae8b10835e9c333ea92724d2655c
     .claude/skills/imagegen/templates/prompt.md: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
   content_hash: sha256:ae1c8c997ca923b45ed7f2a17f925d58994fddaef17b4d7d8c7b044a794ccbcb
+deployments:
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:d19c3511d7328131b5c368fefbf4353fc387bc69cf0e59314656671c308b7b93
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics/references/cli-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:b8ec6d981390d543a6af0ac3072813c6f7df641547dc17ecfaa2d43e766612db
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics/references/client-library-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:4b091ffcd5f657e1c96dc60e2ad913266850a380c39190a26bbd90e229eb6b5a
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics/references/core-concepts.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:ccb7991b5f0cfb850defa220536831b3e579516377788cd9b2a4067adc1f00c8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics/references/iac-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:4cc7cba990280a5f2438bb965fb4bd575ca5967289f72bfd19b7830eb44b0208
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics/references/iam-security.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:384c8d4b1eb64f9567cbc6f167cd38802a0b4b836b0616305d947fe4f46cca04
+- kind: project-relative
+  target: claude
+  value: .claude/skills/bigquery-basics/references/mcp-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:f4cf2ef39e89ae3fc8e3a0bc19100e3382dc1eeec920d4cd8c5801dc51a62df7
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:2636ca9682e587bfa302332d05b352110d6804cec489b31a2b603e4665c0ff6d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/references/cli-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:87a58f1c49b848f66fa6bf1e30882fe247232aa1bf76e90987abf5e8b031580e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/references/client-library-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:2f2c95b3fe6b8c36cfea903644279abe129816a84785739d4ba49e6bb571e772
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/references/core-concepts.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:459830cc25d643dfd255b127df4df01bf9987b9eafd5c8aa8baca054517ccffe
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/references/iac-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:429c3a3edba4bd108c5faea064fdd17f13fddc3fd2238a245de0c700d29d940c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/references/iam-security.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:9430085095a0d16243ef7b8eb5a875690df633f8626078d3b004387bae2a7721
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/references/mcp-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:ad9aecf215e01dc4384918b39457a118d15d16f3f6c7e10aa80a50a686eca780
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cloud-run-basics/references/networking.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:8a62caf6ae07721c77d384ec30991df7349ebc674fb8152d58dcad216527866c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cosense
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cosense-cli/bin/cosense
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:323356cfaf5e4e2abc3bf7c2c01138d785feedd5cac0b996ae67a354ef7ff35d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cosense/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:f6abe54566a2bbb9b80d45d9832978cc8743a4571cc87881ce90996d32ad641b
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cosense/edit-page.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:bad0a2ba23a96cae91ead4fffc3fe3a0f37693061cdfd6ce0f1efa28399a6113
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cosense/login.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:2ec8b18196e6dc4aec61dae8a43fe5ea6a1b71185fd325545cb95577073c2a23
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cosense/read-page.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:10fbe746d1c6003539a3fd0ca30792e77a62c14cb73f1102aad468de0d1e63a6
+- kind: project-relative
+  target: claude
+  value: .claude/skills/cosense/version-mismatch.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:894f46a5564169cf36637d7473c474fda76a17552acdcc2aa42c0d5be8713a5e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/dev-research
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/dev-research
+  active_owner: snhryt-neo/dotfiles/skills/dev-research
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/dev-research/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/dev-research
+  active_owner: snhryt-neo/dotfiles/skills/dev-research
+  content_hash: sha256:d67fdc583d6e7229394e6c22fa15adb728d9bd6500066aa6779ec63ec5eb0568
+- kind: project-relative
+  target: claude
+  value: .claude/skills/dev-research/evals/evals.json
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/dev-research
+  active_owner: snhryt-neo/dotfiles/skills/dev-research
+  content_hash: sha256:61842a8da05b9dd0c216ff7bbcc4869474103e649db4420c8b43c31b59c611da
+- kind: project-relative
+  target: claude
+  value: .claude/skills/empirical-prompt-tuning
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/empirical-prompt-tuning/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/empirical-prompt-tuning/SKILL-ja.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
+- kind: project-relative
+  target: claude
+  value: .claude/skills/empirical-prompt-tuning/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gcloud
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gcloud
+  active_owner: google/skills/skills/cloud/gcloud
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gcloud/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gcloud
+  active_owner: google/skills/skills/cloud/gcloud
+  content_hash: sha256:aaf6cf7d186574fee97b669e1c9841cac5e9cd6912dc407c85c63c1107579489
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:e730427242c5f958e4194db5f0083e18cabf8889d19ceb31bad69581a5980083
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/advanced_features.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:77fdac142d7476a6c771ffccad0f8ed3bd93c31fcb1fb45ef5e240b42bf76ca1
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/bounding_box.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:0bef8247e8443e857e8a8ba4fa67ef13da6fe787f54545e72b67968c861f5460
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/embeddings.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:4a3d3f754dbcd935a2f01d1bd33918c1d9bef3730115f4a744537c0506ee99fb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/live_api.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:be927fcc21ee3cdea68d5172cad957885ab09281ddea8f85eccc02ef3747560f
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/media_generation.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:d07674111ba566e5a86392dc6fa0bbc7d6bb96881ffa700a04f786eb51ed9d87
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/model_tuning.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:b46fd342db759b17a8bdc6766574012ff4e282dff6f0b290f81bdc00e8bed288
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/safety.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:59919c7a2ca9d3c6e7ab7999957ea4d5cf0c6bb0fbc274ab59df4a3ede40fefd
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/structured_and_tools.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:6aab78bcd8d2a662db2f154ebf24d2747093c825ca87a51514e281cbce074918
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gemini-api/references/text_and_multimodal.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:a9c283c8b90110e2d4a35472eb55faa692886cdc9b30e752214dc6da6462ecb0
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gh-markdown
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gh-markdown/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: sha256:4d8a511675a41a6613d1802c015ede9643deacd2f4ebf6846a20939d3771e3ba
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gha-security-review
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gha-security-review/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:119241ac4494717f155fb6cf47c5aa0bf7ed49d60e69ac2474a84eada4a2d6c5
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gha-security-review/references/github-actions-security-checklist.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:f8ab8f71f1aea01999ccf930babdb592288e8b5d0ac64c9eb85dd116f55c25c5
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gha-security-review/references/terraform-cicd-review.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:65cd5350a8ad680dee7e8382ead91cbe8ecbb883c58db50d86d843e878b8b533
+- kind: project-relative
+  target: claude
+  value: .claude/skills/gha-security-review/references/tooling.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
+- kind: project-relative
+  target: claude
+  value: .claude/skills/graphify
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/graphify
+  active_owner: snhryt-neo/dotfiles/skills/graphify
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/graphify/.graphify_version
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/graphify
+  active_owner: snhryt-neo/dotfiles/skills/graphify
+  content_hash: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/graphify/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/graphify
+  active_owner: snhryt-neo/dotfiles/skills/graphify
+  content_hash: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/imagegen
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/imagegen
+  active_owner: snhryt-neo/dotfiles/skills/imagegen
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/imagegen/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/imagegen
+  active_owner: snhryt-neo/dotfiles/skills/imagegen
+  content_hash: sha256:09d0d4151097a30e0b13557a48b8d1ea5d54ae8b10835e9c333ea92724d2655c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/imagegen/templates/prompt.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/imagegen
+  active_owner: snhryt-neo/dotfiles/skills/imagegen
+  content_hash: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:d19c3511d7328131b5c368fefbf4353fc387bc69cf0e59314656671c308b7b93
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics/references/cli-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:b8ec6d981390d543a6af0ac3072813c6f7df641547dc17ecfaa2d43e766612db
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics/references/client-library-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:4b091ffcd5f657e1c96dc60e2ad913266850a380c39190a26bbd90e229eb6b5a
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics/references/core-concepts.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:ccb7991b5f0cfb850defa220536831b3e579516377788cd9b2a4067adc1f00c8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics/references/iac-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:4cc7cba990280a5f2438bb965fb4bd575ca5967289f72bfd19b7830eb44b0208
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics/references/iam-security.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:384c8d4b1eb64f9567cbc6f167cd38802a0b4b836b0616305d947fe4f46cca04
+- kind: project-relative
+  target: codex
+  value: .agents/skills/bigquery-basics/references/mcp-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/bigquery-basics
+  active_owner: google/skills/skills/cloud/bigquery-basics
+  content_hash: sha256:f4cf2ef39e89ae3fc8e3a0bc19100e3382dc1eeec920d4cd8c5801dc51a62df7
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:2636ca9682e587bfa302332d05b352110d6804cec489b31a2b603e4665c0ff6d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/references/cli-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:87a58f1c49b848f66fa6bf1e30882fe247232aa1bf76e90987abf5e8b031580e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/references/client-library-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:2f2c95b3fe6b8c36cfea903644279abe129816a84785739d4ba49e6bb571e772
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/references/core-concepts.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:459830cc25d643dfd255b127df4df01bf9987b9eafd5c8aa8baca054517ccffe
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/references/iac-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:429c3a3edba4bd108c5faea064fdd17f13fddc3fd2238a245de0c700d29d940c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/references/iam-security.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:9430085095a0d16243ef7b8eb5a875690df633f8626078d3b004387bae2a7721
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/references/mcp-usage.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:ad9aecf215e01dc4384918b39457a118d15d16f3f6c7e10aa80a50a686eca780
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cloud-run-basics/references/networking.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/cloud-run-basics
+  active_owner: google/skills/skills/cloud/cloud-run-basics
+  content_hash: sha256:8a62caf6ae07721c77d384ec30991df7349ebc674fb8152d58dcad216527866c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cosense
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cosense/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:f6abe54566a2bbb9b80d45d9832978cc8743a4571cc87881ce90996d32ad641b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cosense/edit-page.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:bad0a2ba23a96cae91ead4fffc3fe3a0f37693061cdfd6ce0f1efa28399a6113
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cosense/login.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:2ec8b18196e6dc4aec61dae8a43fe5ea6a1b71185fd325545cb95577073c2a23
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cosense/read-page.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:10fbe746d1c6003539a3fd0ca30792e77a62c14cb73f1102aad468de0d1e63a6
+- kind: project-relative
+  target: codex
+  value: .agents/skills/cosense/version-mismatch.md
+  runtime: null
+  scope: project
+  owners:
+  - helpfeel/cosense-cli
+  active_owner: helpfeel/cosense-cli
+  content_hash: sha256:894f46a5564169cf36637d7473c474fda76a17552acdcc2aa42c0d5be8713a5e
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dev-research
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/dev-research
+  active_owner: snhryt-neo/dotfiles/skills/dev-research
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dev-research/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/dev-research
+  active_owner: snhryt-neo/dotfiles/skills/dev-research
+  content_hash: sha256:d67fdc583d6e7229394e6c22fa15adb728d9bd6500066aa6779ec63ec5eb0568
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dev-research/evals/evals.json
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/dev-research
+  active_owner: snhryt-neo/dotfiles/skills/dev-research
+  content_hash: sha256:61842a8da05b9dd0c216ff7bbcc4869474103e649db4420c8b43c31b59c611da
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning/SKILL-ja.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gcloud
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gcloud
+  active_owner: google/skills/skills/cloud/gcloud
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gcloud/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gcloud
+  active_owner: google/skills/skills/cloud/gcloud
+  content_hash: sha256:aaf6cf7d186574fee97b669e1c9841cac5e9cd6912dc407c85c63c1107579489
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:e730427242c5f958e4194db5f0083e18cabf8889d19ceb31bad69581a5980083
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/advanced_features.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:77fdac142d7476a6c771ffccad0f8ed3bd93c31fcb1fb45ef5e240b42bf76ca1
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/bounding_box.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:0bef8247e8443e857e8a8ba4fa67ef13da6fe787f54545e72b67968c861f5460
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/embeddings.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:4a3d3f754dbcd935a2f01d1bd33918c1d9bef3730115f4a744537c0506ee99fb
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/live_api.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:be927fcc21ee3cdea68d5172cad957885ab09281ddea8f85eccc02ef3747560f
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/media_generation.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:d07674111ba566e5a86392dc6fa0bbc7d6bb96881ffa700a04f786eb51ed9d87
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/model_tuning.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:b46fd342db759b17a8bdc6766574012ff4e282dff6f0b290f81bdc00e8bed288
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/safety.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:59919c7a2ca9d3c6e7ab7999957ea4d5cf0c6bb0fbc274ab59df4a3ede40fefd
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/structured_and_tools.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:6aab78bcd8d2a662db2f154ebf24d2747093c825ca87a51514e281cbce074918
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gemini-api/references/text_and_multimodal.md
+  runtime: null
+  scope: project
+  owners:
+  - google/skills/skills/cloud/gemini-api
+  active_owner: google/skills/skills/cloud/gemini-api
+  content_hash: sha256:a9c283c8b90110e2d4a35472eb55faa692886cdc9b30e752214dc6da6462ecb0
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gh-markdown
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gh-markdown/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: sha256:4d8a511675a41a6613d1802c015ede9643deacd2f4ebf6846a20939d3771e3ba
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gha-security-review
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gha-security-review/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:119241ac4494717f155fb6cf47c5aa0bf7ed49d60e69ac2474a84eada4a2d6c5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gha-security-review/references/github-actions-security-checklist.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:f8ab8f71f1aea01999ccf930babdb592288e8b5d0ac64c9eb85dd116f55c25c5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gha-security-review/references/terraform-cicd-review.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:65cd5350a8ad680dee7e8382ead91cbe8ecbb883c58db50d86d843e878b8b533
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gha-security-review/references/tooling.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gha-security-review
+  active_owner: snhryt-neo/dotfiles/skills/gha-security-review
+  content_hash: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
+- kind: project-relative
+  target: codex
+  value: .agents/skills/graphify
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/graphify
+  active_owner: snhryt-neo/dotfiles/skills/graphify
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/graphify/.graphify_version
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/graphify
+  active_owner: snhryt-neo/dotfiles/skills/graphify
+  content_hash: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/graphify/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/graphify
+  active_owner: snhryt-neo/dotfiles/skills/graphify
+  content_hash: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
+- kind: project-relative
+  target: codex
+  value: .agents/skills/imagegen
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/imagegen
+  active_owner: snhryt-neo/dotfiles/skills/imagegen
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/imagegen/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/imagegen
+  active_owner: snhryt-neo/dotfiles/skills/imagegen
+  content_hash: sha256:09d0d4151097a30e0b13557a48b8d1ea5d54ae8b10835e9c333ea92724d2655c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/imagegen/templates/prompt.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/imagegen
+  active_owner: snhryt-neo/dotfiles/skills/imagegen
+  content_hash: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
+- kind: uri
+  target: mcp
+  value: exa
+  runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: findy-library
+  runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: exa
+  runtime: codex
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: findy-library
+  runtime: codex
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+mcp_servers:
+- exa
+- findy-library
+mcp_configs:
+  exa:
+    name: exa
+    transport: http
+    registry: false
+    url: https://mcp.exa.ai/mcp
+  findy-library:
+    name: findy-library
+    transport: http
+    registry: false
+    url: https://lib.findy.co.jp/mcp
+mcp_target_servers:
+  claude:
+  - exa
+  - findy-library
+  codex:
+  - exa
+  - findy-library

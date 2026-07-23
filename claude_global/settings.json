@@ -42,39 +42,19 @@
     "skill-creator@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "codex@openai-codex": true,
-    "security-guidance@claude-plugins-official": true,
-    "exa@claude-plugins-official": true,
-    "cosense-cli@cosense-cli": true
+    "security-guidance@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
-    "superpowers-marketplace": {
-      "source": {
-        "source": "github",
-        "repo": "obra/superpowers-marketplace"
-      }
-    },
     "claude-plugins-official": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
     },
-    "claude-code-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-code"
-      }
-    },
     "openai-codex": {
       "source": {
         "source": "github",
         "repo": "openai/codex-plugin-cc"
-      }
-    },
-    "cosense-cli": {
-      "source": {
-        "source": "github",
-        "repo": "helpfeel/cosense-cli"
       }
     }
   },
