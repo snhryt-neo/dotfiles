@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-07-23T06:16:12.809592+00:00'
+generated_at: '2026-07-23T07:53:40+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: google/skills
@@ -283,27 +283,6 @@ dependencies:
     .claude/skills/gha-security-review/references/terraform-cicd-review.md: sha256:65cd5350a8ad680dee7e8382ead91cbe8ecbb883c58db50d86d843e878b8b533
     .claude/skills/gha-security-review/references/tooling.md: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
   content_hash: sha256:5f05b7c38a50fd4f0896f2f0db65f9110fcd780834993fafb7ee5b5a045705ed
-- repo_url: snhryt-neo/dotfiles
-  name: graphify
-  host: github.com
-  resolved_commit: 058b415acfde06922569a84dbaad1bde83369f00
-  version: unknown
-  virtual_path: skills/graphify
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .agents/skills/graphify
-  - .agents/skills/graphify/.graphify_version
-  - .agents/skills/graphify/SKILL.md
-  - .claude/skills/graphify
-  - .claude/skills/graphify/.graphify_version
-  - .claude/skills/graphify/SKILL.md
-  deployed_file_hashes:
-    .agents/skills/graphify/.graphify_version: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
-    .agents/skills/graphify/SKILL.md: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
-    .claude/skills/graphify/.graphify_version: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
-    .claude/skills/graphify/SKILL.md: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
-  content_hash: sha256:0bf2560fcc0b4e7b87c75e0cb90841e59039a249637ae4d05ab98584864b5cd9
 - repo_url: snhryt-neo/dotfiles
   name: imagegen
   host: github.com
@@ -810,33 +789,6 @@ deployments:
   - snhryt-neo/dotfiles/skills/gha-security-review
   active_owner: snhryt-neo/dotfiles/skills/gha-security-review
   content_hash: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
-- kind: project-relative
-  target: claude
-  value: .claude/skills/graphify
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/graphify
-  active_owner: snhryt-neo/dotfiles/skills/graphify
-  content_hash: null
-- kind: project-relative
-  target: claude
-  value: .claude/skills/graphify/.graphify_version
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/graphify
-  active_owner: snhryt-neo/dotfiles/skills/graphify
-  content_hash: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
-- kind: project-relative
-  target: claude
-  value: .claude/skills/graphify/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/graphify
-  active_owner: snhryt-neo/dotfiles/skills/graphify
-  content_hash: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
 - kind: project-relative
   target: claude
   value: .claude/skills/imagegen
@@ -1350,33 +1302,6 @@ deployments:
   - snhryt-neo/dotfiles/skills/gha-security-review
   active_owner: snhryt-neo/dotfiles/skills/gha-security-review
   content_hash: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
-- kind: project-relative
-  target: codex
-  value: .agents/skills/graphify
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/graphify
-  active_owner: snhryt-neo/dotfiles/skills/graphify
-  content_hash: null
-- kind: project-relative
-  target: codex
-  value: .agents/skills/graphify/.graphify_version
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/graphify
-  active_owner: snhryt-neo/dotfiles/skills/graphify
-  content_hash: sha256:a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8
-- kind: project-relative
-  target: codex
-  value: .agents/skills/graphify/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/graphify
-  active_owner: snhryt-neo/dotfiles/skills/graphify
-  content_hash: sha256:6c2ff0d67eea7e52886df16fab3d08cb37464c6edb33a3fc69843922ce655fdb
 - kind: project-relative
   target: codex
   value: .agents/skills/imagegen
