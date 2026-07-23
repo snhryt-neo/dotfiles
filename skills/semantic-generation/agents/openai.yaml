@@ -1,0 +1,4 @@
+interface:
+  display_name: "Semantic Generation"
+  short_description: "曖昧な作業語を防ぎ、対象・役割・順序を先に固定する生成手順"
+  default_prompt: "Use $semantic-generation to fix the referents, roles, and sequence before drafting."
