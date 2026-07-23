@@ -29,7 +29,6 @@ dependencies:
     - snhryt-neo/dotfiles/skills/dev-research
     - snhryt-neo/dotfiles/skills/gh-markdown
     - snhryt-neo/dotfiles/skills/gha-security-review
-    - snhryt-neo/dotfiles/skills/graphify
     - snhryt-neo/dotfiles/skills/imagegen
     - snhryt-neo/dotfiles/skills/semantic-generation
   mcp:
