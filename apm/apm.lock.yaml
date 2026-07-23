@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-07-23T05:29:13.385356+00:00'
+generated_at: '2026-07-23T06:16:12.809592+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: google/skills
@@ -219,7 +219,7 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: dev-research
   host: github.com
-  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
+  resolved_commit: 058b415acfde06922569a84dbaad1bde83369f00
   version: unknown
   virtual_path: skills/dev-research
   is_virtual: true
@@ -240,7 +240,7 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: gh-markdown
   host: github.com
-  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
+  resolved_commit: 058b415acfde06922569a84dbaad1bde83369f00
   version: unknown
   virtual_path: skills/gh-markdown
   is_virtual: true
@@ -257,7 +257,7 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: gha-security-review
   host: github.com
-  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
+  resolved_commit: 058b415acfde06922569a84dbaad1bde83369f00
   version: unknown
   virtual_path: skills/gha-security-review
   is_virtual: true
@@ -286,7 +286,7 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: graphify
   host: github.com
-  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
+  resolved_commit: 058b415acfde06922569a84dbaad1bde83369f00
   version: unknown
   virtual_path: skills/graphify
   is_virtual: true
@@ -307,7 +307,7 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: imagegen
   host: github.com
-  resolved_commit: 7e6f0ed7588b7904e2424d544b039b1a7ae7c57e
+  resolved_commit: 058b415acfde06922569a84dbaad1bde83369f00
   version: unknown
   virtual_path: skills/imagegen
   is_virtual: true
@@ -325,6 +325,31 @@ dependencies:
     .claude/skills/imagegen/SKILL.md: sha256:09d0d4151097a30e0b13557a48b8d1ea5d54ae8b10835e9c333ea92724d2655c
     .claude/skills/imagegen/templates/prompt.md: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
   content_hash: sha256:ae1c8c997ca923b45ed7f2a17f925d58994fddaef17b4d7d8c7b044a794ccbcb
+- repo_url: snhryt-neo/dotfiles
+  name: semantic-generation
+  host: github.com
+  resolved_commit: 058b415acfde06922569a84dbaad1bde83369f00
+  version: unknown
+  virtual_path: skills/semantic-generation
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/semantic-generation
+  - .agents/skills/semantic-generation/SKILL.md
+  - .agents/skills/semantic-generation/agents/openai.yaml
+  - .agents/skills/semantic-generation/reference.md
+  - .claude/skills/semantic-generation
+  - .claude/skills/semantic-generation/SKILL.md
+  - .claude/skills/semantic-generation/agents/openai.yaml
+  - .claude/skills/semantic-generation/reference.md
+  deployed_file_hashes:
+    .agents/skills/semantic-generation/SKILL.md: sha256:e22245bad44125225775a078f3eb7a4cbaa60396fd9f42469b6d1d41b637d5c8
+    .agents/skills/semantic-generation/agents/openai.yaml: sha256:5e0cc705113c7c7adfc677d5bf195986343f0e92a129fd1448ff30e1ea2f99d7
+    .agents/skills/semantic-generation/reference.md: sha256:a86085ee2f532f594dc37b1fdee40b9c5f404627196b9278bd0e5073a28ca682
+    .claude/skills/semantic-generation/SKILL.md: sha256:e22245bad44125225775a078f3eb7a4cbaa60396fd9f42469b6d1d41b637d5c8
+    .claude/skills/semantic-generation/agents/openai.yaml: sha256:5e0cc705113c7c7adfc677d5bf195986343f0e92a129fd1448ff30e1ea2f99d7
+    .claude/skills/semantic-generation/reference.md: sha256:a86085ee2f532f594dc37b1fdee40b9c5f404627196b9278bd0e5073a28ca682
+  content_hash: sha256:76a73208015c0d9eaa6049c714714216bd440d8c446fd09d79ba7de6df17bd0a
 deployments:
 - kind: project-relative
   target: claude
@@ -840,6 +865,42 @@ deployments:
   active_owner: snhryt-neo/dotfiles/skills/imagegen
   content_hash: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
 - kind: project-relative
+  target: claude
+  value: .claude/skills/semantic-generation
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/semantic-generation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: sha256:e22245bad44125225775a078f3eb7a4cbaa60396fd9f42469b6d1d41b637d5c8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/semantic-generation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: sha256:5e0cc705113c7c7adfc677d5bf195986343f0e92a129fd1448ff30e1ea2f99d7
+- kind: project-relative
+  target: claude
+  value: .claude/skills/semantic-generation/reference.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: sha256:a86085ee2f532f594dc37b1fdee40b9c5f404627196b9278bd0e5073a28ca682
+- kind: project-relative
   target: codex
   value: .agents/skills/bigquery-basics
   runtime: null
@@ -1343,6 +1404,42 @@ deployments:
   - snhryt-neo/dotfiles/skills/imagegen
   active_owner: snhryt-neo/dotfiles/skills/imagegen
   content_hash: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/semantic-generation
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/semantic-generation/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: sha256:e22245bad44125225775a078f3eb7a4cbaa60396fd9f42469b6d1d41b637d5c8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/semantic-generation/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: sha256:5e0cc705113c7c7adfc677d5bf195986343f0e92a129fd1448ff30e1ea2f99d7
+- kind: project-relative
+  target: codex
+  value: .agents/skills/semantic-generation/reference.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/semantic-generation
+  active_owner: snhryt-neo/dotfiles/skills/semantic-generation
+  content_hash: sha256:a86085ee2f532f594dc37b1fdee40b9c5f404627196b9278bd0e5073a28ca682
 - kind: uri
   target: mcp
   value: exa
