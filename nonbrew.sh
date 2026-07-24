@@ -20,10 +20,3 @@ npm install -g @aisuite/chub
 
 # https://github.com/helpfeel/cosense-cli
 npm install -g @helpfeel/cosense-cli
-
-# =============================================================================
-# uv 経由でのインストール
-# =============================================================================
-echo "📦 Installing Python tools with uv..."
-# https://github.com/chopratejas/headroom
-uv tool install --python 3.13 "headroom-ai[all]"
