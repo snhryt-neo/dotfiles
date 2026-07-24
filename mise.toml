@@ -29,4 +29,3 @@ dotfiles.default_mode = "symlink"
 
 # XDG Base Directory に従わないアプリ固有の保存先も、実際に参照されるパスへ直接リンクする。
 "~/Library/Application Support/com.mitchellh.ghostty/config" = "ghostty/config"
-"~/.serena/serena_config.yml" = ".serena/serena_config.yml"
