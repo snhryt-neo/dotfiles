@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-07-23T07:53:40+00:00'
+generated_at: '2026-07-24T01:26:33.935096+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: google/skills
@@ -1367,6 +1367,15 @@ deployments:
   content_hash: sha256:a86085ee2f532f594dc37b1fdee40b9c5f404627196b9278bd0e5073a28ca682
 - kind: uri
   target: mcp
+  value: context7
+  runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
   value: exa
   runtime: claude
   scope: project
@@ -1378,6 +1387,15 @@ deployments:
   target: mcp
   value: findy-library
   runtime: claude
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: uri
+  target: mcp
+  value: context7
+  runtime: codex
   scope: project
   owners:
   - .
@@ -1402,9 +1420,15 @@ deployments:
   active_owner: .
   content_hash: null
 mcp_servers:
+- context7
 - exa
 - findy-library
 mcp_configs:
+  context7:
+    name: context7
+    transport: http
+    registry: false
+    url: https://mcp.context7.com/mcp
   exa:
     name: exa
     transport: http
@@ -1417,8 +1441,10 @@ mcp_configs:
     url: https://lib.findy.co.jp/mcp
 mcp_target_servers:
   claude:
+  - context7
   - exa
   - findy-library
   codex:
+  - context7
   - exa
   - findy-library
