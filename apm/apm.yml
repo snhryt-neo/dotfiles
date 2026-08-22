@@ -44,3 +44,8 @@ dependencies:
       registry: false
       transport: http
       url: https://mcp.exa.ai/mcp
+    # URLだけをAPMへ渡し、OAuth discovery/DCRは各クライアントへ任せる。
+    - name: xai-search
+      registry: false
+      transport: http
+      url: https://xai-search-mcp.snhryt.workers.dev/mcp

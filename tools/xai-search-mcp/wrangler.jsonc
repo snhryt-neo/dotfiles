@@ -1,0 +1,55 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "xai-search-mcp",
+  "main": "src/index.ts",
+  "workers_dev": true,
+  "preview_urls": false,
+  "compatibility_date": "2026-08-22",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "vars": {
+    "PUBLIC_ORIGIN": "https://xai-search-mcp.snhryt.workers.dev",
+    "GITHUB_CLIENT_ID": "Ov23liOhk09YFXUH9j8O",
+    "ALLOWED_GITHUB_USER_ID": "68265677"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "bcbfb0b3dcaf4effac2b04986226dc8b"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "BUDGET_GUARD",
+        "class_name": "BudgetGuard"
+      },
+      {
+        "name": "OAUTH_FLOW_STORE",
+        "class_name": "OAuthFlowStore"
+      }
+    ]
+  },
+  "ratelimits": [
+    {
+      "name": "DCR_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
+  ],
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["BudgetGuard"]
+    },
+    {
+      "tag": "v2",
+      "new_sqlite_classes": ["OAuthFlowStore"]
+    }
+  ],
+  "observability": {
+    "enabled": false
+  }
+}
