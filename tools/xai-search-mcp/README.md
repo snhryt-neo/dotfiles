@@ -210,5 +210,3 @@ xAIには検索語が送信され、既定ではAPIの入出力が監査目的�
 - 同意画面のCSPでは`form-action 'self' https://github.com`を維持する。`https://github.com`を許可しないと、承認ボタンのPOST後にGitHubへ遷移できず、画面上は何も起きていないように見える
 - OAuth開始時のstateはHttpOnly cookieにも保存されるため、認証開始から同意完了までは同じブラウザプロファイルで進める。別のブラウザへ移すと`Consent state failure: missing`になる
 - OAuth同意stateは10分で失効する。`Consent request expired`になった場合は、残っている同意画面を再利用せず、クライアントからOAuth認証をやり直す
-
-参考資料: [xAI X Search](https://docs.x.ai/developers/tools/x-search)、[xAI Pricing](https://docs.x.ai/developers/pricing)、[Cloudflare Workers OAuth Provider](https://github.com/cloudflare/workers-oauth-provider)、[Cloudflare MCP security guide](https://developers.cloudflare.com/agents/model-context-protocol/guides/securing-mcp-server/)
