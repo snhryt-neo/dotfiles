@@ -6,6 +6,10 @@
   "preview_urls": false,
   "compatibility_date": "2026-08-22",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "secrets": {
+    "required": ["XAI_API_KEY", "GITHUB_CLIENT_SECRET"]
+  },
+  // 認証情報ではなく、デプロイを再現するための公開設定だけを置く。
   "vars": {
     "PUBLIC_ORIGIN": "https://xai-search-mcp.snhryt.workers.dev",
     "GITHUB_CLIENT_ID": "Ov23liOhk09YFXUH9j8O",
