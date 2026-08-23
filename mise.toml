@@ -16,6 +16,10 @@ dotfiles.default_mode = "symlink"
 "~/.config/sheldon" = "sheldon"
 "~/.config/ccstatusline" = "ccstatusline"
 
+# fresh は同じディレクトリへ型宣言やテーマを自動生成するため、ディレクトリごとではなく設定ファイルだけをリンクする。
+# check_for_updates は匿名テレメトリ送信を兼ねるため false、self_update は Homebrew の管理と競合するため false にしている。
+"~/.config/fresh/config.json" = "fresh/config.json"
+
 # Claude Code のグローバル設定は、claude_global/ へ追加したファイルも自動的に管理対象に含める。
 "~/.claude/*" = "claude_global/*"
 

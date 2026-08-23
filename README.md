@@ -63,6 +63,8 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ├── claude_global/ # ~/.claude/ 直下に一括リンクされるファイル群
 │   ├── CLAUDE.md           # 全プロジェクト共通の作業規約（~/.claude/CLAUDE.md と ~/.codex/AGENTS.md にリンク）
 │   └── settings.json       # Claude Code のグローバル設定（~/.claude/settings.json にリンク）
+├── fresh/ # ターミナルエディタ fresh の設定（config.json のみリンクし、自動生成物は対象外）
+│   └── config.json
 ├── git/ # グローバルなGitの設定
 │   ├── templates/
 │   │   ├── secrets/ # git init時の git-secrets 自動追加設定

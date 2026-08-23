@@ -9,6 +9,10 @@ brew "gh"
 brew "pre-commit"
 brew "vim"
 brew "neovim"
+# モーダル操作を必要としないターミナルエディタ。
+# ディレクトリ単位のセッションを常駐させ、worktree ごとにエージェントを並走させる用途で使う。
+tap "sinelaw/fresh"
+brew "fresh"
 brew "zsh"
 brew "gawk"
 brew "gnu-sed"
