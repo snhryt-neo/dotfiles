@@ -22,6 +22,16 @@ task skills         # apm.yml からエージェントスキルをインスト�
 task skills-update  # インストール済みスキルをアップデート
 ```
 
+## スキルの評価
+
+スキルの発火evalは、APMがインストールした`~/.claude/skills`の影響を受けない一時プロジェクトで実行する。
+
+- 評価対象は一時プロジェクトの`.claude/skills/<name>/SKILL.md`へ配置する。旧形式の`.claude/commands`は使わない
+- 上位ディレクトリの`~/.claude`をプロジェクト設定として検出しない。評価ごとに一時ディレクトリを明示的に作成する
+- Claude CLIは`--setting-sources project`で起動し、ユーザースコープの既存スキルを評価対象へ混在させない
+- descriptionの発火精度を測る場合は利用可能なツールを`Skill`に限定し、他ツールへ直接進んだ結果を未発火として扱わない
+- 評価用スキルは終了時に削除し、`~/.claude/skills`へ一時ファイルを残さない
+
 ## ワークツリーの管理
 
 `claude agents` コマンドでサブエージェントを起動すると、`.claude/worktrees/` 配下にワークツリーが作成される。
