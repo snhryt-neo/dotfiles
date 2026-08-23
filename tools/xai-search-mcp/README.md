@@ -181,20 +181,9 @@ xAIには検索語が送信され、既定ではAPIの入出力が監査目的�
 
 ## Note
 
-`wrangler.jsonc`に置く値は公開設定だけとする。
-
-| 公開設定 | 理由 |
-| :--- | :--- |
-| `PUBLIC_ORIGIN` | Workerの公開URL |
-| `GITHUB_CLIENT_ID` | OAuth認可URLにも含まれるアプリ識別子 |
-| `ALLOWED_GITHUB_USER_ID` | GitHub公開プロフィールから取得できる数値ID |
-| KV namespace ID | Cloudflareリソースの識別子であり、認証情報ではない |
-
-Secretの実値は`wrangler.jsonc`、README、APM設定へ書かない。`.dev.vars*`と`.env*`もgitignore対象とする。
-
 - 回数上限とxAIの固定値は`src/config.ts`で変更する
-- Secretのローテーションには`npx wrangler secret put <NAME>`を使う
-- 依存更新時は`npm run check`と`npm audit`を実行する
-- xAI側でもauto top-upを無効にし、spending limitまたはプリペイド残高で課金上限を設ける
+- 通常の`npm run deploy`では登録済みのWorker Secretは維持される
+- `npx wrangler secret put <NAME>`はSecret更新と同時に新しいWorker versionをデプロイする
+- OAuth同意stateは10分で失効する。期限切れ時はクライアントからOAuth認証をやり直す
 
 参考資料: [xAI X Search](https://docs.x.ai/developers/tools/x-search)、[xAI Pricing](https://docs.x.ai/developers/pricing)、[Cloudflare Workers OAuth Provider](https://github.com/cloudflare/workers-oauth-provider)、[Cloudflare MCP security guide](https://developers.cloudflare.com/agents/model-context-protocol/guides/securing-mcp-server/)
