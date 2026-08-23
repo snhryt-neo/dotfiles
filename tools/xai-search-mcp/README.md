@@ -2,48 +2,117 @@
 
 ## Overview
 
-Cloudflare Workers上で動作する、個人用のX検索専用Remote MCP。CodexとClaude Codeから同じStreamable HTTPエンドポイントへ接続し、ユーザーがX検索を明示した場合だけxAI Responses APIの`x_search`を呼び出す。
-
-```yaml
-dependencies:
-  mcpServers:
-    - name: xai-search
-      registry: false
-      transport: http
-      url: https://xai-search-mcp.snhryt.workers.dev/mcp
-```
-
-## Prerequisites
-
-- Node.js
-- xAI API key
+- 個人用のX検索専用Remote MCP
+- Cloudflare WorkersにデプロイしてGitHub OAuth Appで認証
+  - Workers KV: OAuthのclient、grant、tokenの保存
+  - Durable Object: 一時的なcallback stateの保存
+- X検索は[xAI Responses APIのX Search tool](https://docs.x.ai/developers/tools/x-search)を使う
+- クライアント側はAPMでRemote MCPを設定する: [`apm.yml`](../../apm/apm.yml)
 
 ## Setup
+
+Cloudflare、GitHub、xAIのリソースを失った場合でも再構築できる手順。
+
+### 1. xAI API keyを発行する
+
+[xAI Console](https://console.x.ai/)でAPI keyを発行する。課金事故を防ぐため、auto top-upを無効にし、invoiced billing limitを`$0`にする。[xAI Billing](https://docs.x.ai/console/billing)
+
+### 2. Cloudflareへログインする
 
 ```bash
 cd tools/xai-search-mcp
 npm ci --ignore-scripts
 npx wrangler login
-npx wrangler secret put XAI_API_KEY
-npm run check
-npm run deploy
+npx wrangler whoami --json
 ```
 
-`GITHUB_CLIENT_SECRET`はWorker Secretへ登録済み。ローテーション時だけ再登録する。
+`whoami`の出力でデプロイ先のCloudflare accountを確認する。Cloudflare DashboardのWorkers & Pagesで`workers.dev` subdomainを確認し、次の公開URLを決める。
+
+```text
+https://xai-search-mcp.<workers.dev subdomain>.workers.dev
+```
+
+### 3. GitHub OAuth Appを作成する
+
+[GitHub Developer settings](https://github.com/settings/applications/new)で、このMCP専用のOAuth Appを作成する。
+
+| 設定 | 値 |
+| :--- | :--- |
+| Application name | `Personal xAI X Search MCP` |
+| Homepage URL | `<公開URL>` |
+| Authorization callback URL | `<公開URL>/callback` |
+
+作成後にClient Secretを生成する。Client IDと数値user IDは後で`wrangler.jsonc`へ設定する。
 
 ```bash
+gh api user --jq .id
+```
+
+### 4. Workers KV namespaceを作成する
+
+```bash
+npx wrangler kv namespace create OAUTH_KV
+```
+
+出力されたnamespace IDを控える。Durable Objectは`wrangler.jsonc`のmigrationにより初回デプロイ時に作成されるため、事前操作は不要。
+
+### 5. `wrangler.jsonc`を設定する
+
+取得した値を`wrangler.jsonc`へ設定する。
+
+```jsonc
+{
+  "vars": {
+    "PUBLIC_ORIGIN": "<公開URL>",
+    "GITHUB_CLIENT_ID": "<GitHub OAuth AppのClient ID>",
+    "ALLOWED_GITHUB_USER_ID": "<GitHubの数値user ID>"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "<KV namespace ID>"
+    }
+  ]
+}
+```
+
+`PUBLIC_ORIGIN`、Client ID、数値user ID、KV namespace IDは公開設定。API keyとClient Secretはここへ書かない。
+
+### 6. Secretを登録する
+
+```bash
+npx wrangler secret put XAI_API_KEY
 npx wrangler secret put GITHUB_CLIENT_SECRET
 ```
 
+入力値はCloudflare Worker Secretへ保存され、リポジトリには残らない。
+
+### 7. デプロイして確認する
+
+```bash
+npm run check
+npm run deploy
+curl --fail --silent --show-error "<公開URL>/health"
+```
+
+GitHub OAuth AppのHomepage URLとcallback URLが、デプロイ後のURLと完全に一致することを確認する。
+
 ## Usage
 
-### Server
-
-実装変更後はテストしてデプロイする。
+ローカル開発では`.dev.vars.example`を`.dev.vars`へコピーし、2つのSecretを設定する。`.dev.vars`はgitignoreされる。
 
 ```bash
 cd tools/xai-search-mcp
+npm ci --ignore-scripts
+cp .dev.vars.example .dev.vars
+npm run dev
+```
+
+変更後はテスト、依存監査、デプロイを実行する。
+
+```bash
 npm run check
+npm audit
 npm run deploy
 ```
 
@@ -53,23 +122,6 @@ npm run deploy
 curl --fail --silent --show-error \
   https://xai-search-mcp.snhryt.workers.dev/health
 ```
-
-### Client
-
-APM設定をCodexとClaude Codeへ反映する。
-
-```bash
-task skills
-```
-
-初回だけ、クライアントごとにOAuth認証する。
-
-```bash
-codex mcp login xai-search
-claude mcp login xai-search
-```
-
-`x_search`は、ユーザーがX、Twitter、ポスト、ツイートを検索対象として明示した場合だけ使用する。通常のWeb検索には使わない。
 
 ## Architecture
 
