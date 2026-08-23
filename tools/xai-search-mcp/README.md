@@ -169,11 +169,14 @@ xAIには検索語が送信され、既定ではAPIの入出力が監査目的�
 
 - その他の検討パターン
   - 固定Bearer token: 実装は単純だが、全クライアントへの安全な配布、保存、ローテーションが必要で、漏えい時は本人確認なしで利用される
-  - Cloudflare Access: Workerの手前で認証を統一できるが、MCP OAuthとは別の認証設定が各クライアントに必要になる
+  - Google OIDC: 安定した`sub`で利用者を識別できるが、この用途だけのためにGoogle Cloud側のOAuth同意画面とクライアントを追加管理する必要がある
+  - Cloudflare Access Managed OAuth: Workerの手前で認証とポリシーを統一できるが、Zero TrustとAccess Applicationの設定が増え、Worker自身が提供するOAuthフローとの役割分担も必要になる
+  - Auth0などの外部IdP: 複数の認証方式や利用者へ拡張しやすいが、単一利用者のために新たなテナント、Secret、料金体系へ依存する
   - GitHubのlogin名によるallowlist: 数値IDより読みやすいが、変更可能であり、将来別の利用者に再取得される可能性がある
 - 意思決定した理由
-  - クライアント固有の認証情報を配布せず、CodexとClaude Codeの標準OAuthフローで単一利用者を識別できることを重視した
-  - GitHubへの依存とOAuth Appの保守は必要になるが、追加scopeなしの本人確認と変更されない数値user IDにより、固定tokenより漏えい時の影響を抑え、login名より安定して識別できる利点が上回ると判断した
+  - クライアント固有の認証情報を配布せず、CodexとClaude Codeの標準OAuthフローで、普段の開発に使っているGitHubアカウントをそのまま本人確認に使えることを重視した
+  - GitHub OAuthは追加scopeなしでも公開プロフィールを取得でき、login名変更の影響を受けない数値user IDをallowlistに使える
+  - GitHubへの依存とOAuth Appの保守は必要になるが、Googleや外部IdPを新たに管理するより構成が少なく、単一利用者にはAccessのポリシー管理より直接的である利点が上回ると判断した
 
 ### 一時状態と課金枠にDurable Objectsを使う
 
@@ -200,6 +203,12 @@ xAIには検索語が送信され、既定ではAPIの入出力が監査目的�
 - 回数上限とxAIの固定値は`src/config.ts`で変更する
 - 通常の`npm run deploy`では登録済みのWorker Secretは維持される
 - `npx wrangler secret put <NAME>`はSecret更新と同時に新しいWorker versionをデプロイする
-- OAuth同意stateは10分で失効する。期限切れ時はクライアントからOAuth認証をやり直す
+
+### OAuth認証
+
+- `PUBLIC_ORIGIN`にはデプロイ先のHTTPS originをpathなしで設定し、GitHub OAuth AppのAuthorization callback URLは`<PUBLIC_ORIGIN>/callback`と完全一致させる
+- 同意画面のCSPでは`form-action 'self' https://github.com`を維持する。`https://github.com`を許可しないと、承認ボタンのPOST後にGitHubへ遷移できず、画面上は何も起きていないように見える
+- OAuth開始時のstateはHttpOnly cookieにも保存されるため、認証開始から同意完了までは同じブラウザプロファイルで進める。別のブラウザへ移すと`Consent state failure: missing`になる
+- OAuth同意stateは10分で失効する。`Consent request expired`になった場合は、残っている同意画面を再利用せず、クライアントからOAuth認証をやり直す
 
 参考資料: [xAI X Search](https://docs.x.ai/developers/tools/x-search)、[xAI Pricing](https://docs.x.ai/developers/pricing)、[Cloudflare Workers OAuth Provider](https://github.com/cloudflare/workers-oauth-provider)、[Cloudflare MCP security guide](https://developers.cloudflare.com/agents/model-context-protocol/guides/securing-mcp-server/)
