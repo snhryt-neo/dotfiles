@@ -4,31 +4,79 @@
     {
       "id": 1,
       "prompt": "OpenAI の Responses API を使って Python でストリーミングレスポンスを受け取るコードを書いて。最新の書き方で。",
-      "expected_output": "種別Aとして Context Hub → Context7 → llms.txt の順で調査し、最新の Responses API ストリーミング実装コードを提示する。正確なメソッド名・パラメータを使っていること。",
+      "expected_output": "現在の公式ドキュメントでResponses APIのストリーミング方法を確認し、正確なメソッド名とパラメータを使ったコードを提示する。十分な一次情報を得た後に不要な検索を続けない。",
       "files": []
     },
     {
       "id": 2,
       "prompt": "Anthropic Claude API の tool_use で複数ツールを定義する最新の書き方を教えて。Python で実装したい。",
-      "expected_output": "種別Aとして Context Hub → Context7 の順で調査し、tool_use の最新パラメータ・スキーマ定義を正確に示す。情報が得られた時点で次のツールに進まない。",
+      "expected_output": "現在のAnthropic公式ドキュメントでtool_useのスキーマを確認し、複数ツールを定義する正確なPython実装を示す。ミラーを使った場合も、重要な仕様は可能な限り公式情報で裏付ける。",
       "files": []
     },
     {
       "id": 3,
-      "prompt": "OpenAI API の料金とレート制限を教えて。gpt-4o は1リクエストあたりいくら？",
-      "expected_output": "種別Bとして Exa のみで最新の料金ページを調査する。Context Hub や Context7 は使わない。",
+      "prompt": "OpenAI API の料金とレート制限を教えて。現在の情報を確認して。",
+      "expected_output": "現在の公式料金ページと公式の制限情報を優先して確認し、対象モデルや利用階層による違いを明示する。固定された過去年の情報を使わない。",
       "files": []
     },
     {
       "id": 4,
       "prompt": "langchain を使っていたら 'No module named langchain_community' というエラーが出た。どうすれば直る？",
-      "expected_output": "種別Cとして GitHub Issues → GitHub Discussions → Context7 → Exa の順で調査する。解決策が見つかった時点で次のツールに進まない。",
+      "expected_output": "対象バージョンを考慮してパッケージ分割に由来する原因と解決策を特定し、情報源を示す。原因と解決策が判明した時点で残りの調査手段に進まない。",
       "files": []
     },
     {
       "id": 5,
       "prompt": "Python の HTTP クライアントライブラリで httpx と requests どっちを使えばいい？非同期対応が必要。",
-      "expected_output": "種別Dとして Context7 → Exa の順で調査し、両ライブラリの機能・非同期サポートを比較して推奨を出す。GitHub Activity は必要に応じて確認。",
+      "expected_output": "各ライブラリの現在の公式ドキュメントで非同期対応など判断に必要な差を確認し、要件に基づく推奨を出す。必要性がなければ第三者記事やGitHub Activityまで調べない。",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Claude Codeで今障害が起きているか、公式情報に加えてXの投稿も調べて。",
+      "expected_output": "公式ステータス情報を優先し、ユーザーがXを明示したためX検索MCPを補助的に1回使う。公式情報とX上の告知・利用者の反応を区別し、投稿者や期間を指定できる場合は検索範囲を絞る。",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Claude Codeで今障害が起きているか調べて。",
+      "expected_output": "公式ステータスページと必要なWeb情報で確認する。ユーザーがXを情報源に含めるよう明示していないため、X検索MCPは使わない。",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "XのClaudeDevs直近投稿から、Claude Codeの便利な使い方をまとめて。",
+      "expected_output": "X検索MCPを使い、ClaudeDevsと適切な期間に検索範囲を絞って原則1回で調査する。投稿日、投稿URL、具体的な使い方を示し、スレッドはまとめて扱う。",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "このリポジトリの parse_config 関数を読みやすくリファクタして。",
+      "expected_output": "外部調査を必要としないローカルコード変更なので、このスキルを起動せずリポジトリを読んで対応する。",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Python の list comprehension と generator expression の違いは？",
+      "expected_output": "最新情報の確認を必要としない一般的な言語知識なので、このスキルを起動せず直接回答する。",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Stripe SDK の最新の認証方法を教えて。去年のブログ記事ではこう書いてあった。",
+      "expected_output": "ブログ記事を根拠にせず、現在のStripe公式ドキュメントで認証方法を確認し、必要なら記事との差異を明示する。",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "外部APIの使い方を調べて。Context HubもContext7も利用できない環境です。",
+      "expected_output": "利用できないツールを導入するためのグローバルインストールを行わず、対象APIを確認したうえで公式ドキュメントや利用可能なWeb取得手段へ切り替える。",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Xで特定サービスの障害情報を調べて。",
+      "expected_output": "X検索MCPを原則1回だけ使う。1回で有用な情報が得られなければ自動再検索せず、サービス名、公式アカウント、対象期間などの絞り込み条件と再検索の可否をユーザーへ確認する。",
       "files": []
     }
   ]

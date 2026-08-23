@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dev Research"
+  short_description: "外部仕様を一次情報から効率よく調査する技術リサーチ手順"
+  default_prompt: "Use $dev-research to investigate this technical question using current primary sources."
