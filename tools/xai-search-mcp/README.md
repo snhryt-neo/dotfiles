@@ -157,27 +157,47 @@ xAIには検索語が送信され、既定ではAPIの入出力が監査目的�
 
 ### Cloudflare WorkersでRemote MCPを運用する
 
-- **背景**: CodexとClaude Codeから同じMCPを使いつつ、第三者のMCPサーバーへxAI API keyを渡したくなかった
-- **決定**: 自分のCloudflareアカウントでRemote MCPを運用し、APMから同じURLを両クライアントへ配布する
-- **影響**: ローカルプロセスなしで利用できる一方、Workerと状態ストアの保守は自分で行う
+- その他の検討パターン
+  - ローカルでstdio MCPを動かし、CodexとClaude Codeへ個別設定する
+  - 第三者が公開するRemote MCPへxAI API keyを渡す
+  - VPSやCloud RunでRemote MCPを運用する
+- 意思決定した理由
+  - CodexとClaude Codeへ同じURLをAPMで配布できる
+  - xAI API keyを自分のCloudflareアカウント内で管理できる
+  - 常時起動サーバーなしで、OAuth、KV、Durable Objectsを同じ基盤へまとめられる
 
 ### GitHub OAuthで利用者を限定する
 
-- **背景**: 公開URLを知る第三者にxAIの利用料金を発生させられる可能性がある
-- **決定**: 専用GitHub OAuth Appで本人確認し、変更可能なlogin名ではなく数値user IDをallowlistと照合する
-- **影響**: GitHubアカウントへ依存するが、単一利用者を安定して識別できる
+- その他の検討パターン
+  - 固定Bearer tokenを各MCPクライアントへ設定する
+  - Cloudflare AccessでWorker全体を保護する
+  - GitHubのlogin名をallowlistと照合する
+- 意思決定した理由
+  - CodexとClaude Codeの標準OAuthフローをそのまま利用できる
+  - 固定tokenをAPMやクライアント設定へ配布せずに済む
+  - 変更可能なlogin名ではなく数値user IDで、単一利用者を安定して識別できる
 
 ### 一時状態と課金枠にDurable Objectsを使う
 
-- **背景**: Workers KVの結果整合性では、OAuth stateの一度きり消費と並行検索の厳密な回数制限を保証できない
-- **決定**: OAuth Providerの永続データはKV、一時状態と課金枠は責務別のDurable Objectへ保存する
-- **影響**: 構成要素は増えるが、認可flowの二重消費と課金上限超過をtransactionで防げる
+- その他の検討パターン
+  - OAuth Providerの永続データ、一時state、課金枠をすべてWorkers KVへ保存する
+  - すべての状態を単一のDurable Objectへ保存する
+  - D1や外部データベースで状態を管理する
+- 意思決定した理由
+  - OAuth Providerが前提とするclient、grant、tokenの保存にはKVをそのまま使える
+  - 一度だけ消費するstateと並行更新される課金枠には、Durable Objectsの強整合性とtransactionが必要になる
+  - 一時状態と課金枠を責務別に分け、不要な外部データベースを増やさずに済む
 
 ### xAIの機能と費用をサーバー側で固定する
 
-- **背景**: クライアント入力でモデルやツール回数を変更できると、用途外の処理と予期しない課金が発生する
-- **決定**: X検索以外のツール、複数回のツール呼び出し、画像・動画理解を許可しない
-- **影響**: 費用を予測しやすい代わりに、複雑な調査とメディア解析には対応しない
+- その他の検討パターン
+  - モデル、reasoning、ツール回数、出力量をMCPの入力で変更可能にする
+  - Web検索や画像・動画理解も同じMCPで提供する
+  - X APIを直接呼び出して検索結果を組み立てる
+- 意思決定した理由
+  - 購入済みの少額クレジット内で費用を予測しやすくする
+  - MCPの用途をX検索へ限定し、クライアント入力による機能拡張と課金増加を防ぐ
+  - xAIのX Search toolによる検索と引用生成を使い、独自の検索・要約処理を持たずに済む
 
 ## Note
 
