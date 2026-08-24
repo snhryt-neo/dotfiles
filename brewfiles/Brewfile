@@ -80,7 +80,7 @@ brew "databricks/tap/databricks"
 # Terminal editor
 # https://github.com/sinelaw/fresh
 tap "sinelaw/fresh"
-brew "fresh" # モーダル操作なしで編集でき、worktree ごとにエージェントを並走させられる
+brew "fresh" # ターミナルエディタ
 
 # Secret Management
 # https://infisical.com/docs/cli/overview
