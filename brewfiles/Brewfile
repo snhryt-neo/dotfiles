@@ -80,7 +80,7 @@ brew "databricks/tap/databricks"
 # Terminal editor
 # https://github.com/sinelaw/fresh
 tap "sinelaw/fresh"
-brew "fresh" # ターミナルエディタ
+brew "fresh"
 
 # Secret Management
 # https://infisical.com/docs/cli/overview
