@@ -1,4 +1,7 @@
 export CLICOLOR=1
+# manページを構文ハイライト付きで読む。
+# macOSのnroffはバックスペースによる重ね打ちで太字を表現するため、col で落としてからbatへ渡す
+export MANPAGER="sh -c 'col -bx | bat -plman'"
 export TMPDIR="$HOME/.tmp"
 
 # ======================================================================
@@ -53,7 +56,8 @@ setopt pushd_ignore_dups
 alias cd='z'
 alias ls='lsd -F --group-directories-first'
 alias find='fd'
-alias cat='bat'
+# コピペのじゃまになる行番号やGit変更マーカーを出さない。装飾つきで読むときはbatを直接叩く
+alias cat='bat -p'
 alias grep='rg'
 alias ps='procs'
 alias top='btm'
