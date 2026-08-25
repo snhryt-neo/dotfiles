@@ -1,6 +1,12 @@
 {
-  "locale": "ja",
+  "locale": "en",
   "theme": "dark",
   "check_for_updates": false,
-  "self_update": false
+  "self_update": false,
+  "editor": {
+    "show_status_bar": true
+  },
+  "file_browser": {
+    "show_hidden": true
+  }
 }

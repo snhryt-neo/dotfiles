@@ -35,6 +35,14 @@ tasks:
 
   link:
     desc: "Applying dotfiles with mise"
+    # ワークツリーで実行するとリンクの参照先がワークツリー内部になるため、
+    # 管理ディレクトリの一致を見て linked worktree を弾く。
+    preconditions:
+      - sh: |
+          test \
+            "$(git rev-parse --path-format=absolute --git-dir)" = \
+            "$(git rev-parse --path-format=absolute --git-common-dir)"
+        msg: "ワークツリーでは task link を実行できません"
     cmd: mise dotfiles apply --yes
 
   gui:

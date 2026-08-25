@@ -15,7 +15,7 @@ dotfiles.default_mode = "symlink"
 "~/.config/karabiner" = "karabiner"
 "~/.config/sheldon" = "sheldon"
 "~/.config/ccstatusline" = "ccstatusline"
-"~/.config/fresh/config.json" = "fresh/config.json"
+"~/.config/fresh" = "fresh"
 
 # Claude Code のグローバル設定は、claude_global/ へ追加したファイルも自動的に管理対象に含める。
 "~/.claude/*" = "claude_global/*"
