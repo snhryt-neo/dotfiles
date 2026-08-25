@@ -1,10 +1,16 @@
---theme="Coldark-Dark"
+# ターミナルの明暗に追従させるため、テーマを固定せず明暗それぞれを指定する
+--theme-dark="Coldark-Dark"
+--theme-light="Coldark-Cold"
 
-# Show line numbers, Git modifications and file header (but no grid)
---style="numbers,changes,header"
+# 閲覧向けのデフォルト。コピペするときは -p で装飾を落とす
+--style="numbers,changes,header-filename,rule"
 
 # Use italic text on the terminal (not supported on all terminals)
 --italic-text=always
 
-# Use ".gitignore"-style highlighting for ".ignore" files
---map-syntax ".ignore:Git Ignore"
+# 色付きログを読むときに制御コードが化けるのを防ぐ
+--strip-ansi=auto
+
+# 標準の構文定義が拾わないファイル名を補う
+--map-syntax "Brewfile*:Ruby"
+--map-syntax "**/ghostty/config:INI"
