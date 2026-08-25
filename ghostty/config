@@ -63,3 +63,10 @@ macos-titlebar-style = transparent
 macos-window-shadow = true
 # 入力中はマウスカーソルを隠す
 mouse-hide-while-typing = true
+
+# ------------------------------------------------------------
+# キーバインド
+# ------------------------------------------------------------
+# ターミナルにはCmd修飾キーを送る標準的な手段がないため、
+# Cmd+ZをCtrl+Zのバイト(0x1A)に変換してfresh等のTUIへ届ける
+keybind = super+z=text:\x1a
