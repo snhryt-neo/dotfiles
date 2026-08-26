@@ -105,9 +105,8 @@ cask "visual-studio-code"
 # AI
 cask "claude"
 cask "chatgpt"
-cask "claude-code"
+cask "claude-code@latest" # stable版の cask "claude-code" より更新が早い
 cask "codex"
-cask "codex-app"
 
 # Infrastructure
 cask "google-drive"
