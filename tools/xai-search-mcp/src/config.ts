@@ -2,7 +2,8 @@ export const MCP_NAME = "xai-x-search";
 export const MCP_VERSION = "0.1.0";
 
 export const XAI_MODEL = "grok-4.3";
-export const XAI_RESPONSES_URL = "https://api.x.ai/v1/responses";
+export const XAI_RESPONSES_URL =
+  "https://gateway.ai.cloudflare.com/v1/3a98b9299f91095ca897a22cc740c54b/xai-search-mcp/grok/v1/responses";
 export const XAI_REASONING_EFFORT = "none";
 export const XAI_MAX_TOOL_CALLS = 1;
 export const XAI_MAX_OUTPUT_TOKENS = 1_200;

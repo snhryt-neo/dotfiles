@@ -7,6 +7,7 @@
   - Workers KV: OAuthのclient、grant、tokenの保存
   - Durable Object: 一時的なcallback stateの保存
 - X検索は[xAI Responses APIのX Search tool](https://docs.x.ai/developers/tools/x-search)を使う
+- xAIへのリクエストは[Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/usage/providers/grok/)を経由し、本文を保存せず利用量とコストを可視化する
 - クライアント側はAPMでRemote MCPを設定する: [`apm.yml`](../../apm/apm.yml)
 
 ## Setup
@@ -32,7 +33,20 @@ npx wrangler whoami --json
 https://xai-search-mcp.<workers.dev subdomain>.workers.dev
 ```
 
-### 3. GitHub OAuth Appを作成する
+### 3. AI Gatewayを作成する
+
+[Cloudflare DashboardのAI Gateway](https://dash.cloudflare.com/?to=/:account/ai/ai-gateway)で`xai-search-mcp`を作成する。
+
+| 設定 | 値 | 理由 |
+| :--- | :--- | :--- |
+| ログを収集 | ON | トークン、コスト、ステータス等を確認する。Workerが本文保存をリクエスト単位で無効化する |
+| キャッシュ レスポンス | OFF | 同一の検索語でも時点によってXの結果が変わるため |
+| レート制限リクエスト | OFF | ユーザー単位の厳密な上限を`BudgetGuard`で管理するため |
+| 認証済みゲートウェイ | ON | 第三者によるリクエストとログ汚染を防ぐため |
+
+認証トークンを作成し、後でWorker Secretへ登録する。AI Gatewayのトークンはアカウント単位の権限を持つため、リポジトリへ保存しない。[Authenticated Gateway](https://developers.cloudflare.com/ai-gateway/configuration/authentication/)
+
+### 4. GitHub OAuth Appを作成する
 
 [GitHub Developer settings](https://github.com/settings/applications/new)で、このMCP専用のOAuth Appを作成する。
 
@@ -48,7 +62,7 @@ https://xai-search-mcp.<workers.dev subdomain>.workers.dev
 gh api user --jq .id
 ```
 
-### 4. Workers KV namespaceを作成する
+### 5. Workers KV namespaceを作成する
 
 ```bash
 npx wrangler kv namespace create OAUTH_KV
@@ -56,7 +70,7 @@ npx wrangler kv namespace create OAUTH_KV
 
 出力されたnamespace IDを控える。Durable Objectは`wrangler.jsonc`のmigrationにより初回デプロイ時に作成されるため、事前操作は不要。
 
-### 5. `wrangler.jsonc`を設定する
+### 6. `wrangler.jsonc`を設定する
 
 取得した値を`wrangler.jsonc`へ設定する。
 
@@ -78,16 +92,17 @@ npx wrangler kv namespace create OAUTH_KV
 
 `PUBLIC_ORIGIN`、Client ID、数値user ID、KV namespace IDは公開設定。API keyとClient Secretはここへ書かない。
 
-### 6. Secretを登録する
+### 7. Secretを登録する
 
 ```bash
 npx wrangler secret put XAI_API_KEY
+npx wrangler secret put CLOUDFLARE_AI_GATEWAY_TOKEN
 npx wrangler secret put GITHUB_CLIENT_SECRET
 ```
 
 入力値はCloudflare Worker Secretへ保存され、リポジトリには残らない。
 
-### 7. デプロイして確認する
+### 8. デプロイして確認する
 
 ```bash
 npm run check
@@ -131,7 +146,8 @@ flowchart LR
     Worker -->|grant / token| KV[(Workers KV)]
     Worker -->|one-time auth state| Flow[OAuthFlowStore DO]
     Worker -->|reserve quota| Budget[BudgetGuard DO]
-    Worker -->|x_search| xAI[xAI Responses API]
+    Worker -->|metadata-only log| Gateway[Cloudflare AI Gateway]
+    Gateway -->|x_search| xAI[xAI Responses API]
     Worker -->|identity check| GitHub[GitHub OAuth]
 ```
 
@@ -147,9 +163,13 @@ xAIを呼ぶ前に`BudgetGuard` Durable Objectで利用枠を予約する。上�
 
 xAIリクエストは`grok-4.3`、reasoning `none`、X検索1回、出力1,200トークンに固定する。クライアントからモデル、ツール、回数、出力量は変更できない。
 
+AI Gatewayのキャッシュとレート制限は使わない。X検索の鮮度を保ちつつ、ユーザー単位の分間・日次上限は引き続き`BudgetGuard`で管理する。
+
 ### Data handling
 
-`XAI_API_KEY`と`GITHUB_CLIENT_SECRET`はWorker Secretだけに保存する。検索語、Authorization、API key、xAIのエラー本文はログへ出さず、Workers Observabilityも無効にする。
+`XAI_API_KEY`、`CLOUDFLARE_AI_GATEWAY_TOKEN`、`GITHUB_CLIENT_SECRET`はWorker Secretだけに保存する。検索語、Authorization、API key、xAIのエラー本文はWorkersログへ出さず、Workers Observabilityも無効にする。
+
+AI Gatewayではリクエスト単位に`cf-aig-collect-log-payload: false`を指定し、検索語とレスポンス本文を保存しない。モデル、トークン、コスト、ステータス、処理時間等のメタデータはGatewayのログへ保存する。[AI Gateway Logging](https://developers.cloudflare.com/ai-gateway/observability/logging/)
 
 xAIには検索語が送信され、既定ではAPIの入出力が監査目的で30日保持される。ZDRを確認できない間は、機密情報を検索語へ含めない。[xAI API Security FAQ](https://docs.x.ai/developers/faq/security)
 
@@ -197,6 +217,15 @@ xAIには検索語が送信され、既定ではAPIの入出力が監査目的�
 - 意思決定した理由
   - 購入済みの少額クレジット内で費用を予測できることと、ユーザーが明示した場合だけXを検索する狭い権限を重視した
   - メディア解析、厳密なメトリクス取得、依頼ごとの品質調整ができない欠点はあるが、モデル、ツール回数、出力量を固定し、xAIの検索と引用生成を再利用して実装と課金を抑える利点が上回ると判断した
+
+### xAIの前段にAI Gatewayを置く
+
+- その他の検討パターン
+  - xAIを直接呼ぶ: 構成とSecretが少ないが、リクエスト単位のトークン、コスト、ステータスをまとめて確認できない
+  - Cloudflareの統合APIと統合課金を使う: xAI API keyが不要になるが、既存のxAIクレジットと課金制御からCloudflare側のクレジット管理へ移行する必要がある
+- 意思決定した理由
+  - 既存のxAI API keyと`BudgetGuard`を維持したまま、失敗率、処理時間、トークン、コストをCloudflare Dashboardで確認できることを重視した
+  - 経路とGateway用Secretが増える欠点はあるが、ログ本文を保存しない設定で検索内容の保護を維持しつつ、運用状況を可視化できる利点が上回ると判断した
 
 ## Note
 

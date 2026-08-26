@@ -7,7 +7,7 @@
   "compatibility_date": "2026-08-22",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "secrets": {
-    "required": ["XAI_API_KEY", "GITHUB_CLIENT_SECRET"]
+    "required": ["XAI_API_KEY", "CLOUDFLARE_AI_GATEWAY_TOKEN", "GITHUB_CLIENT_SECRET"]
   },
   // 認証情報ではなく、デプロイを再現するための公開設定だけを置く。
   "vars": {

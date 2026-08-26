@@ -8,6 +8,11 @@ import {
 } from "../src/config";
 import { buildRequestBody, formatToolOutput, searchX } from "../src/xai";
 
+const credentials = {
+  aiGatewayToken: "gateway-token",
+  apiKey: "secret-key",
+};
+
 describe("buildRequestBody", () => {
   it("課金と機能の上限をクライアント入力から独立して固定する", () => {
     const body = buildRequestBody({
@@ -44,7 +49,7 @@ describe("buildRequestBody", () => {
 });
 
 describe("searchX", () => {
-  it("公式Responses APIだけをBearer認証で呼び、結果と利用量を抽出する", async () => {
+  it("認証済みAI Gateway経由でResponses APIを呼び、本文を保存せず結果と利用量を抽出する", async () => {
     const fetcher = vi.fn<typeof fetch>().mockResolvedValue(
       Response.json({
         output: [
@@ -58,12 +63,16 @@ describe("searchX", () => {
       }),
     );
 
-    const result = await searchX("secret-key", { query: "test" }, fetcher);
+    const result = await searchX(credentials, { query: "test" }, fetcher);
 
     expect(fetcher).toHaveBeenCalledOnce();
     const [url, init] = fetcher.mock.calls[0];
     expect(url).toBe(XAI_RESPONSES_URL);
     expect(new Headers(init?.headers).get("Authorization")).toBe("Bearer secret-key");
+    expect(new Headers(init?.headers).get("cf-aig-authorization")).toBe(
+      "Bearer gateway-token",
+    );
+    expect(new Headers(init?.headers).get("cf-aig-collect-log-payload")).toBe("false");
     expect(result).toEqual({
       citations: ["https://x.com/xai/status/1"],
       costInUsdTicks: 50_000_000,
@@ -84,7 +93,7 @@ describe("searchX", () => {
         }),
       );
 
-    const result = await searchX("secret-key", { query: "test" }, fetcher);
+    const result = await searchX(credentials, { query: "test" }, fetcher);
 
     expect(result.truncated).toBe(true);
     expect(result.text.startsWith("x".repeat(MAX_RESULT_CHARACTERS))).toBe(true);
@@ -96,7 +105,7 @@ describe("searchX", () => {
       .fn<typeof fetch>()
       .mockResolvedValue(new Response("secret upstream details", { status: 401 }));
 
-    await expect(searchX("secret-key", { query: "private query" }, fetcher)).rejects.toThrow(
+    await expect(searchX(credentials, { query: "private query" }, fetcher)).rejects.toThrow(
       "xAI API request failed with status 401",
     );
   });

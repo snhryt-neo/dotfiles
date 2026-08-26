@@ -10,7 +10,7 @@ import type { AuthProps, Env } from "./env";
 import { OAuthFlowStore } from "./oauth-flow-store";
 import { BudgetGuard, reserveSearchBudget } from "./rate-limit";
 import { xSearchInputSchema } from "./search-input";
-import { formatToolOutput, searchX } from "./xai";
+import { formatToolOutput, searchX, XaiApiError } from "./xai";
 
 export { BudgetGuard, OAuthFlowStore };
 
@@ -82,7 +82,13 @@ function createServer(workerEnv: Env): McpServer {
       }
 
       try {
-        const result = await searchX(workerEnv.XAI_API_KEY, input);
+        const result = await searchX(
+          {
+            aiGatewayToken: workerEnv.CLOUDFLARE_AI_GATEWAY_TOKEN,
+            apiKey: workerEnv.XAI_API_KEY,
+          },
+          input,
+        );
         const metadata = [
           `残り回数: 分間 ${budget.minuteRemaining} / 日次 ${budget.dailyRemaining}`,
           result.costInUsdTicks === undefined
@@ -101,8 +107,11 @@ function createServer(workerEnv: Env): McpServer {
             },
           ],
         };
-      } catch {
-        return toolError("xAIのX検索に失敗しました。予約済みの回数枠は安全側に倒して消費されます。");
+      } catch (error) {
+        const status = error instanceof XaiApiError ? `（上流HTTP ${error.status}）` : "";
+        return toolError(
+          `xAIのX検索に失敗しました${status}。予約済みの回数枠は安全側に倒して消費されます。`,
+        );
       }
     },
   );

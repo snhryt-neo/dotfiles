@@ -27,8 +27,20 @@ export interface XSearchResult {
   truncated: boolean;
 }
 
+export interface XaiCredentials {
+  aiGatewayToken: string;
+  apiKey: string;
+}
+
+export class XaiApiError extends Error {
+  constructor(readonly status: number) {
+    super(`xAI API request failed with status ${status}`);
+    this.name = "XaiApiError";
+  }
+}
+
 export async function searchX(
-  apiKey: string,
+  credentials: XaiCredentials,
   input: XSearchInput,
   fetcher: typeof fetch = fetch,
 ): Promise<XSearchResult> {
@@ -36,7 +48,9 @@ export async function searchX(
     method: "POST",
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${credentials.apiKey}`,
+      "cf-aig-authorization": `Bearer ${credentials.aiGatewayToken}`,
+      "cf-aig-collect-log-payload": "false",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(buildRequestBody(input)),
@@ -44,7 +58,7 @@ export async function searchX(
   });
 
   if (!response.ok) {
-    throw new Error(`xAI API request failed with status ${response.status}`);
+    throw new XaiApiError(response.status);
   }
 
   const body = (await response.json()) as XaiResponse;

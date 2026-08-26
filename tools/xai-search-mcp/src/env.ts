@@ -12,6 +12,7 @@ export interface AuthProps {
 export interface Env {
   ALLOWED_GITHUB_USER_ID: string;
   BUDGET_GUARD: DurableObjectNamespace<BudgetGuard>;
+  CLOUDFLARE_AI_GATEWAY_TOKEN: string;
   DCR_RATE_LIMITER: RateLimit;
   GITHUB_CLIENT_ID: string;
   GITHUB_CLIENT_SECRET: string;
