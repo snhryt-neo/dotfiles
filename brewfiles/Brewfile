@@ -142,3 +142,8 @@ cask "spotify"
 # DroidDock
 tap "rajivm1991/droiddock"
 cask "rajivm1991/droiddock/droiddock"
+
+# Screendrop
+# https://github.com/fayazara/screendrop
+tap "fayazara/tap"
+cask "fayazara/tap/screendrop" # スクリーンショット・画面録画（要 macOS 26.4 以上）
