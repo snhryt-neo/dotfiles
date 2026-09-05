@@ -8,7 +8,7 @@ description: |
 
 ## Alerts（強調ブロック）
 
-気軽に使ってよい。内容を目立たせたいときに積極的に活用する。
+読み手の判断や操作に必要な注意を目立たせる場合に使う。通常の説明は本文に書く。
 
 ```markdown
 > [!NOTE]
@@ -91,7 +91,7 @@ GitHubのMarkdownは GFM[^1] をベースにしている。
 
 ## Emoji shortcode（絵文字）
 
-`:emoji_name:` で絵文字を埋め込める。READMEのトップや見出しを視覚的に分かりやすくするのに便利。
+`:emoji_name:` で絵文字を埋め込める。既存の文書の作法やユーザーの指定に合う場合に使う。
 
 ```markdown
 ## 🚀 Getting Started   <!-- Unicode絵文字でもOK -->
