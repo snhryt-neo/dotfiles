@@ -95,14 +95,12 @@ qmk flash -kb nuphy/air60_v2/ansi -km jis_us
 
 | 手順 | キャプチャ | 補足 |
 | :--- | :--- | :--- |
+| キーボードをMacbookに接続する | | |
 | Google Chromeで[VIA Web App](https://usevia.app/)を開く。画面上部の歯車アイコンを押し、「デザインタブを表示」をオンにする | <img src="assets/via-settings.png" alt="VIAの設定画面でデザインタブを表示を有効にした状態" width="480"> | 「デザイン」画面を表示するために必要 |
-| 画面上部のペイントブラシアイコンを押す。「ローカルレイアウトを読み込む」の「読み込み」から `via-definition.json` を選択する | <img src="assets/via-design.png" alt="VIAのデザイン画面でNuPhy Air60 V2のローカル定義を読み込んだ状態" width="480"> | キーボード定義の入手元は[JSON Files for NuPhy Keyboards](https://nuphy.com/pages/json-files-for-nuphy-keyboards) |
-| 画面上部のキーボードアイコンを押し、「デバイスを認証」を押す | <img src="assets/via-device-authentication.png" alt="VIAのキーマップ設定画面に表示されたデバイスを認証ボタン" width="480"> | キーボードを有線接続した状態で操作する |
-| ChromeのHID接続ダイアログで「NuPhy Air60 V2」を選択し、「接続」を押す | <img src="assets/via-hid-connection.png" alt="ChromeのHID接続ダイアログでNuPhy Air60 V2を選択した状態" width="480"> | 接続対象を間違えないようデバイス名を確認する |
-| 画面左側のフロッピーディスクアイコンを押し、保存したレイアウトを読み込む操作から `via-layout.json` を選択する | <img src="assets/via-layout.png" alt="VIAへ最新レイアウトを読み込んだLayer 3の設定画面" width="480"> | VIAで設定を変更した場合は、Exportした内容で `via-layout.json` を上書きする |
-
-> [!TIP]
-> 「デバイスを認証」を押しても画面が変わらない場合は、VIA Web Appを一度リロードしてから再度認証する。
+| 画面上部のペイントブラシアイコンを押す。「ローカルレイアウトを読み込む」の「読み込み」から `via-definition.json` を選択する | <img src="assets/via-design.png" alt="VIAのデザイン画面でNuPhy Air60 V2のローカル定義を読み込んだ状態" width="480"> | |
+| 画面上部のキーボードアイコンを押し、「デバイスを認証」を押す | <img src="assets/via-device-authentication.png" alt="VIAのキーマップ設定画面に表示されたデバイスを認証ボタン" width="480"> | 「デバイスを認証」を押しても画面が変わらない場合は、VIA Web Appを一度リロードしてから再度認証する。 |
+| ChromeのHID接続ダイアログで「NuPhy Air60 V2」を選択し、「接続」を押す | <img src="assets/via-hid-connection.png" alt="ChromeのHID接続ダイアログでNuPhy Air60 V2を選択した状態" width="480"> | |
+| 画面左側のフロッピーディスクアイコンを押し、保存したレイアウトを読み込む操作から `via-layout.json` を選択する | <img src="assets/via-layout.png" alt="VIAへ最新レイアウトを読み込んだLayer 3の設定画面" width="480"> | 設定を変更した場合は、Exportした内容で `via-layout.json` を上書きする |
 
 ## Directory Structure
 
