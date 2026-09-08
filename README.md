@@ -77,6 +77,8 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 │   │   └── complex_modifications/
 │   │       └── 1726838703.json # https://ke-complex-modifications.pqrs.org/#japanese
 │   └── karabiner.json
+├── keyboards/
+│   └── nuphy-air60-v2/ # NuPhy Air60 V2のQMK・VIA設定（QMK forkのsubmoduleを含む）
 ├── skills/ # 自作スキル（apm/apm.yml の自己参照エントリ経由で Claude Code と Codex にインストールされる）
 ├── snapshots/ # 手動インストール対応が必要なもののスナップショット
 │   ├── black-formatter-settings_20240922.json

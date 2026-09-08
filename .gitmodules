@@ -1,0 +1,3 @@
+[submodule "keyboards/nuphy-air60-v2/qmk_firmware_nuphy"]
+	path = keyboards/nuphy-air60-v2/qmk_firmware_nuphy
+	url = https://github.com/nuphy-src/qmk_firmware.git
