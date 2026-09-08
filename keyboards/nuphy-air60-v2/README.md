@@ -55,6 +55,9 @@ QMK CLIがNuPhy forkのPython依存不足を表示した場合は、エラーに
 mkdir -p \
   keyboards/nuphy-air60-v2/qmk_firmware_nuphy/keyboards/nuphy/air60_v2/ansi/keymaps/jis_us
 
+cp keyboards/nuphy-air60-v2/keymap.gitignore \
+  keyboards/nuphy-air60-v2/qmk_firmware_nuphy/keyboards/nuphy/air60_v2/ansi/keymaps/jis_us/.gitignore
+
 cp keyboards/nuphy-air60-v2/keymap.c \
   keyboards/nuphy-air60-v2/qmk_firmware_nuphy/keyboards/nuphy/air60_v2/ansi/keymaps/jis_us/keymap.c
 
@@ -62,7 +65,7 @@ cp keyboards/nuphy-air60-v2/rules.mk \
   keyboards/nuphy-air60-v2/qmk_firmware_nuphy/keyboards/nuphy/air60_v2/ansi/keymaps/jis_us/rules.mk
 ```
 
-submodule内のコピーはビルド用の作業ファイルであり、NuPhy forkにはコミットしない。設定変更はこのディレクトリ直下の `keymap.c` と `rules.mk` に反映する。
+`keymap.gitignore` はコピー先のディレクトリ全体をGitの無視対象にする。submodule内のビルド用ファイルは通常の `git add` では登録されないため、設定変更はこのディレクトリ直下の `keymap.c` と `rules.mk` に反映する。
 
 ## Usage
 
@@ -143,6 +146,7 @@ VIAで設定を変更した場合は、ExportしたJSONで `via-layout.json` を
 │   └── via-settings.png
 ├── qmk_firmware_nuphy/        # 特定commitに固定したNuPhy QMK forkのsubmodule
 ├── README.md                  # セットアップ、ビルド、Flash、VIA復元の手順
+├── keymap.gitignore           # submodule内のビルド用keymapをGitの追跡対象外にする設定
 ├── keymap.c                   # keymapとJISホスト向けKey Override
 ├── rules.mk                   # VIAとKey Overrideの有効化
 ├── via-definition.json        # VIAの「デザイン」画面へ読み込むキーボード定義
