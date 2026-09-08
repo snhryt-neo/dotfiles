@@ -2,22 +2,17 @@
 
 ## Overview
 
-会社支給WindowsのJIS配列設定を変更せず、NuPhy Air60 V2側でUS ANSI物理配列に合う入力へ補正する。NuPhyのQMK forkと個人設定を分離し、このディレクトリだけでファームウェアのビルド・書き込みとVIA設定の復元を行う。
+WindowsのJIS配列設定を変更せず、NuPhy Air60 V2側でUS ANSI物理配列に合う入力へ補正する。
 
-主な設定は次のとおり。
-
-- JISホスト上で `Shift + 2` → `@` などUS配列相当の記号を入力
-- macOSの <kbd>Control</kbd> + <kbd>A</kbd> / <kbd>E</kbd> による行頭・行末移動を、Windowsでは <kbd>Alt</kbd> + <kbd>A</kbd> / <kbd>E</kbd> で再現
-- 左上キーで <code>&#96;</code>、<kbd>Shift</kbd>との同時押しで `~`
-- <kbd>Fn</kbd> + 左上キーで <kbd>Esc</kbd>
-- Fnレイヤーにファンクションキー、音量、メディア、RGB、サイドライト操作を配置
+- QMK CLI 経由で設定のビルドと書き込みを行う
+- [nuphy-src/qmk_firmware](https://github.com/nuphy-src/qmk_firmware/tree/nuphy-keyboards/keyboards/nuphy/air60_v2/ansi) を git submodule でimportし、keymapのみカスタムしたものをソースコードとして利用
+- QMK と VIA を併用してキーマップの最終設定を調整
 
 ## Prerequisites
 
-- macOS
-- `git`
-- `curl`
-- NuPhy Air60 V2 ANSI
+- NuPhy Air60 V2
+- USB Type-Cケーブル
+- `curl`（`qmk` ダウンロード用）
 - Google Chrome（VIA Web App利用時）
 
 ## Setup
@@ -40,11 +35,9 @@ qmk --version
 qmk doctor
 ```
 
-QMK CLIがNuPhy forkのPython依存不足を表示した場合は、エラーに示されたPython環境へ依存を追加する。Pythonのパスはインストール方法により異なる。
-
-```bash
-<エラーに表示されたPythonのパス> -m pip install -r \
-  keyboards/nuphy-air60-v2/qmk_firmware_nuphy/requirements.txt
+以下のコマンドで何も出力されず、"Please run ~~~" のようなメッセージが出た場合はそれに従う（Pythonパッケージのインストール）
+```
+qmk list-keyboards | grep -i air60
 ```
 
 ### keymapの配置
@@ -80,6 +73,9 @@ qmk compile -kb nuphy/air60_v2/ansi -km jis_us
 
 ### Flash
 
+> [!IMPORTANT]
+> 必ずファームウェアをFlashした後にVIA設定をImportする。Flashすると保存済みのVIA設定が消えるため、逆の順番では設定作業が無駄になる。
+
 キーボード本体を次の状態にして、有線接続する。
 
 | 物理スイッチ | 設定 |
@@ -87,56 +83,36 @@ qmk compile -kb nuphy/air60_v2/ansi -km jis_us
 | `WIN` / `MAC` | `WIN` |
 | `OFF` / `WIRED` / `WIRELESS` | `WIRED` |
 
-> [!IMPORTANT]
-> 必ずファームウェアをFlashしてからVIA設定をImportする。Flashすると保存済みのVIA設定が消えるため、逆の順番では設定作業が無駄になる。
-
 ```bash
 cd keyboards/nuphy-air60-v2/qmk_firmware_nuphy
 qmk flash -kb nuphy/air60_v2/ansi -km jis_us
 ```
 
 > [!TIP]
-> Flashが始まらない、または `Bootloader not found` と表示された場合は、一度USB-Cケーブルを抜き、<kbd>Esc</kbd>を押したまま再接続すると書き込みに成功したことがある。DFUデバイスが認識されると書き込みが始まる。
+> Flashが途中で停止する場合、一度USB-Cケーブルを抜き、<kbd>Esc</kbd>を押したまま再接続すると書き込みに成功することがある。
 
 ### VIA設定の復元
 
 1. Google Chromeで[VIA Web App](https://usevia.app/)を開く。
-1. 画面上部の歯車アイコンを押して設定画面を開き、「デザインタブを表示」をオンにする。
-
-   ![VIAの設定画面で「デザインタブを表示」を有効にした状態](assets/via-settings.png)
-
-1. 画面上部のペイントブラシアイコンを押して「デザイン」画面を開く。
-1. 「ローカルレイアウトを読み込む」の「読み込み」を押し、`via-definition.json` を選択する。
-
-   ![VIAのDesign画面でNuPhy Air60 V2のローカル定義を読み込んだ状態](assets/via-design.png)
-
-1. 画面上部のキーボードアイコンを押してキーマップ設定画面を開き、「デバイスを認証」を押す。
-
-   ![VIAのConfigure画面に表示された「デバイスを認証」ボタン](assets/via-device-authentication.png)
-
-1. ChromeのHID接続ダイアログで「NuPhy Air60 V2」を選択し、「接続」を押す。
-
-   ![ChromeのHID接続ダイアログでNuPhy Air60 V2を選択した状態](assets/via-hid-connection.png)
-
-1. 画面左側のフロッピーディスクアイコンを押し、保存したレイアウトを読み込む操作から `via-layout.json` を選択する。
-
-   ![VIAへ最新レイアウトをImportしたLayer 3の設定画面](assets/via-layout.png)
+2. 画面上部の歯車アイコンを押して設定画面を開き、「デザインタブを表示」をオンにする。
+    ![VIAの設定画面で「デザインタブを表示」を有効にした状態](assets/via-settings.png)
+3. 画面上部のペイントブラシアイコンを押して「デザイン」画面を開く。
+4.「ローカルレイアウトを読み込む」の「読み込み」を押し、`via-definition.json` を選択する。
+    ![VIAのDesign画面でNuPhy Air60 V2のローカル定義を読み込んだ状態](assets/via-design.png)
+5. 画面上部のキーボードアイコンを押してキーマップ設定画面を開き、「デバイスを認証」を押す。
+    ![VIAのConfigure画面に表示された「デバイスを認証」ボタン](assets/via-device-authentication.png)
+6. ChromeのHID接続ダイアログで「NuPhy Air60 V2」を選択し、「接続」を押す。
+    ![ChromeのHID接続ダイアログでNuPhy Air60 V2を選択した状態](assets/via-hid-connection.png)
+7. 画面左側のフロッピーディスクアイコンを押し、保存したレイアウトを読み込む操作から `via-layout.json` を選択する。
+    ![VIAへ最新レイアウトをImportしたLayer 3の設定画面](assets/via-layout.png)
+8. （設定を変更した場合）`via-layour.json` を新設定ファイルの内容で上書きする
 
 > [!TIP]
 > 「デバイスを認証」を押しても画面が変わらない場合は、VIA Web Appを一度リロードしてから再度認証する。
 
-| ファイル | 用途 |
-| :--- | :--- |
-| `via-definition.json` | Design画面でNuPhy Air60 V2を認識させるためのローカル定義 |
-| `via-layout.json` | Configure画面からExportした最新のDynamic Keymap設定 |
-
-`via-definition.json` の入手元: [JSON Files for NuPhy Keyboards](https://nuphy.com/pages/json-files-for-nuphy-keyboards)
-
-VIAで設定を変更した場合は、ExportしたJSONで `via-layout.json` を更新する。
-
 ## Directory Structure
 
-```text
+```bash
 .
 ├── assets/                    # VIA設定手順のスクリーンショット
 │   ├── via-design.png
@@ -149,14 +125,12 @@ VIAで設定を変更した場合は、ExportしたJSONで `via-layout.json` を
 ├── keymap.gitignore           # submodule内のビルド用keymapをGitの追跡対象外にする設定
 ├── keymap.c                   # keymapとJISホスト向けKey Override
 ├── rules.mk                   # VIAとKey Overrideの有効化
-├── via-definition.json        # VIAの「デザイン」画面へ読み込むキーボード定義
+├── via-definition.json        # VIAの「デザイン」画面へ読み込むキーボード定義。入手元: https://nuphy.com/pages/json-files-for-nuphy-keyboards
 └── via-layout.json            # VIAで管理する最新のDynamic Keymap設定
 ```
 
 ## Note
 
-WindowsではLayer 3を通常レイヤー、Layer 4をFnレイヤー、Layer 5をFn + Shiftレイヤーとして使う。左上キーはLayer 3で独自キーコード `US_GRV`、Layer 4で `KC_ESC`、Layer 5で `JP_TILD` に固定している。
-
-VIAの設定はEEPROM上のDynamic Keymapとして保存されるため、`keymap.c` の初期値を上書きすることがある。上記の左上キー3箇所はVIAで変更しない。
-
-`US_GRV` はNuPhy側の既存カスタムキーコード `BAT_NUM` の次から割り当てている。NuPhy forkの更新時は、この前提が変わっていないことを確認する。
+- WindowsではLayer 3を通常レイヤー、Layer 4をFnレイヤー、Layer 5をFn + Shiftレイヤーとして使う。左上キーはLayer 3で独自キーコード `US_GRV`、Layer 4で `KC_ESC`、Layer 5で `JP_TILD` に固定している。
+- VIAの設定はEEPROM上のDynamic Keymapとして保存されるため、`keymap.c` の初期値を上書きすることがある。上記の左上キー3箇所はVIAで変更しない。
+- `US_GRV` はNuPhy側の既存カスタムキーコード `BAT_NUM` の次から割り当てている。NuPhy forkの更新時は、この前提が変わっていないことを確認する。
