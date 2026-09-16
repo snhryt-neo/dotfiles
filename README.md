@@ -39,7 +39,7 @@ $ rm -r ./bin # Homebrew経由で go-task インストール済のため、バ�
 ```
 
 エージェントスキルとMCPは自作・外部を問わず [APM](https://github.com/microsoft/apm) で管理する。
-`apm/apm.yml` に宣言したスキルは `task skills` で `~/.agents/skills` へ展開され、MCPは同じ `targets` に従って Codexへ登録される。
+`task skills` は `apm/apm.yml` の `targets` に従って、スキルを展開し、MCP設定を登録する。
 スキルのバージョンは `apm/apm.lock.yaml` のコミットSHAで固定され、`task skills-update` で更新する。
 自作スキル（`skills/` 配下）も GitHub 経由の自己参照でインストールされるため、編集内容は main へのマージ後に `task skills-update` を実行して反映する。
 
@@ -62,7 +62,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ├── brewfiles/ # brew bundle でインストールするアプリ・コマンドの一覧
 │   ├── Brewfile
 │   └── Brewfile.mas
-├── claude_global/ # Claude Codeの既存設定
+├── claude_global/ # ~/.claude/ 直下にリンクされる設定
 │   ├── CLAUDE.md
 │   └── settings.json
 ├── codex_global/
@@ -83,13 +83,13 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 │   └── karabiner.json
 ├── keyboards/
 │   └── nuphy-air60-v2/ # NuPhy Air60 V2のQMK・VIA設定（QMK forkのsubmoduleを含む）
-├── skills/ # 自作スキル（apm/apm.yml の自己参照エントリ経由で Codexにインストールされる）
+├── skills/ # 自作スキル（apm/apm.yml の自己参照エントリ経由でインストールされる）
 ├── snapshots/ # 手動インストール対応が必要なもののスナップショット
 │   ├── black-formatter-settings_20240922.json
 │   └── chrome-extensions_20240922.html
 ├── .pre-commit-config.yaml # pre-commit config
 ├── .zshrc                  # zsh config
-├── AGENTS.md               # Codexへのプロジェクト指示
+├── AGENTS.md               # このリポジトリの作業規約
 ├── README.md               # このドキュメント
 ├── Taskfile.yml            # タスクランナーの設定ファイル (go-task)
 ├── mise.toml               # miseによるdotfilesのリンク設定
