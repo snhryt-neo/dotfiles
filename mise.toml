@@ -24,9 +24,9 @@ dotfiles.default_mode = "symlink"
 "~/.apm/apm.yml" = "apm/apm.yml"
 "~/.apm/apm.lock.yaml" = "apm/apm.lock.yaml"
 
-# 作業規約はツール中立なため、Claude Code と Codex で同じファイルを共有する。
+# Codexの共通規約はClaude Codeの規約とは独立して管理する。
 # config.toml は Codex が実行時に書き換えるため、意図的に管理対象に含めない。
-"~/.codex/AGENTS.md" = "claude_global/CLAUDE.md"
+"~/.codex/AGENTS.md" = "codex_global/AGENTS.md"
 
 # XDG Base Directory に従わないアプリ固有の保存先も、実際に参照されるパスへ直接リンクする。
 "~/Library/Application Support/com.mitchellh.ghostty/config" = "ghostty/config"

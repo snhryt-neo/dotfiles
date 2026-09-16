@@ -5,8 +5,7 @@ description: "Codex の組み込み image_gen ツール（gpt-image-2）で画�
 
 # imagegen — 画像生成スキル
 
-Codex から直接使う場合は、組み込みの `image_gen` ツールを呼び出して画像を生成し、カレントディレクトリに保存する。
-Claude Code など `image_gen` を直接呼べない環境から使う場合だけ、`codex exec` 経由で Codex に委譲する。
+組み込みの `image_gen` ツールを呼び出して画像を生成し、カレントディレクトリに保存する。
 
 ## 入力形式
 
@@ -92,7 +91,7 @@ Codex CLI の `image_gen` では透明背景を保証できない。透明背景
 
 ## Step 3 — 最終プロンプトを作る
 
-Read ツールで `templates/prompt.md` を読み込み、確定した仕様を各プレースホルダーに埋めて英語プロンプトを構築する。
+ファイル読み取りツールで `templates/prompt.md` を読み込み、確定した仕様を各プレースホルダーに埋めて英語プロンプトを構築する。
 
 | プレースホルダー | 埋める内容 |
 |---|---|
@@ -118,26 +117,7 @@ Codex 環境で `image_gen` ツールが使える場合は、`FILLED_PROMPT` を
 - 既存ファイルと同名になる場合は、上書き前に確認するか、`_2` などの連番を付ける
 - 生成に失敗した場合は、失敗理由と再実行に必要な修正点を日本語で説明する
 
-## Step 5 — Claude Code 経由の場合
-
-Claude Code など `image_gen` を直接呼べない環境では、同じ `FILLED_PROMPT` を使って Codex CLI に委譲する。
-
-```bash
-TARGET_DIR=$(pwd)
-codex exec \
-  --full-auto \
-  --skip-git-repo-check \
-  --cd "$TARGET_DIR" \
-  "Use the built-in image_gen tool to generate an image with these specifications:
-FILLED_PROMPT
-
-After generating, save the image as: TARGET_DIR/OUTPUT_FILENAME
-Report the final file path when complete."
-```
-
-`--full-auto` は確認プロンプトなしで自動実行するためのフラグ。`--skip-git-repo-check` は Git リポジトリ外でも動作させるため。
-
-## Step 6 — 結果を日本語で報告
+## Step 5 — 結果を日本語で報告
 
 成功時:
 

@@ -56,8 +56,8 @@ tasks:
   skills:
     desc: "apm.yml からエージェントスキルとMCPをインストール"
     # ~/.apm/apm.yml（mise.toml が apm/apm.yml をリンク）を読み、スキルは apm.lock.yaml の
-    # コミットSHAどおりに ~/.claude/skills/ と ~/.agents/skills/ の両方へ展開する。
-    # MCP は apm.yml の targets に従い、Claude Code と Codex の両方で使える設定として登録する。
+    # コミットSHAどおりに ~/.agents/skills/ へ展開する。
+    # MCP は apm.yml の targets に従い、Codexで使える設定として登録する。
     cmd: apm install -g
 
   skills-update:

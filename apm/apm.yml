@@ -7,9 +7,8 @@
 name: dotfiles-global
 version: 1.0.0
 
-# claude → ~/.claude/skills/、codex → ~/.agents/skills/ にそれぞれ展開される。
+# Codex用スキルは ~/.agents/skills/ に展開される。
 targets:
-  - claude
   - codex
 
 dependencies:
