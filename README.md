@@ -62,7 +62,7 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ├── brewfiles/ # brew bundle でインストールするアプリ・コマンドの一覧
 │   ├── Brewfile
 │   └── Brewfile.mas
-├── claude_global/ # ~/.claude/ 直下にリンクされる設定
+├── claude_global/ # ~/.claude/ 直下にリンクされる設定 (deprecated)
 │   ├── CLAUDE.md
 │   └── settings.json
 ├── codex_global/
