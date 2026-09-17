@@ -39,9 +39,11 @@ $ rm -r ./bin # Homebrew経由で go-task インストール済のため、バ�
 ```
 
 エージェントスキルとMCPは自作・外部を問わず [APM](https://github.com/microsoft/apm) で管理する。
-`apm/apm.yml` に宣言したスキルは `task skills` で `~/.claude/skills` と `~/.agents/skills` の両方へ展開され、MCPは同じ `targets` に従って Claude Code と Codex の双方へ登録される。
+`task skills` は `apm/apm.yml` の `targets` に従って、スキルを展開し、MCP設定を登録する。
 スキルのバージョンは `apm/apm.lock.yaml` のコミットSHAで固定され、`task skills-update` で更新する。
 自作スキル（`skills/` 配下）も GitHub 経由の自己参照でインストールされるため、編集内容は main へのマージ後に `task skills-update` を実行して反映する。
+
+Codexのモデル・承認・MCPなどの実行時設定は `~/.codex/config.toml` に保存される。Codex自身が更新するため、dotfilesのリンク対象には含めない。共通の作業規約は `codex_global/AGENTS.md`、このリポジトリの指示はルートの `AGENTS.md` で管理する。
 
 ## Directory Structure
 ```bash
@@ -60,9 +62,11 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 ├── brewfiles/ # brew bundle でインストールするアプリ・コマンドの一覧
 │   ├── Brewfile
 │   └── Brewfile.mas
-├── claude_global/ # ~/.claude/ 直下に一括リンクされるファイル群
-│   ├── CLAUDE.md           # 全プロジェクト共通の作業規約（~/.claude/CLAUDE.md と ~/.codex/AGENTS.md にリンク）
-│   └── settings.json       # Claude Code のグローバル設定（~/.claude/settings.json にリンク）
+├── claude_global/ # ~/.claude/ 直下にリンクされる設定 (deprecated)
+│   ├── CLAUDE.md
+│   └── settings.json
+├── codex_global/
+│   └── AGENTS.md           # 全プロジェクト共通の作業規約（~/.codex/AGENTS.md にリンク）
 ├── fresh/ # ターミナルエディタ fresh の設定（config.json のみリンクし、自動生成物は対象外）
 │   └── config.json
 ├── git/ # グローバルなGitの設定
@@ -79,13 +83,13 @@ $ tree -aF -L 4 --dirsfirst -I .git -I .gitignore -I .DS_Store
 │   └── karabiner.json
 ├── keyboards/
 │   └── nuphy-air60-v2/ # NuPhy Air60 V2のQMK・VIA設定（QMK forkのsubmoduleを含む）
-├── skills/ # 自作スキル（apm/apm.yml の自己参照エントリ経由で Claude Code と Codex にインストールされる）
+├── skills/ # 自作スキル（apm/apm.yml の自己参照エントリ経由でインストールされる）
 ├── snapshots/ # 手動インストール対応が必要なもののスナップショット
 │   ├── black-formatter-settings_20240922.json
 │   └── chrome-extensions_20240922.html
 ├── .pre-commit-config.yaml # pre-commit config
 ├── .zshrc                  # zsh config
-├── CLAUDE.md               # Claude Code へのプロジェクト指示
+├── AGENTS.md               # このリポジトリの作業規約
 ├── README.md               # このドキュメント
 ├── Taskfile.yml            # タスクランナーの設定ファイル (go-task)
 ├── mise.toml               # miseによるdotfilesのリンク設定

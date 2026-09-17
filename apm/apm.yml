@@ -7,9 +7,8 @@
 name: dotfiles-global
 version: 1.0.0
 
-# claude → ~/.claude/skills/、codex → ~/.agents/skills/ にそれぞれ展開される。
+# Codex用スキルは ~/.agents/skills/ に展開される。
 targets:
-  - claude
   - codex
 
 dependencies:
@@ -29,7 +28,6 @@ dependencies:
     - snhryt-neo/dotfiles/skills/dev-research
     - snhryt-neo/dotfiles/skills/gh-markdown
     - snhryt-neo/dotfiles/skills/gha-security-review
-    - snhryt-neo/dotfiles/skills/imagegen
     - snhryt-neo/dotfiles/skills/semantic-generation
   mcp:
     - name: context7
