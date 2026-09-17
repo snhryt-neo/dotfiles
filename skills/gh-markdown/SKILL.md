@@ -1,128 +1,70 @@
 ---
 name: gh-markdown
-description: |
-  README.md または docs/ 配下の Markdownファイルを作成・更新・修正するときに必要に応じて参照するスキル。GitHub Flavored Markdown (GFM) 固有の記法を一覧で提供する。それ以外のファイル（CONTRIBUTING.md、PRテンプレート、Issueテンプレートなど）には使わない。
+description: >
+  README.md または docs/ 配下のMarkdown文書を新規作成するとき、または既存文書で
+  注意・重要事項・警告を目立たせる、補足を脚注へ分ける、長い説明を折り畳むときに使う。
+  アノテーション（NOTE・IMPORTANT・WARNINGなど）・脚注・折り畳みの追加や表示修正を含み、
+  記法名の明示は不要。誤字・文言・リンク先だけの変更や、既存記法を保つ内容更新には使わない。
+  CONTRIBUTING.md、PR・Issueテンプレートなど、README.mdとdocs/以外の文書は対象外。
 ---
 
-# GitHub Flavored Markdown 記法集
+# GitHub向けMarkdownの表現
 
-## Alerts（強調ブロック）
+新規作成時は、以下の表現が読み手に役立つ箇所を検討する。すべてを使う必要はない。
+既存文書では依頼箇所に必要な表現だけを選び、周辺の装飾や構成まで変更しない。
 
-読み手の判断や操作に必要な注意を目立たせる場合に使う。通常の説明は本文に書く。
+## アノテーション（Alerts）
+
+流し読みでも見落としてほしくない情報に使う。通常の説明は本文に残す。
+
+- NOTE：作業の理解を助ける補足。
+- IMPORTANT：目的を達成するために外せない条件や手順。
+- WARNING：データ消失など、操作前に知る必要があるリスク。
 
 ```markdown
 > [!NOTE]
-> 流し読みするユーザーにも伝えたい補足情報。
-
-> [!TIP]
-> より良いやり方・便利な使い方のヒント。
+> 設定例はmacOS向けです。
 
 > [!IMPORTANT]
-> ゴール達成に必要な重要情報。
+> 設定の反映後にアプリを再起動してください。
 
 > [!WARNING]
-> 問題を避けるために即座に注意が必要な情報。
-
-> [!CAUTION]
-> 特定の操作によるリスクや悪影響の警告。
+> この操作は保存済みの設定を上書きします。
 ```
 
-## Collapsed section（折り畳みセクション）
+TIPは便利な使い方、CAUTIONは重大な悪影響への注意に使える。依頼や既存文書にないリスクを作って警告を追加しない。
 
-長いコードブロック・インストール手順・詳細説明を折り畳む。READMEをすっきり見せたいときに使う。
+## 脚注
+
+本文の流れを止めずに、出典や詳しい補足を添える場合に使う。操作に必須の条件や警告は脚注へ隠さない。
 
 ```markdown
+この設定は既定値を使用する[^default]。
+
+[^default]: 詳細は[設定リファレンス](https://example.com/config)を参照。
+```
+
+参照側と定義側の識別子を一致させ、既存の脚注と重複させない。
+
+## 折り畳み
+
+長いログ、追加の設定例、必要な人だけが読む詳細を畳む。標準手順や実行前の警告は開かなくても読める位置に置く。
+
+````markdown
 <details>
-
-<summary>詳細を表示</summary>
-
-### 見出しも使える
-
-テキスト、コードブロック、画像も入れられる。
+<summary>設定例の全文</summary>
 
 ```bash
-echo "Hello World"
+echo "example"
 ```
 
 </details>
-```
-
-> [!NOTE]
-> `<details>` と `<summary>` の後には空行が必要。
-
-## Mermaid diagram（図）
-
-コードブロックの言語に `mermaid` を指定するとGitHubが図として描画する。アーキテクチャ図やフローチャートに便利。
-
-````markdown
-```mermaid
-flowchart TD
-    A[開始] --> B{条件}
-    B -->|Yes| C[処理A]
-    B -->|No| D[処理B]
-    C --> E[終了]
-    D --> E
-```
 ````
 
-他にも `sequenceDiagram`、`classDiagram`、`gitGraph`、`erDiagram` などが使える。
+`<summary>` の閉じタグと中身のMarkdownの間に空行を置く。見出しは「詳細」だけでなく、中身が分かる文言にする。
 
-## Footnotes（脚注）
+## その他の表現
 
-本文を汚さずに補足・参考リンクを追加したいときに使う。
-
-```markdown
-GitHubのMarkdownは GFM[^1] をベースにしている。
-
-[^1]: [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-```
-
-## Strikethrough（取り消し線）
-
-`~~text~~` → ~~text~~
-
-変更履歴や「廃止になった機能」の説明に使う。
-
-## Keyboard shortcut（キーボードキー表示）
-
-`<kbd>Ctrl</kbd> + <kbd>C</kbd>` → <kbd>Ctrl</kbd> + <kbd>C</kbd>
-
-ショートカットキーやキーボード操作の説明に使う。
-
-## Emoji shortcode（絵文字）
-
-`:emoji_name:` で絵文字を埋め込める。既存の文書の作法やユーザーの指定に合う場合に使う。
-
-```markdown
-## 🚀 Getting Started   <!-- Unicode絵文字でもOK -->
-## :rocket: Getting Started  <!-- shortcodeでもOK -->
-```
-
-よく使うもの: `:warning:` ⚠️  `:information_source:` ℹ️  `:white_check_mark:` ✅  `:x:` ❌  `:bulb:` 💡  `:memo:` 📝  `:rocket:` 🚀  `:construction:` 🚧
-
-## Badges（バッジ）
-
-README冒頭でステータスや情報を視覚的に示すのに使う。[shields.io](https://shields.io/) でバッジを生成する。
-
-```markdown
-<!-- 静的バッジ: https://shields.io/badges/static-badge -->
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-green)
-
-<!-- GitHub連携バッジ: https://shields.io/badges/git-hub-actions-workflow-status -->
-![Build](https://img.shields.io/github/actions/workflow/status/{owner}/{repo}/{workflow}.yml)
-![Stars](https://img.shields.io/github/stars/{owner}/{repo})
-```
-
----
-
-## 使いどころのガイド
-
-| 記法 | 使うシーン |
-| :--- | :--- |
-| Alerts | 重要な注意事項・ヒント・警告 |
-| Collapsed section | 長い手順・詳細設定・変更ログの旧バージョン |
-| Mermaid | アーキテクチャ・フロー・シーケンス図 |
-| Badges | リポジトリのステータス表示（CI・ライセンス・バージョン） |
-| `<kbd>` | キーボードショートカットの説明 |
-| Footnotes | 参考文献・注釈を本文から分離したいとき |
+- 図が理解を助ける場合は、`mermaid` コードブロックで関係や流れを示す。
+- バッジはCI状態やライセンスなど、読み手が確認したい情報に絞る。リンク先と表示内容を実際のリポジトリに合わせる。
+- キー操作は `<kbd>Ctrl</kbd> + <kbd>C</kbd>`、取り消し線は `~~旧設定~~` で表せる。
