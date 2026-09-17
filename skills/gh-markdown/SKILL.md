@@ -1,9 +1,10 @@
 ---
 name: gh-markdown
 description: >
-  README.md または docs/ 配下のMarkdown文書を作成・更新するときに参照し、
-  内容に適したGitHub向けの記法を選ぶ。
-  誤字やリンク先の機械的な置換だけの場合は使わない。
+  README.md または docs/ 配下のMarkdown文書を新規作成する、新しいセクションを追加する、
+  またはMarkdown記法や表示を調整するときに使う。注意を目立たせる、長い内容を折り畳む、
+  表示崩れを直すなど、内容に適したGitHub向けの見せ方を扱う。
+  文章の言い換え・語調の調整、既存セクション内への追記、誤字・リンク先の修正だけなら使わない。
   CONTRIBUTING.md、PR・Issueテンプレートなど、README.mdとdocs/以外の文書は対象外。
 ---
 
