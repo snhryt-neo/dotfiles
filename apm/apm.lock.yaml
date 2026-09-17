@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-09-16T14:25:15.280985+00:00'
+generated_at: '2026-09-17T00:27:36.313042+00:00'
 apm_version: 0.31.0
 dependencies:
 - repo_url: google/skills
@@ -202,22 +202,6 @@ dependencies:
     .agents/skills/gha-security-review/references/terraform-cicd-review.md: sha256:65cd5350a8ad680dee7e8382ead91cbe8ecbb883c58db50d86d843e878b8b533
     .agents/skills/gha-security-review/references/tooling.md: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
   content_hash: sha256:5f05b7c38a50fd4f0896f2f0db65f9110fcd780834993fafb7ee5b5a045705ed
-- repo_url: snhryt-neo/dotfiles
-  name: imagegen
-  host: github.com
-  resolved_commit: da4ac7a1249c064aea4c282a96d0616518792af7
-  version: unknown
-  virtual_path: skills/imagegen
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .agents/skills/imagegen
-  - .agents/skills/imagegen/SKILL.md
-  - .agents/skills/imagegen/templates/prompt.md
-  deployed_file_hashes:
-    .agents/skills/imagegen/SKILL.md: sha256:ad1eb4af8b927853a296249357b3e581119daceef1be1a960b15a0cfb0ee810b
-    .agents/skills/imagegen/templates/prompt.md: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
-  content_hash: sha256:71a19c775fc17b40fcd24a2405d68e9da36bc044ef65a2c81147baa14f718d30
 - repo_url: snhryt-neo/dotfiles
   name: semantic-generation
   host: github.com
@@ -741,33 +725,6 @@ deployments:
   - snhryt-neo/dotfiles/skills/gha-security-review
   active_owner: snhryt-neo/dotfiles/skills/gha-security-review
   content_hash: sha256:dccbb4b03e2572041fafc7e33def7425b3c43544affba3168acc6f808167c006
-- kind: project-relative
-  target: codex
-  value: .agents/skills/imagegen
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/imagegen
-  active_owner: snhryt-neo/dotfiles/skills/imagegen
-  content_hash: null
-- kind: project-relative
-  target: codex
-  value: .agents/skills/imagegen/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/imagegen
-  active_owner: snhryt-neo/dotfiles/skills/imagegen
-  content_hash: sha256:ad1eb4af8b927853a296249357b3e581119daceef1be1a960b15a0cfb0ee810b
-- kind: project-relative
-  target: codex
-  value: .agents/skills/imagegen/templates/prompt.md
-  runtime: null
-  scope: project
-  owners:
-  - snhryt-neo/dotfiles/skills/imagegen
-  active_owner: snhryt-neo/dotfiles/skills/imagegen
-  content_hash: sha256:878829f8796a1b0a7383da3ee4ae58057fc30af399f5be7066834512e561f8d2
 - kind: project-relative
   target: codex
   value: .agents/skills/semantic-generation
