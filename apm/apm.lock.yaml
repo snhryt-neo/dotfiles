@@ -1,11 +1,11 @@
 lockfile_version: '1'
-generated_at: '2026-09-17T00:27:36.313042+00:00'
+generated_at: '2026-09-17T23:36:32.181054+00:00'
 apm_version: 0.31.0
 dependencies:
 - repo_url: google/skills
   name: bigquery-basics
   host: github.com
-  resolved_commit: 1776276d672b41e12aba7ead134d473af001d147
+  resolved_commit: 79125c2ccebbc1d021ba4cab773110e50e643a30
   version: unknown
   virtual_path: skills/cloud/bigquery-basics
   is_virtual: true
@@ -22,7 +22,7 @@ dependencies:
   - .agents/skills/bigquery-basics/references/iam-security.md
   - .agents/skills/bigquery-basics/references/mcp-usage.md
   deployed_file_hashes:
-    .agents/skills/bigquery-basics/SKILL.md: sha256:039af2065e5f52d58c11853834028b8994248eae322fa2c8882b962d8b1e3e7f
+    .agents/skills/bigquery-basics/SKILL.md: sha256:6b137f7b9923d3a89465456d3f9ebdf73daec2f689b604593167686ad0f1777e
     .agents/skills/bigquery-basics/references/change-history.md: sha256:6d21ec622c6efa8edd8377a9a963ac13de6d4dd2b53d4fe40c90cfb769e88088
     .agents/skills/bigquery-basics/references/cli-usage.md: sha256:b8ec6d981390d543a6af0ac3072813c6f7df641547dc17ecfaa2d43e766612db
     .agents/skills/bigquery-basics/references/client-library-usage.md: sha256:4b091ffcd5f657e1c96dc60e2ad913266850a380c39190a26bbd90e229eb6b5a
@@ -31,11 +31,11 @@ dependencies:
     .agents/skills/bigquery-basics/references/iac-usage.md: sha256:4cc7cba990280a5f2438bb965fb4bd575ca5967289f72bfd19b7830eb44b0208
     .agents/skills/bigquery-basics/references/iam-security.md: sha256:384c8d4b1eb64f9567cbc6f167cd38802a0b4b836b0616305d947fe4f46cca04
     .agents/skills/bigquery-basics/references/mcp-usage.md: sha256:f4cf2ef39e89ae3fc8e3a0bc19100e3382dc1eeec920d4cd8c5801dc51a62df7
-  content_hash: sha256:aef51193e70dab5a2dbc26488811724fbb249c4c9fd8103c8a1b03b70ab5cf55
+  content_hash: sha256:2c2eca9a340b9cbc7c1d102aef7a679d190d879a4e23e0024c69e673089afc6c
 - repo_url: google/skills
   name: cloud-run-basics
   host: github.com
-  resolved_commit: 1776276d672b41e12aba7ead134d473af001d147
+  resolved_commit: 79125c2ccebbc1d021ba4cab773110e50e643a30
   version: unknown
   virtual_path: skills/cloud/cloud-run-basics
   is_virtual: true
@@ -63,7 +63,7 @@ dependencies:
 - repo_url: google/skills
   name: gcloud
   host: github.com
-  resolved_commit: 1776276d672b41e12aba7ead134d473af001d147
+  resolved_commit: 79125c2ccebbc1d021ba4cab773110e50e643a30
   version: unknown
   virtual_path: skills/cloud/gcloud
   is_virtual: true
@@ -81,7 +81,7 @@ dependencies:
 - repo_url: google/skills
   name: gemini-api
   host: github.com
-  resolved_commit: 1776276d672b41e12aba7ead134d473af001d147
+  resolved_commit: 79125c2ccebbc1d021ba4cab773110e50e643a30
   version: unknown
   virtual_path: skills/cloud/gemini-api
   is_virtual: true
@@ -99,22 +99,22 @@ dependencies:
   - .agents/skills/gemini-api/references/structured_and_tools.md
   - .agents/skills/gemini-api/references/text_and_multimodal.md
   deployed_file_hashes:
-    .agents/skills/gemini-api/SKILL.md: sha256:e730427242c5f958e4194db5f0083e18cabf8889d19ceb31bad69581a5980083
-    .agents/skills/gemini-api/references/advanced_features.md: sha256:77fdac142d7476a6c771ffccad0f8ed3bd93c31fcb1fb45ef5e240b42bf76ca1
-    .agents/skills/gemini-api/references/bounding_box.md: sha256:0bef8247e8443e857e8a8ba4fa67ef13da6fe787f54545e72b67968c861f5460
+    .agents/skills/gemini-api/SKILL.md: sha256:4154cbf72523a459c152704f262bbbbc4256e104232e254a82dbe6f71bd323b7
+    .agents/skills/gemini-api/references/advanced_features.md: sha256:e1272b70dee7692ca5bfc89e4e871be4834d805d19deded492221cc5779d28fa
+    .agents/skills/gemini-api/references/bounding_box.md: sha256:4b930915944e478d5e7aa7fb71e84ddbd655702e1ab03b5b4cee65b9f1d6066c
     .agents/skills/gemini-api/references/embeddings.md: sha256:4a3d3f754dbcd935a2f01d1bd33918c1d9bef3730115f4a744537c0506ee99fb
     .agents/skills/gemini-api/references/live_api.md: sha256:be927fcc21ee3cdea68d5172cad957885ab09281ddea8f85eccc02ef3747560f
-    .agents/skills/gemini-api/references/media_generation.md: sha256:d07674111ba566e5a86392dc6fa0bbc7d6bb96881ffa700a04f786eb51ed9d87
+    .agents/skills/gemini-api/references/media_generation.md: sha256:c45e84ad3573a0fb954a354cb7d3cfd479d584896f94c52d84f20c884dc5adf7
     .agents/skills/gemini-api/references/model_tuning.md: sha256:b46fd342db759b17a8bdc6766574012ff4e282dff6f0b290f81bdc00e8bed288
-    .agents/skills/gemini-api/references/safety.md: sha256:59919c7a2ca9d3c6e7ab7999957ea4d5cf0c6bb0fbc274ab59df4a3ede40fefd
-    .agents/skills/gemini-api/references/structured_and_tools.md: sha256:6aab78bcd8d2a662db2f154ebf24d2747093c825ca87a51514e281cbce074918
-    .agents/skills/gemini-api/references/text_and_multimodal.md: sha256:a9c283c8b90110e2d4a35472eb55faa692886cdc9b30e752214dc6da6462ecb0
-  content_hash: sha256:d924b24759f75e2364239a54c1b85e86e8c239cae41f7917f6da15116cc5c9c1
+    .agents/skills/gemini-api/references/safety.md: sha256:776d17e1522a3b3972aedfeb21762111a65d32368238e9a90632836fb3f23881
+    .agents/skills/gemini-api/references/structured_and_tools.md: sha256:cbd1bbdcdb79948856198d8b24ba7106cb93b66c721cdba39edc23be649e7e51
+    .agents/skills/gemini-api/references/text_and_multimodal.md: sha256:83a2ee792b47b919301e40279a1d2bebb82cfef6386bc11bf7ebaf5c3e86b96f
+  content_hash: sha256:678ce9405184e4f028d96a4f047c72b9969360e576f74441f11b6d2850b63f45
 - repo_url: helpfeel/cosense-cli
   name: cosense-cli
   host: github.com
-  resolved_commit: dac8da11ef81f71e8a1539e3e15dff281f26b119
-  version: dac8da1
+  resolved_commit: c94c481d29ae7cc51db64bd42fadcd7292f6b7cd
+  version: c94c481
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/cosense
@@ -126,18 +126,18 @@ dependencies:
   - .agents/skills/cosense/version-mismatch.md
   deployed_file_hashes:
     .agents/skills/cosense/SKILL.md: sha256:694c296f784bb470097cee194deecc7bdf9c105194a2887da915175a88254968
-    .agents/skills/cosense/edit-page.md: sha256:24b22c7e4be26ee616646792b5c69bfd6b967a5392053698cc35bb2c8d1d4cd7
+    .agents/skills/cosense/edit-page.md: sha256:631ddf41e7f9a6ced3e9fba4a35cb59e44a189900a48b7b5926100275dab8fd1
     .agents/skills/cosense/login.md: sha256:2ec8b18196e6dc4aec61dae8a43fe5ea6a1b71185fd325545cb95577073c2a23
     .agents/skills/cosense/read-page.md: sha256:25956d1363e57ec834b971eb779cb5aaff69f7ae08d666607f20392488102073
     .agents/skills/cosense/upload-file.md: sha256:d6b652f614083ceac0d8cf1f7755fb6ecf475aaad003607536a43d2e65b4862c
     .agents/skills/cosense/version-mismatch.md: sha256:894f46a5564169cf36637d7473c474fda76a17552acdcc2aa42c0d5be8713a5e
-  content_hash: sha256:12b5cc585e2a1429fc7acb70bf76edd8dd45ab983b07d4d175c3386e97de7f45
+  content_hash: sha256:51cb12ab52214b09ecf8fc0aa6aad9d0b36b1b235fb756815f6333920be4e92c
 - repo_url: mizchi/skills
   name: empirical-prompt-tuning
   host: github.com
-  resolved_commit: 7a0d72866a0bb3e9ac3e2768c328b09ba2bc40c4
+  resolved_commit: aa223d8c85ba4313e2ec6fb9251cc65d46ed3291
   version: unknown
-  virtual_path: meta/empirical-prompt-tuning
+  virtual_path: empirical-prompt-tuning
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -146,14 +146,14 @@ dependencies:
   - .agents/skills/empirical-prompt-tuning/SKILL-ja.md
   - .agents/skills/empirical-prompt-tuning/SKILL.md
   deployed_file_hashes:
-    .agents/skills/empirical-prompt-tuning/README.md: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
+    .agents/skills/empirical-prompt-tuning/README.md: sha256:5fc8e7774a7290497c941e46baeb2712731dd92a7ea2ddff75fecc9173ccc347
     .agents/skills/empirical-prompt-tuning/SKILL-ja.md: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
     .agents/skills/empirical-prompt-tuning/SKILL.md: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
-  content_hash: sha256:20e7fba93c7267ba6e3a7b27787ca49191b762dffcfb804b01da9183b1b0c891
+  content_hash: sha256:26042612e2d8b6ee1deebcdfc556da494640488e03471aaae74da587ae84fa2b
 - repo_url: snhryt-neo/dotfiles
   name: dev-research
   host: github.com
-  resolved_commit: da4ac7a1249c064aea4c282a96d0616518792af7
+  resolved_commit: 1ba21ca5c586a655c8164251f33ff76af8375baa
   version: unknown
   virtual_path: skills/dev-research
   is_virtual: true
@@ -171,7 +171,7 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: gh-markdown
   host: github.com
-  resolved_commit: da4ac7a1249c064aea4c282a96d0616518792af7
+  resolved_commit: 1ba21ca5c586a655c8164251f33ff76af8375baa
   version: unknown
   virtual_path: skills/gh-markdown
   is_virtual: true
@@ -179,13 +179,21 @@ dependencies:
   deployed_files:
   - .agents/skills/gh-markdown
   - .agents/skills/gh-markdown/SKILL.md
+  - .agents/skills/gh-markdown/references/badges.md
+  - .agents/skills/gh-markdown/references/collapsed-sections.md
+  - .agents/skills/gh-markdown/references/keyboard-shortcuts.md
+  - .agents/skills/gh-markdown/references/mermaid.md
   deployed_file_hashes:
-    .agents/skills/gh-markdown/SKILL.md: sha256:be030f85585c45c49f8eca9f3c7438807deb84cd77ca3def2419b426cad5bc59
-  content_hash: sha256:a970b147b00f250b9b3c07f46d695bd78714e082925eb019aea48247f77b2cd6
+    .agents/skills/gh-markdown/SKILL.md: sha256:e2ab1db80ec4389fac83a169185624b9523224398c0fcf3d3c30f7e1fe4946aa
+    .agents/skills/gh-markdown/references/badges.md: sha256:cd0e34f56c701f641e3376c9e7b8b86da19cb53bd5952a058ecc5fc729f7b922
+    .agents/skills/gh-markdown/references/collapsed-sections.md: sha256:13332f404070b7620fefd3b8036d4d8eaa6869deaaa442dec2f697818b561db8
+    .agents/skills/gh-markdown/references/keyboard-shortcuts.md: sha256:18bf7bfc82afaee7c5fe4cb03c9e6e4494c4a8b097f8a7ac06afc9a3eedd80b6
+    .agents/skills/gh-markdown/references/mermaid.md: sha256:69e8f93013f39ce9a26a5e019155c328cfdad7679c8eaa23debdf2088094638d
+  content_hash: sha256:634c0f2218cda8d0afef843a749bb97ee5b3dd39e0b6ef4c314b7d9ffa2532ce
 - repo_url: snhryt-neo/dotfiles
   name: gha-security-review
   host: github.com
-  resolved_commit: da4ac7a1249c064aea4c282a96d0616518792af7
+  resolved_commit: 1ba21ca5c586a655c8164251f33ff76af8375baa
   version: unknown
   virtual_path: skills/gha-security-review
   is_virtual: true
@@ -205,7 +213,7 @@ dependencies:
 - repo_url: snhryt-neo/dotfiles
   name: semantic-generation
   host: github.com
-  resolved_commit: da4ac7a1249c064aea4c282a96d0616518792af7
+  resolved_commit: 1ba21ca5c586a655c8164251f33ff76af8375baa
   version: unknown
   virtual_path: skills/semantic-generation
   is_virtual: true
@@ -238,7 +246,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/bigquery-basics
   active_owner: google/skills/skills/cloud/bigquery-basics
-  content_hash: sha256:039af2065e5f52d58c11853834028b8994248eae322fa2c8882b962d8b1e3e7f
+  content_hash: sha256:6b137f7b9923d3a89465456d3f9ebdf73daec2f689b604593167686ad0f1777e
 - kind: project-relative
   target: codex
   value: .agents/skills/bigquery-basics/references/change-history.md
@@ -418,7 +426,7 @@ deployments:
   owners:
   - helpfeel/cosense-cli
   active_owner: helpfeel/cosense-cli
-  content_hash: sha256:24b22c7e4be26ee616646792b5c69bfd6b967a5392053698cc35bb2c8d1d4cd7
+  content_hash: sha256:631ddf41e7f9a6ced3e9fba4a35cb59e44a189900a48b7b5926100275dab8fd1
 - kind: project-relative
   target: codex
   value: .agents/skills/cosense/login.md
@@ -497,8 +505,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  - mizchi/skills/empirical-prompt-tuning
+  active_owner: mizchi/skills/empirical-prompt-tuning
   content_hash: null
 - kind: project-relative
   target: codex
@@ -506,17 +514,17 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
-  content_hash: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
+  - mizchi/skills/empirical-prompt-tuning
+  active_owner: mizchi/skills/empirical-prompt-tuning
+  content_hash: sha256:5fc8e7774a7290497c941e46baeb2712731dd92a7ea2ddff75fecc9173ccc347
 - kind: project-relative
   target: codex
   value: .agents/skills/empirical-prompt-tuning/SKILL-ja.md
   runtime: null
   scope: project
   owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  - mizchi/skills/empirical-prompt-tuning
+  active_owner: mizchi/skills/empirical-prompt-tuning
   content_hash: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
 - kind: project-relative
   target: codex
@@ -524,8 +532,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  - mizchi/skills/empirical-prompt-tuning
+  active_owner: mizchi/skills/empirical-prompt-tuning
   content_hash: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
 - kind: project-relative
   target: codex
@@ -580,7 +588,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/gemini-api
   active_owner: google/skills/skills/cloud/gemini-api
-  content_hash: sha256:e730427242c5f958e4194db5f0083e18cabf8889d19ceb31bad69581a5980083
+  content_hash: sha256:4154cbf72523a459c152704f262bbbbc4256e104232e254a82dbe6f71bd323b7
 - kind: project-relative
   target: codex
   value: .agents/skills/gemini-api/references/advanced_features.md
@@ -589,7 +597,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/gemini-api
   active_owner: google/skills/skills/cloud/gemini-api
-  content_hash: sha256:77fdac142d7476a6c771ffccad0f8ed3bd93c31fcb1fb45ef5e240b42bf76ca1
+  content_hash: sha256:e1272b70dee7692ca5bfc89e4e871be4834d805d19deded492221cc5779d28fa
 - kind: project-relative
   target: codex
   value: .agents/skills/gemini-api/references/bounding_box.md
@@ -598,7 +606,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/gemini-api
   active_owner: google/skills/skills/cloud/gemini-api
-  content_hash: sha256:0bef8247e8443e857e8a8ba4fa67ef13da6fe787f54545e72b67968c861f5460
+  content_hash: sha256:4b930915944e478d5e7aa7fb71e84ddbd655702e1ab03b5b4cee65b9f1d6066c
 - kind: project-relative
   target: codex
   value: .agents/skills/gemini-api/references/embeddings.md
@@ -625,7 +633,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/gemini-api
   active_owner: google/skills/skills/cloud/gemini-api
-  content_hash: sha256:d07674111ba566e5a86392dc6fa0bbc7d6bb96881ffa700a04f786eb51ed9d87
+  content_hash: sha256:c45e84ad3573a0fb954a354cb7d3cfd479d584896f94c52d84f20c884dc5adf7
 - kind: project-relative
   target: codex
   value: .agents/skills/gemini-api/references/model_tuning.md
@@ -643,7 +651,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/gemini-api
   active_owner: google/skills/skills/cloud/gemini-api
-  content_hash: sha256:59919c7a2ca9d3c6e7ab7999957ea4d5cf0c6bb0fbc274ab59df4a3ede40fefd
+  content_hash: sha256:776d17e1522a3b3972aedfeb21762111a65d32368238e9a90632836fb3f23881
 - kind: project-relative
   target: codex
   value: .agents/skills/gemini-api/references/structured_and_tools.md
@@ -652,7 +660,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/gemini-api
   active_owner: google/skills/skills/cloud/gemini-api
-  content_hash: sha256:6aab78bcd8d2a662db2f154ebf24d2747093c825ca87a51514e281cbce074918
+  content_hash: sha256:cbd1bbdcdb79948856198d8b24ba7106cb93b66c721cdba39edc23be649e7e51
 - kind: project-relative
   target: codex
   value: .agents/skills/gemini-api/references/text_and_multimodal.md
@@ -661,7 +669,7 @@ deployments:
   owners:
   - google/skills/skills/cloud/gemini-api
   active_owner: google/skills/skills/cloud/gemini-api
-  content_hash: sha256:a9c283c8b90110e2d4a35472eb55faa692886cdc9b30e752214dc6da6462ecb0
+  content_hash: sha256:83a2ee792b47b919301e40279a1d2bebb82cfef6386bc11bf7ebaf5c3e86b96f
 - kind: project-relative
   target: codex
   value: .agents/skills/gh-markdown
@@ -679,7 +687,43 @@ deployments:
   owners:
   - snhryt-neo/dotfiles/skills/gh-markdown
   active_owner: snhryt-neo/dotfiles/skills/gh-markdown
-  content_hash: sha256:be030f85585c45c49f8eca9f3c7438807deb84cd77ca3def2419b426cad5bc59
+  content_hash: sha256:e2ab1db80ec4389fac83a169185624b9523224398c0fcf3d3c30f7e1fe4946aa
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gh-markdown/references/badges.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: sha256:cd0e34f56c701f641e3376c9e7b8b86da19cb53bd5952a058ecc5fc729f7b922
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gh-markdown/references/collapsed-sections.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: sha256:13332f404070b7620fefd3b8036d4d8eaa6869deaaa442dec2f697818b561db8
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gh-markdown/references/keyboard-shortcuts.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: sha256:18bf7bfc82afaee7c5fe4cb03c9e6e4494c4a8b097f8a7ac06afc9a3eedd80b6
+- kind: project-relative
+  target: codex
+  value: .agents/skills/gh-markdown/references/mermaid.md
+  runtime: null
+  scope: project
+  owners:
+  - snhryt-neo/dotfiles/skills/gh-markdown
+  active_owner: snhryt-neo/dotfiles/skills/gh-markdown
+  content_hash: sha256:69e8f93013f39ce9a26a5e019155c328cfdad7679c8eaa23debdf2088094638d
 - kind: project-relative
   target: codex
   value: .agents/skills/gha-security-review
