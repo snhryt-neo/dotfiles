@@ -19,7 +19,7 @@ dependencies:
     - google/skills/skills/cloud/bigquery-basics
     - google/skills/skills/cloud/cloud-run-basics
     - google/skills/skills/cloud/gemini-api
-    - mizchi/skills/meta/empirical-prompt-tuning
+    - mizchi/skills/empirical-prompt-tuning
     - helpfeel/cosense-cli
     # 自作スキル（skills/ 配下）の自己参照。
     # APM のローカルパス依存はグローバルスコープでは相対パスを解決できず、
