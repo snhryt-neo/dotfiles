@@ -2,7 +2,7 @@
 name: gh-markdown
 description: >
   README.md または docs/ 配下のMarkdown文書を作成・更新するときに参照し、
-  内容に適したGitHub向けの記法を選ぶ。ユーザーによる記法名の指定は不要。
+  内容に適したGitHub向けの記法を選ぶ。
   誤字やリンク先の機械的な置換だけの場合は使わない。
   CONTRIBUTING.md、PR・Issueテンプレートなど、README.mdとdocs/以外の文書は対象外。
 ---
