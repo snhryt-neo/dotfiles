@@ -21,6 +21,7 @@ dependencies:
     - google/skills/skills/cloud/gemini-api
     - mizchi/skills/empirical-prompt-tuning
     - helpfeel/cosense-cli
+    - fuji-mak/cpsm/skills/capsomnia
     # 自作スキル（skills/ 配下）の自己参照。
     # APM のローカルパス依存はグローバルスコープでは相対パスを解決できず、
     # 絶対パスはマシン依存になるため、GitHub 経由のサブパス参照で統一している。
