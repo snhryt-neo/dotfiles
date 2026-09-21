@@ -117,7 +117,16 @@ jobs:
           if [ -s /tmp/Brewfile.diff ]; then
             # runnerイメージ作成後に追加されたformula・caskも解決できるよう、
             # 差分のインストール前にHomebrewのメタデータを更新する
-            brew update
+            for attempt in {1..12}; do
+              if brew update; then
+                break
+              fi
+              if [ "$attempt" -eq 12 ]; then
+                echo "Homebrewのメタデータ更新に失敗しました" >&2
+                exit 1
+              fi
+              sleep 5
+            done
             # GitHubランナーのHomebrewは HOMEBREW_REQUIRE_TAP_TRUST が有効で、
             # brew trust で信頼していない非公式tapのformula読み込みを拒否するため、
             # diffに追加されたtapを brew bundle の前に信頼しておく
