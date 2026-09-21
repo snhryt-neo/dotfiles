@@ -1,7 +1,16 @@
 lockfile_version: '1'
-generated_at: '2026-09-17T23:36:32.181054+00:00'
+generated_at: '2026-09-21T07:39:14.748893+00:00'
 apm_version: 0.31.0
 dependencies:
+- repo_url: fuji-mak/cpsm
+  name: capsomnia
+  host: github.com
+  resolved_commit: f01a96ed7d44970547795427ef59d5a08e7e177a
+  version: unknown
+  virtual_path: skills/capsomnia
+  is_virtual: true
+  package_type: claude_skill
+  content_hash: sha256:989a001c414c4178bb2aece6b0358f443e54a86ba2db78202f7ccd22d721e101
 - repo_url: google/skills
   name: bigquery-basics
   host: github.com

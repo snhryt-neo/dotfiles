@@ -107,6 +107,7 @@ cask "claude"
 cask "chatgpt"
 cask "claude-code@latest" # stable版の cask "claude-code" より更新が早い
 cask "codex"
+cask "capsomnia" # MacBookの画面を閉じてもエージェントの処理を継続する
 
 # Infrastructure
 cask "google-drive"
