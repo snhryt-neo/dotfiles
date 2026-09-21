@@ -27,6 +27,7 @@ dependencies:
     # 絶対パスはマシン依存になるため、GitHub 経由のサブパス参照で統一している。
     # 編集内容は main へのマージ後に task skills-update を実行するまで反映されない点に注意。
     - snhryt-neo/dotfiles/skills/dev-research
+    - snhryt-neo/dotfiles/skills/gemini-worker
     - snhryt-neo/dotfiles/skills/gh-markdown
     - snhryt-neo/dotfiles/skills/gha-security-review
     - snhryt-neo/dotfiles/skills/semantic-generation

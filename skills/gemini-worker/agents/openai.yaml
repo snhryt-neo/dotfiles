@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gemini Worker"
+  short_description: "Codexの計画に沿った作業をGemini 3.8 Flash Highに委譲"
+  default_prompt: "$gemini-workerでCodexが計画した作業をGeminiに委譲し、差分を確認する。"
