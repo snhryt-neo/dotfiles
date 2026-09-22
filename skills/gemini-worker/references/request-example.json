@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task_id": "update-example",
   "workspace": "/absolute/path/to/worktree",
-  "instructions": "対象ファイルの設定を更新し、完了条件を満たすこと。計画の作成や対象外のファイル変更は行わない。",
+  "instructions": "対象ファイルの設定を更新し、完了条件を満たすこと。計画の作成や対象外のファイル変更は行わない。認証・権限・サンドボックスによるアクセスエラーが発生したら、同じ条件で再試行せず、finishをstatus=blockedで呼び出し、失敗したコマンドID、エラー、未実施の検証を直ちに報告すること。",
   "context": "リポジトリのAGENTS.mdを読み、既存の記法と検証手順に従うこと。",
   "read_paths": [
     "AGENTS.md",
