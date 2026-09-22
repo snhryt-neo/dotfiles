@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task_id": "update-example",
+  "workspace": "/absolute/path/to/worktree",
+  "instructions": "対象ファイルの設定を更新し、完了条件を満たすこと。計画の作成や対象外のファイル変更は行わない。",
+  "context": "リポジトリのAGENTS.mdを読み、既存の記法と検証手順に従うこと。",
+  "read_paths": [
+    "AGENTS.md",
+    "src"
+  ],
+  "write_paths": [
+    "src/example.py",
+    "tests"
+  ],
+  "commands": {
+    "unit-test": {
+      "argv": ["uv", "run", "--locked", "pytest"],
+      "cwd": "tools/example",
+      "timeout_seconds": 120
+    }
+  },
+  "required_checks": ["unit-test"],
+  "limits": {
+    "max_tool_calls": 30,
+    "max_runtime_seconds": 1200,
+    "api_timeout_seconds": 120,
+    "max_output_tokens": 16384,
+    "max_tool_result_bytes": 65536,
+    "max_file_bytes": 1048576
+  }
+}
