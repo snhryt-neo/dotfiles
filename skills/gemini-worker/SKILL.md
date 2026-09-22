@@ -38,4 +38,4 @@ description: >-
 task gemini-worker-install
 ```
 
-ADCを使うため、実行前に`GOOGLE_CLOUD_PROJECT`、`GOOGLE_CLOUD_LOCATION`、`GOOGLE_GENAI_USE_VERTEXAI=true`を設定する。サービスアカウント鍵やGemini APIキーはCLIへ渡さない。
+`~/.config/gcloud/application_default_credentials.json`のユーザーADCで認証し、同ファイルの`quota_project_id`を呼び出し先プロジェクトにも使う。ロケーションは`global`、Vertex AIの利用はCLI内で固定するため、環境変数や独自の設定ファイルは不要。ADCまたはquota projectが未設定ならGoogle Cloud CLIで設定し、認証情報を作業指示へ転記しない。サービスアカウント鍵やGemini APIキーはCLIへ渡さない。
