@@ -30,6 +30,7 @@ dependencies:
     - snhryt-neo/dotfiles/skills/gh-markdown
     - snhryt-neo/dotfiles/skills/gha-security-review
     - snhryt-neo/dotfiles/skills/semantic-generation
+    - snhryt-neo/dotfiles/skills/gemini-worker
   mcp:
     - name: context7
       registry: false
