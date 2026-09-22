@@ -65,3 +65,35 @@ def test_command_runner_uses_declared_command(tmp_path):
     result = runner.run("check")
     assert result["returncode"] == 0
     assert result["output"].strip() == "ok"
+
+
+def test_write_file_with_stale_hash_is_rejected(tmp_path):
+    target = tmp_path / "stale_write.txt"
+    target.write_text("initial content", encoding="utf-8")
+    executor = ToolExecutor(request_for(tmp_path))
+    read_result = executor.read_file("stale_write.txt")
+    stale_sha256 = read_result["sha256"]
+
+    target.write_text("modified content", encoding="utf-8")
+
+    with pytest.raises(PolicyError):
+        executor.write_file("stale_write.txt", "overwritten content", stale_sha256)
+
+    assert target.exists()
+    assert target.read_text(encoding="utf-8") == "modified content"
+
+
+def test_delete_file_with_stale_hash_is_rejected(tmp_path):
+    target = tmp_path / "stale_delete.txt"
+    target.write_text("initial content", encoding="utf-8")
+    executor = ToolExecutor(request_for(tmp_path))
+    read_result = executor.read_file("stale_delete.txt")
+    stale_sha256 = read_result["sha256"]
+
+    target.write_text("modified content", encoding="utf-8")
+
+    with pytest.raises(PolicyError):
+        executor.delete_file("stale_delete.txt", stale_sha256)
+
+    assert target.exists()
+    assert target.read_text(encoding="utf-8") == "modified content"

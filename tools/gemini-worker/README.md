@@ -22,13 +22,9 @@ gcloud auth application-default set-quota-project YOUR_PROJECT_ID
 task gemini-worker-install
 ```
 
-ワーカーを実行するシェルで、Vertex AIとプロジェクトを明示する。
+`~/.config/gcloud/application_default_credentials.json` のユーザーADCを読み、`quota_project_id` を呼び出し先プロジェクトにも使う。認証も同じファイルの情報を使い、ロケーションは `global`、Vertex AIの利用はCLI内で固定する。独自の設定ファイルや環境変数の設定は不要。
 
-```bash
-export GOOGLE_CLOUD_PROJECT="YOUR_PROJECT_ID"
-export GOOGLE_CLOUD_LOCATION="global"
-export GOOGLE_GENAI_USE_VERTEXAI="true"
-```
+`GOOGLE_CLOUD_PROJECT`、`GOOGLE_CLOUD_LOCATION`、`GOOGLE_GENAI_USE_VERTEXAI`、`GOOGLE_APPLICATION_CREDENTIALS` による上書きは行わない。
 
 `task gemini-worker-install`を使わず、このディレクトリで直接導入することもできる。
 
@@ -97,6 +93,6 @@ Google Cloudプロジェクトの課金、IAM、監査ログを利用できる�
 
 - ワーカーはVertex AIの`gemini-3.8-flash`を`HIGH`に固定する。
 - APIキー環境変数が設定されている場合は起動時に拒否する。
-- ADCが見つからない場合はエラーを返す。
-- サービスアカウント鍵を使う場合は、鍵をリポジトリや作業指示書へ置かず、Google Cloudの公式ガイドに従って別途管理する。
+- ユーザーADCを読み込めない場合、または `quota_project_id` が未設定の場合はエラーを返す。
+- 認証元は上記パスのユーザーADCに固定し、サービスアカウント鍵は使わない。
 - ADC、APIキー、作業指示書に含める認証情報はテストへ持ち込まない。
