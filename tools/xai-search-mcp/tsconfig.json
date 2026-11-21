@@ -13,5 +13,6 @@
     "target": "ES2024",
     "types": ["@cloudflare/workers-types"]
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"]
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": ["test/cloud-client.test.ts"]
 }

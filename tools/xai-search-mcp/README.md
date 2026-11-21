@@ -154,11 +154,12 @@ OAuth Providerが管理するclient、grant、tokenはWorkers KVへ保存する�
 5. Codex Cloudで以下を実行する。`check`はMCP初期化とツール一覧を確認するだけで、xAIの課金・検索枠消費は発生しない。
 
 ```bash
-python3 /workspace/dotfiles/tools/xai-search-mcp/cloud-client.py check
-python3 /workspace/dotfiles/tools/xai-search-mcp/cloud-client.py search '検索条件をまとめた依頼'
+node /workspace/dotfiles/tools/xai-search-mcp/cloud-client.ts check
+node /workspace/dotfiles/tools/xai-search-mcp/cloud-client.ts search '検索条件をまとめた依頼'
 ```
 
-クライアントはPython 3の標準ライブラリだけを使い、接続先のoriginを`apm/apm.yml`から読む。
+クライアントはTypeScriptと公式MCP SDKを使い、接続先のoriginを`apm/apm.yml`から読む。
+Node.js 22.18以降（推奨24 LTS）でTypeScriptを直接実行する。初回はこのディレクトリで`npm ci --ignore-scripts`を実行して依存を導入する。
 HTTPプロキシと環境のTLS検証を使用し、リダイレクトには追従しない。認証情報をファイルやコマンド引数へ書き出さず、失敗した検索は自動再試行しない。
 クラウド環境のシークレットが新規タスクでも注入されれば、OAuthキャッシュの復元や毎回のブラウザ認証は不要になる。
 端末から直接実行する場合は、自分の安全なシークレット管理手段で環境変数を注入する。値を含む`export`コマンドは履歴へ残さない。
@@ -166,7 +167,7 @@ HTTPプロキシと環境のTLS検証を使用し、リダイレクトには追�
 専用トークンは本人確認を行わないBearer資格情報なので、所持者は検索できる。OAuthと同じ`ALLOWED_GITHUB_USER_ID`・`x-search` scopeに割り当て、両方式で分間・日次の検索枠を共有する。
 失効するときはWorker Secretを削除し、ローテーションではWorkerとCodex双方の値を置き換える。古いトークンは新設定の反映後に使えなくなる。リポジトリにはトークンを保存しない。
 
-ローカル検証では`.dev.vars`へ本番用とは別のテストトークンを`CLOUD_MCP_TOKEN`として設定し、`npm run dev`後に`cloud-client.py --local check`を使う。
+ローカル検証では`.dev.vars`へ本番用とは別のテストトークンを`CLOUD_MCP_TOKEN`として設定し、`npm run dev`後に`node cloud-client.ts --local check`を使う。
 `X_SEARCH_CLOUD_TOKEN`にもそのテスト値を安全に注入する。本番のシークレットをローカル検証へ流用しない。
 
 ### Cost control
