@@ -10,6 +10,7 @@ export interface AuthProps {
 }
 
 export interface Env {
+  CLOUD_MCP_TOKEN?: string;
   ALLOWED_GITHUB_USER_ID: string;
   BUDGET_GUARD: DurableObjectNamespace<BudgetGuard>;
   DCR_RATE_LIMITER: RateLimit;

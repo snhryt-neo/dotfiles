@@ -141,6 +141,26 @@ MCPエンドポイント自体は公開されているため、GitHub OAuthで�
 
 OAuth Providerが管理するclient、grant、tokenはWorkers KVへ保存する。一度だけ消費すべき同意flowとGitHub callback stateは、結果整合のKVではなく`OAuthFlowStore` Durable Objectへ保存する。
 
+### 非対話クライアント
+
+`cloud-client.ts`はTypeScriptと公式MCP SDKを使う接続CLI。接続先のoriginは`apm/apm.yml`から読む。
+Node.js 22.18以降（推奨24 LTS）を使い、このディレクトリで依存を導入してから実行する。
+
+```bash
+npm ci --ignore-scripts
+node cloud-client.ts check
+node cloud-client.ts search '検索条件をまとめた依頼'
+```
+
+認証情報は利用環境のシークレット管理機能から注入する。値や実環境での登録内容はリポジトリへ記録しない。
+専用トークンを使う場合は暗号学的乱数32バイトの小文字16進数表現とし、未設定・形式不正の場合は接続を拒否する。
+ローカル検証には本番とは別の認証情報を`X_SEARCH_LOCAL_TOKEN`から注入し、`--local`を付けて実行する。
+ローカル実行ではクラウド用の認証情報へフォールバックしない。
+
+`check`は認証・MCP初期化・ツール一覧を確認し、課金検索は実行しない。
+HTTPプロキシとTLS検証を使用し、リダイレクトには追従しない。失敗した検索は自動再試行しない。
+既存のOAuth経路は維持し、非対話経路も同じ利用者の検索回数・課金制限を共有する。
+
 ### Cost control
 
 xAIを呼ぶ前に`BudgetGuard` Durable Objectで利用枠を予約する。上限は1ユーザーあたり5回/分、30回/UTC日。並行リクエストでも上限を越えないことを優先するため、xAI側のエラー時も予約済みの枠は戻さない。
