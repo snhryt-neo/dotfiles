@@ -141,34 +141,24 @@ MCPエンドポイント自体は公開されているため、GitHub OAuthで�
 
 OAuth Providerが管理するclient、grant、tokenはWorkers KVへ保存する。一度だけ消費すべき同意flowとGitHub callback stateは、結果整合のKVではなく`OAuthFlowStore` Durable Objectへ保存する。
 
-### Codex Cloudからブラウザなしで利用する
+### 非対話クライアント
 
-`/mcp`のGitHub OAuthはそのまま利用できる。クラウド専用の`/cloud/mcp`は、任意のWorker Secret `CLOUD_MCP_TOKEN`をBearer認証に使う。
-未設定・形式不正の場合は専用エンドポイントを無効にし、OAuthへフォールバックしない。
-トークンは小文字の16進数64文字（暗号学的乱数32バイト）にする。推測できる文字列やGitHub PAT、xAI API keyは使わない。
-
-1. 信頼できる手元の端末で`openssl rand -hex 32`などを使いトークンを生成する。チャット、Git、シェル履歴には貼らない。
-2. Cloudflare DashboardのこのWorkerのVariables and Secretsへ、**Secret**として`CLOUD_MCP_TOKEN`を登録する。CLIなら`npx wrangler secret put CLOUD_MCP_TOKEN`の対話入力を使う。
-3. この変更を`npm run check`で検証し、`npm run deploy`でデプロイする。既存の`XAI_API_KEY`と`GITHUB_CLIENT_SECRET`は維持する。
-4. Codex環境設定のシークレットに、同じ値を`X_SEARCH_CLOUD_TOKEN`として登録する。送信先は`xai-search-mcp.snhryt.workers.dev`のみを許可する。起動時にも注入される設定を使う。
-5. Codex Cloudで以下を実行する。`check`はMCP初期化とツール一覧を確認するだけで、xAIの課金・検索枠消費は発生しない。
+`cloud-client.ts`はTypeScriptと公式MCP SDKを使う接続CLI。接続先のoriginは`apm/apm.yml`から読む。
+Node.js 22.18以降（推奨24 LTS）を使い、このディレクトリで依存を導入してから実行する。
 
 ```bash
-node /workspace/dotfiles/tools/xai-search-mcp/cloud-client.ts check
-node /workspace/dotfiles/tools/xai-search-mcp/cloud-client.ts search '検索条件をまとめた依頼'
+npm ci --ignore-scripts
+node cloud-client.ts check
+node cloud-client.ts search '検索条件をまとめた依頼'
 ```
 
-クライアントはTypeScriptと公式MCP SDKを使い、接続先のoriginを`apm/apm.yml`から読む。
-Node.js 22.18以降（推奨24 LTS）でTypeScriptを直接実行する。初回はこのディレクトリで`npm ci --ignore-scripts`を実行して依存を導入する。
-HTTPプロキシと環境のTLS検証を使用し、リダイレクトには追従しない。認証情報をファイルやコマンド引数へ書き出さず、失敗した検索は自動再試行しない。
-クラウド環境のシークレットが新規タスクでも注入されれば、OAuthキャッシュの復元や毎回のブラウザ認証は不要になる。
-端末から直接実行する場合は、自分の安全なシークレット管理手段で環境変数を注入する。値を含む`export`コマンドは履歴へ残さない。
+認証情報は利用環境のシークレット管理機能から注入する。値や実環境での登録内容はリポジトリへ記録しない。
+専用トークンを使う場合は暗号学的乱数32バイトの小文字16進数表現とし、未設定・形式不正の場合は接続を拒否する。
+ローカル検証には本番とは別の認証情報を用意し、`--local`を付けて実行する。
 
-専用トークンは本人確認を行わないBearer資格情報なので、所持者は検索できる。OAuthと同じ`ALLOWED_GITHUB_USER_ID`・`x-search` scopeに割り当て、両方式で分間・日次の検索枠を共有する。
-失効するときはWorker Secretを削除し、ローテーションではWorkerとCodex双方の値を置き換える。古いトークンは新設定の反映後に使えなくなる。リポジトリにはトークンを保存しない。
-
-ローカル検証では`.dev.vars`へ本番用とは別のテストトークンを`CLOUD_MCP_TOKEN`として設定し、`npm run dev`後に`node cloud-client.ts --local check`を使う。
-`X_SEARCH_CLOUD_TOKEN`にもそのテスト値を安全に注入する。本番のシークレットをローカル検証へ流用しない。
+`check`は認証・MCP初期化・ツール一覧を確認し、課金検索は実行しない。
+HTTPプロキシとTLS検証を使用し、リダイレクトには追従しない。失敗した検索は自動再試行しない。
+既存のOAuth経路は維持し、非対話経路も同じ利用者の検索回数・課金制限を共有する。
 
 ### Cost control
 
