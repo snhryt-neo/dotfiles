@@ -67,6 +67,21 @@ describe("cloud client", () => {
     expect(mocks.connect).not.toHaveBeenCalled();
   });
 
+  it("never falls back to the cloud credential in local mode", async () => {
+    vi.stubEnv("X_SEARCH_LOCAL_TOKEN", "");
+    expect(await main(["--local", "check"])).toBe(1);
+    expect(mocks.connect).not.toHaveBeenCalled();
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining("X_SEARCH_LOCAL_TOKEN"));
+  });
+
+  it("can use a local credential without a cloud credential", async () => {
+    vi.stubEnv("X_SEARCH_CLOUD_TOKEN", "");
+    vi.stubEnv("X_SEARCH_LOCAL_TOKEN", "local-fixture");
+    expect(await main(["--local", "check"])).toBe(0);
+    expect(mocks.connect).toHaveBeenCalledOnce();
+    expect(mocks.callTool).not.toHaveBeenCalled();
+  });
+
   it("adds the credential and user agent and rejects redirects", async () => {
     const fetcher = vi.fn().mockResolvedValue(new Response("ok"));
     await authenticatedFetch("test-placeholder", fetcher)("https://example.com/cloud/mcp", {

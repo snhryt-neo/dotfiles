@@ -50,10 +50,11 @@ export async function main(args = process.argv.slice(2)): Promise<number> {
     console.log("Usage: node cloud-client.ts [--local] check | search 'query'");
     return 0;
   }
-  const token = process.env.X_SEARCH_CLOUD_TOKEN;
+  const tokenName = options.local ? "X_SEARCH_LOCAL_TOKEN" : "X_SEARCH_CLOUD_TOKEN";
+  const token = process.env[tokenName];
   // Proxy-secret placeholders do not necessarily have the actual token's format.
   if (!token) {
-    console.error("X_SEARCH_CLOUD_TOKEN is missing; configure it in environment secrets.");
+    console.error(`${tokenName} is missing; configure the credential for this environment.`);
     return 1;
   }
   const client = new Client({ name: "x-search-cloud-client", version: "1.0.0" });
