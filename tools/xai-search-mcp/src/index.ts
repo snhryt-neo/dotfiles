@@ -5,6 +5,7 @@ import { createMcpHandler, getMcpAuthContext } from "agents/mcp/server";
 
 import { authHandler } from "./auth";
 import { clientIpRateLimitKey, validateDynamicClient } from "./auth-validation";
+import { authenticateCloudClient, cloudUnauthorized } from "./cloud-auth";
 import { MCP_NAME, MCP_VERSION, OAUTH_SCOPE } from "./config";
 import type { AuthProps, Env } from "./env";
 import { OAuthFlowStore } from "./oauth-flow-store";
@@ -119,7 +120,7 @@ function toolError(message: string) {
 const runtimeEnv = env as unknown as Env;
 const publicOrigin = normalizePublicOrigin(runtimeEnv.PUBLIC_ORIGIN);
 
-export default new OAuthProvider<Env>({
+const oauthProvider = new OAuthProvider<Env>({
   apiRoute: "/mcp",
   apiHandler: XSearchMcpHandler,
   defaultHandler: authHandler,
@@ -186,6 +187,28 @@ export default new OAuthProvider<Env>({
     console.warn("OAuth request rejected", { code, status });
   },
 });
+
+export default {
+  async fetch(request: Request, workerEnv: Env, ctx: ExecutionContext): Promise<Response> {
+    if (new URL(request.url).pathname !== "/cloud/mcp") {
+      return oauthProvider.fetch(request, workerEnv, ctx);
+    }
+    const props = authenticateCloudClient(
+      request,
+      workerEnv.CLOUD_MCP_TOKEN,
+      workerEnv.ALLOWED_GITHUB_USER_ID,
+    );
+    if (!props) return cloudUnauthorized();
+    const handler = createMcpHandler(() => createServer(workerEnv), {
+      route: "/cloud/mcp",
+      corsOptions: false,
+      authContext: { props: { ...props } },
+      legacy: "stateless",
+      onerror: () => console.error("MCP request failed"),
+    });
+    return handler(request, workerEnv, ctx);
+  },
+};
 
 function normalizePublicOrigin(value: string): string {
   const url = new URL(value);
